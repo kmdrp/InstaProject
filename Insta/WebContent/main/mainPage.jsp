@@ -10,12 +10,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-body{
-	
-	background:white;
-	align:center;
-	background:#F6F6F6;
-}
+/*
+
 
 #main{
 	width:1000px;
@@ -67,9 +63,11 @@ strong{
 #info_uploader span{
 	float:left;
 }
+
 #img_nav_main{
 	margin-left:350px;
 }
+
 #nav_list ul li{
 	display:table;
 }
@@ -77,14 +75,38 @@ strong{
 	display:table-cell;
 	vertical-align:middle;
 }
+
 #div_navhead{
 	display:table;	
 }
+
 #span_navhead{
 	display:table-cell;
 	vertical-align:middle;
 }
 
+
+
+ 
+
+#img_nav_main{
+	margin-top:0px;
+}
+
+#search{
+	display:table-cell;
+	vertical-align:middle;
+} 
+*/
+
+
+
+body{
+	
+	background:white;
+	align:center;
+	background:#F6F6F6;
+}
 .well{
 	display:block;
 	margin:auto;
@@ -92,25 +114,20 @@ strong{
 	margin-top:10px;
 	text-align:center;
 	height:30px;
-}
-/* #search{
-	display:table-cell;
-	vertical-align:middle;
-} */
-#img_nav_main{
-	margin-top:0px;
-}
 
-
+}
 </style>
 </head>
 <body>
 	<nav class="navbar navbar-default">
 		<div id="nav_head" class="container-fluid">
-			<div id="div_navhead" class="nav navbar-nav">
-	      		<a class="navbar-brand" href="/main/mainPage.jsp"><img id="img_nav_main" src="/images/insta1.png"></a>
+			<div id="div_navhead" class="nav navbar-header">
+	      		<a class="navbar-brand" href="/main/mainPage.jsp"><img id="img_nav_main" src="/images/insta2.png"></a>
 	    	</div>
 			<div id="search"class="well well-sm" onClick="active_search()"><span class="glyphicon glyphicon-search"></span>검색</div>
+			<div class="col-sm-12"><span class="glyphicon glyphicon-cloud"></span></div>
+			<span class="glyphicon glyphicon-heart-empty"></span>
+			 <span class="glyphicon glyphicon-user"></span>
 		</div>
 	
 	</nav>
