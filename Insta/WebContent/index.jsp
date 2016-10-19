@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +18,11 @@
 	margin-right:auto;
 	width:800px;
 }
+
 #loginform{
 	margin-top:auto;
 	margin-bottom:auto;
-	height:400px;
+	height:460px;
 }
 #link_regist{
 	margin-top:20px;
@@ -40,12 +43,17 @@ a:hover, a:active {
     background-color: white;
 }
 </style>
+<script>
+function logIn(){
+	alert("로그인");
+}
+</script>
 </head>
 <body>
 <div class="container-fluid" >
   <div class="row content" id="wrapper" >
     <div class="col-sm-6 sidenav">
-      <img class="img-responsive" src="/images/phone1.jpg" alt="Chania" >
+      <img class="img-responsive" src="/images/phone1.jpg" alt="Chania" id="main_img" >
     </div>
     <div>
     <div class="col-sm-6">
@@ -66,17 +74,14 @@ a:hover, a:active {
 	    </div>
 	    <div class="form-group">
 	      <div class="col-sm-12">
-	        <button type="button" class="btn btn-primary btn-block">로그인</button>
+	        <button type="button" class="btn btn-primary btn-block" onClick="logIn()">로그인</button>
 	      </div>
 	    </div>
 	    </div>
 	  </form>
-	  	 
-		  <div class="well well-sm" id="link_regist">계정이 없으신가요??  <a href="/regist.html">가입하기</a></div>
+		  <div class="well well-sm" id="link_regist">계정이 없으신가요??  <a href="/regist.jsp">가입하기</a></div>
     </div>
-    
     </div>
-   
   </div>
 </div>
 </body>
