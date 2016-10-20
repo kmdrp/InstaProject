@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ include file="/inc/upload.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,6 +141,13 @@ strong{
 #div_navhead{
 	display:table;	
 }
+#nav_upload{
+	display:table;
+}
+.nav_element{
+	display:table-cell;
+	vertical-align:middle;
+}
 #span_navhead{
 	display:table-cell;
 	vertical-align:middle;
@@ -160,20 +168,23 @@ strong{
 #img_nav_main{
 	margin-top:0px;
 }
-
-
+#nav_upload button{
+	border:none;
+	background:white;
+}
 </style>
 </head>
 <body>
 	<nav class="navbar navbar-default">
 		<div id="nav_head" class="container-fluid">
 			<div id="div_navhead" class="nav navbar-nav">
-	      		<a class="navbar-brand" href="/main/mainPage.jsp"><img id="img_nav_main" src="/images/insta1.png"></a>
+	      		<span class="nav_element"><a class="navbar-brand" href="/main/mainPage.jsp"><img id="img_nav_main" src="/images/insta2.png"></a></span>
 	    	</div>
+	    <div >
 			<div id="search"class="well well-sm" onClick="active_search()"><span class="glyphicon glyphicon-search"></span>검색</div>
-			<div id="upload" > <img src="/images/plus.png" onClick="upload()"></div>
+			<div id="nav_upload" ><span class="nav_element"><button type="button"><img src="/images/img_upload/photo.png" onClick="upload1()" class="media-right"></button></span></div>
 		</div>
-	
+	</div>
 	</nav>
 	<div id="main">
 	<div class="row" id="profile">
@@ -267,6 +278,10 @@ strong{
 	}
 	function active_search(){
 		//클릭으로 search 창 활성화 
+	}
+	function upload1(){
+		document.getElementById("upload").style.display="block";
+		
 	}
 	
 </script>
