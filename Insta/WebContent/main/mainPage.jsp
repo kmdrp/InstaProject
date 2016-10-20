@@ -1,43 +1,45 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>ioigram</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>알로에그램</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-#main{
-	width:40px;
-	height:40px;
-}
+
 #page{
-	width:500px;
+	width:100%;
 	margin:auto;
+	align:center;
+	
 }
 #wrapper{
-	width:500px;
-	margin:auto;
+	border:1px solid black;
 }
-
+.form-group {
+    margin-bottom: 0px;
+}
+.bg-grey {
+    background-color: #f6f6f6;
+}
+.bg-white{
+	 background-color: white;
+}
 </style>
 <script>
 
 </script>
 </head>
 <body>
-<div>
+
 
 <!-- 상단바 -->
-<div class="well well-sm">
-	<div class="row" id="head">
-  		<div class="col-sm-4"><img id="main" src="/images/insta1.png"></div>
+<div class="navbar navbar-default bg-white">
+	<div class="row">
+  		<div class="col-sm-4"><img src="/images/insta1.png"></div>
  		<div class="col-sm-4"><div class="well well-sm"><span class="glyphicon glyphicon-search"></span>검색</div></div>
 		<div class="col-sm-4">
 			<ul class="nav navbar-nav navbar-right">
@@ -51,37 +53,29 @@
 </div>
 
 <!-- 친구 찾기 -->
-<div id="serch">
-	 <table class="table">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
+<div  class="container-fluid bg-grey">
+<div class="row">
+	<div class="col-sm-3">col-sm-3</div>
+	
+	<div id="wrapper" class="col-sm-6 bg-white">
+		<div class="well well-sm">회원님을 위한 추천 <a href="">모두보기></a></div>
+		<div class="well well-sm">사진 zenxen이원구  <button>팔로우</button></div>
+		<div class="well well-sm">사진 bataman 슈퍼맨  <button>팔로우</button></div>
+		<div class="well well-sm">사진 superman 배트맨  <button>팔로우</button></div>
+	</div>
+	
+	<div class="col-sm-3">col-sm-3</div>
+</div>
 </div>
 
+
 <!-- 메인화면 -->
-<div id="wrapper">
+<div  class="container-fluid bg-grey">
+<div class="row">
+<div class="col-sm-3">col-sm-3</div>
+
+
+<div id="wrapper" class="col-sm-6 bg-white">
 
 	<!-- 메인화면 상단 아이디 및 시간 부분 -->
 	<div class="row content">
@@ -90,10 +84,23 @@
 	</div>
 
 	<!-- 메인화면 중간 사진 부분 -->
-	<div><img id="page" src="/images/kr5.jpg"></div>
+	<div id="page"><img  src="/images/kr5.jpg" width="100%"></div>
 
 	<!-- 메인화면 하단 댓글 보는 화면 -->
-	<div>댓글</div>
+	<div>
+	
+		<br>좋아요 1,649개</br>
+		<br>jeonsomihJeon Somi 전소미 - CJ Open Studio 'Comeback Countdown'</br>
+	
+		<br>#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma</br> 
+		<br>#IdealOfIdol #VeryVeryVery #너무너무너무</br>
+		<br>댓글 8개 모두 보기</br>
+		<br>irhamwp_Gede :v</br>
+		<br>noonghil</br>
+		<br>sofeax.coBae</br>
+		<br>hannah_park19018나도 봤음요</br>
+		
+	</div>
 
 	<!-- 댓글 쓰는 화면 -->
 	<div class="form-group">
@@ -102,7 +109,12 @@
 
 </div>
 
+
+<div class="col-sm-3">col-sm-3</div>
 </div>
+</div>
+
+
 
 </body>
 </html>
