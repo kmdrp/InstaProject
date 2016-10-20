@@ -34,17 +34,14 @@
 }
 
 a:link, a:visited {
-	background-color: blue;
-	color: white;
+	color: green;
 	padding: 2px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 }
 
-a:hover, a:active {
-	background-color: white;
-}
+
 </style>
 <script>
 	function regist() {
@@ -56,7 +53,7 @@ a:hover, a:active {
 	<div class="container-fluid">
 		<div class="row content" id="wrapper">
 			<div class="col-sm-6 sidenav">
-				<img class="img-responsive" src="/images/phone1.jpg" alt="Chania"
+				<img class="img-responsive" src="/images/img_index/aloe.jpeg" alt="Chania"
 					id="main_img">
 			</div>
 			<div class="col-sm-6" id="loginform">
@@ -92,7 +89,7 @@ a:hover, a:active {
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<button type="button" class="btn btn-primary btn-block"
+									<button type="button" class="btn btn-success btn-block"
 										onClick="regist()">가입하기</button>
 								</div>
 							</div>
@@ -100,9 +97,8 @@ a:hover, a:active {
 					</div>
 				</form>
 				<div class="well well-sm" id="link_regist">
-					계정이 있으신가요?? <a href="/index.jsp">
-						<button type="button" class="btn btn-primary btn-block">로그인</button>
-					</a>
+					계정이 있으신가요?? 
+						<a href="/index.jsp">로그인</a>
 				</div>
 			</div>
 		</div>

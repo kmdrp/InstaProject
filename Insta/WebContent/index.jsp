@@ -20,9 +20,8 @@
 }
 
 #loginform {
-	margin-top: auto;
-	margin-bottom: auto;
-	height: 50%;
+	margin-top:auto;
+	margin-bottom:auto;
 }
 
 #link_regist {
@@ -34,17 +33,14 @@
 }
 
 a:link, a:visited {
-	background-color: blue;
-	color: white;
+	color: green;
 	padding: 2px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 }
 
-a:hover, a:active {
-	background-color: white;
-}
+
 </style>
 <script>
 	function logIn() {
@@ -56,8 +52,8 @@ a:hover, a:active {
 	<div class="container-fluid">
 		<div class="row content" id="wrapper">
 			<div class="col-sm-6 sidenav">
-				<img class="img-responsive" src="/images/phone1.jpg" alt="Chania"
-					id="main_img">
+				<img class="img-responsive" src="/images/img_index/aloe.jpeg" alt="Chania"
+					id="main_img" height="80%">
 			</div>
 			<div class="col-sm-6" id="loginform">
 				<form class="form-horizontal">
@@ -81,7 +77,7 @@ a:hover, a:active {
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<button type="button" class="btn btn-primary btn-block"
+								<button type="button" class="btn btn-success btn-block"
 									onClick="logIn()">로그인</button>
 							</div>
 						</div>

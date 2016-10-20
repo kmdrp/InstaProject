@@ -22,8 +22,16 @@
 }
 
 </style>
+<script>
+function changePassword(){
+	alert("비밀번호 변경");
+	form1.action="#";
+	form1.submit();
+}
+</script>
 </head>
 <body>
+	
 	<div class="container" >
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
@@ -45,7 +53,7 @@
 		        		</div>
 		     		</div>
 	  			</div>
-	  			<form>
+	  			<form name="form1" method="post">
 		  			<div class="form-group">
 		  				<div class="row content">
 			        		<div class="col-sm-4">
@@ -78,7 +86,7 @@
 		        		<div class="col-sm-4">
 		        		</div>
 		        		<div class="col-sm-8">
-		        			<button type="button" class="btn btn-primary">변경</button>
+		        			<button type="button" class="btn btn-primary" onClick="changePassword()">변경</button>
 		        		</div>
 		     		</div>
 	  			</div>
