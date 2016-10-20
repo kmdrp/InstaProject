@@ -10,12 +10,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 #container{
-	width:800px;
+	width:100%;
 	margin:auot;
 }
 #wrapper{
 	margin:auto;
-	width:600px;
+	width:80%;
 }
 .col-sm-4{
 	text-align:right;
