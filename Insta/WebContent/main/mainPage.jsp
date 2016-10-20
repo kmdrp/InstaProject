@@ -51,8 +51,11 @@
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> f55c9b83f478d902d7ad9a42b78170a04c02fdd0
 <!-- 친구 찾기 -->
 <div id="serch">
 	 <table class="table">
