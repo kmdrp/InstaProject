@@ -11,15 +11,19 @@
 <style>
 #container{
 	width:100%;
-	margin:auot;
+	margin:auto;
 }
 #wrapper{
 	margin:auto;
 	width:80%;
 }
-.col-sm-4{
+.title{
 	text-align:right;
 }
+.nav_img{
+	text-align:left;
+}
+
 
 
 </style>
@@ -32,7 +36,35 @@ function send(){
 </script>
 </head>
 <body>
-
+	<!-- 상단바 -->
+<div class="navbar navbar-default bg-white">
+	<div class="row">
+  		<!-- 메인이미지 -->
+  		<div class="col-sm-4 nav_img"><img src="/images/insta1.png"></div>
+ 		
+ 		<!-- 검색 -->
+ 		<div class="col-sm-4 title">
+ 			<div class="input-group">
+       			<input type="text" class="form-control" placeholder="Search..">
+    		    <span class="input-group-btn">
+    		   	   <button class="btn btn-default" type="button">
+    	       		 <span class="glyphicon glyphicon-search"></span>
+      	   			</button>
+      			 </span>
+     		 </div>
+      	</div>
+		
+		<!-- 버튼 4개 -->
+		<div class="col-sm-4 title">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a herf="#"><span class="glyphicon glyphicon-camera"></span></a></li>
+  				<li><a herf="#"><span class="	glyphicon glyphicon-cloud"></span></a></li>
+  				<li><a herf="#"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
+  				<li><a herf="#"><span class="glyphicon glyphicon-user"></span></a></li>
+  			</ul>
+  		</div>
+	</div>
+</div>
 	<div class="container" >
 		<div class="row content">
 			<div class="col-sm-2 sidenav" border="1px solid black">
@@ -46,7 +78,7 @@ function send(){
 	  		<div class="col-sm-9" id="wrapper">
 	  			<div class="form-group">
 	  				<div class="row content">
-		        		<div class="col-sm-4">
+		        		<div class="col-sm-4 title">
 		        			  <img src="/images/img1.jpg" class="img-circle" alt="Cinque Terre" width="60px">
 		        		</div>
 		        		<div class="col-sm-8">
@@ -57,7 +89,7 @@ function send(){
 	  			<form name="form1" method="post">
 		  			<div class="form-group">
 		  				<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>이름</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -65,7 +97,7 @@ function send(){
 			        		</div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>사용자 이름</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -73,7 +105,7 @@ function send(){
 			        		</div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>웹사이트</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -81,7 +113,7 @@ function send(){
 			        		</div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>소개</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -91,14 +123,14 @@ function send(){
 		  			</div>
 		  			<div class="form-group">
 		  				<div class="row content">
-		  					<div class="col-sm-4">
+		  					<div class="col-sm-4 title">
 			        		</div>
 			        		<div class="col-sm-8">
 			        			<label>Privacy</label>
 			        		</div>
 		  				</div>
 		  				<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>이메일</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -106,7 +138,7 @@ function send(){
 			        		</div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>전화번호</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -114,7 +146,7 @@ function send(){
 			        		</div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>성별</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -126,7 +158,7 @@ function send(){
 			        		</div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-4 title">
 			        			<label>비슷한 계정 추천</label>
 			        		</div>
 			        		<div class="col-sm-8">
@@ -139,7 +171,7 @@ function send(){
 	  			</form>
 	  			<div class="form-group">
 	  				<div class="row content">
-		        		<div class="col-sm-4">
+		        		<div class="col-sm-4 title">
 		        		</div>
 		        		<div class="col-sm-8">
 		        			<button type="button" class="btn btn-primary" onClick="send()">제출</button>

@@ -31,7 +31,20 @@ function changePassword(){
 </script>
 </head>
 <body>
-	
+	<div class="navbar navbar-default bg-white">
+		<div class="row">
+	  		<div class="col-sm-4"><img src="/images/insta1.png"></div>
+	 		<div class="col-sm-4"><div class="well well-sm"><span class="glyphicon glyphicon-search"></span>검색</div></div>
+			<div class="col-sm-4">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a herf="#"><span class="glyphicon glyphicon-camera"></span></a></li>
+	  				<li><a herf="#"><span class="	glyphicon glyphicon-cloud"></span></a></li>
+	  				<li><a herf="#"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
+	  				<li><a herf="#"><span class="glyphicon glyphicon-user"></span></a></li>
+	  			</ul>
+	  		</div>
+		</div>
+	</div>
 	<div class="container" >
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
