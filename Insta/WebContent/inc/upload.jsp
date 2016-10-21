@@ -52,17 +52,16 @@
 }
 #container{
 	width:373px;
-	height:335px;
+	height:200px;
 	background:white;
 }
 #upload_content{
 	width:373px;
 	float:left;
-	height:500px;
 }
 #btn_f,#btn_t,#btn_k,#btn_tb,#btn_l{
 	margin:0 auto;
-	width:370px;
+	width:185px;
 	border:none;
 	float:left;
 	display:table;
@@ -92,17 +91,44 @@
 	display:table-cell;
 	vertical-align:middle;
 }
+#group1,#group2{
+	margin:0px;
+	padding:0px;
+}#reg{
+	display:table;
+	background:white;
+	height:128px;
+	width:373px;
+}
+#btn_regist{
+	border:none;
+}#btn_aln{
+	display:table-cell;
+	vertical-align:middle;
+	margin:0 auto;
+}
 </style>
-
+<script>
+	function upload_file(){
+		document.getElementById("input_file").click();
+		
+		
+	}
+	function closeAll(){
+		var frame=document.getElementById("upload");
+		frame.style.display="none";
+	}
+</script>
 </head>
 <body>
 
-<div id="upload" class="w3-modal w3-gray" onclick="this.style.display='none'">
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-54">
+<div id="upload" class="w3-modal w3-gray" >
+    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="closeAll()">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
     <div class="modal-content">
    		<div>
 	   		<div id="upload_img">
+	   			<input type="file" id="input_file" style="display:none;">
 		   		<button type="button" onClick="upload_file()"><img src="/images/img_upload/upload_img.png" id="upload_img"></button>
 	   		</div>
 	   		<div id="upload_content">
@@ -115,15 +141,20 @@
 		      		
 		      		
 		      	</div>
-		      	<div id="container">
+		      	<div id="container" >
 		      		<div id="share"><span id="span_share">공유하기</span></div>
-			      	<div class="btn-group-vertical media-left">
+			      	<div id="group1"class="btn-group-vertical media-left">
 			      		<button type="button" class="btn btn-default" id="btn_f"><span class="img_span"><img src="/images/img_upload/facebook1.png" id="img_f"class="media-object"></span><span class="btn_name">FaceBook</span></button>
 			      		<button type="button" class="btn btn-default" id="btn_t"><span class="img_span"><img src="/images/img_upload/twitter1.png"class="media-object"></span><span class="btn_name">Twitter</span></button>
 			      		<button type="button" class="btn btn-default" id="btn_k"><span class="img_span"><img src="/images/img_upload/kakao1.png" class="media-object"></span><span class="btn_name">KakaoTalk</span></button>
+			      	</div>
+			      	<div id="group2"class="btn-group-vertical media-left">
 			      		<button type="button" class="btn btn-default" id="btn_l"><span class="img_span"><img src="/images/img_upload/line1.png" class="media-object"></span><span class="btn_name">Line</span></button>
 			      		<button type="button" class="btn btn-default" id="btn_tb"><span class="img_span"><img src="/images/img_upload/tumblr1.png" class="media-object"></span><span class="btn_name">Tumblr</span></button>
 			      	</div>
+		      	</div>
+		      	<div id="reg" class="media-group">
+		      		<span id="btn_aln"><button type="button" id="btn_regist" class="btn btn-primary media-right">사진 등록</button></span>		      		
 		      	</div>
 	      	</div>
       	</div>
