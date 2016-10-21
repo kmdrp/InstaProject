@@ -44,7 +44,7 @@ a:link, a:visited {
 </style>
 <script>
 	function logIn() {
-		alert("로그인");
+		location.href="/main/mainPage.jsp";
 	}
 </script>
 </head>

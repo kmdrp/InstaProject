@@ -175,17 +175,36 @@ strong{
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div id="nav_head" class="container-fluid">
-			<div id="div_navhead" class="nav navbar-nav">
-	      		<span class="nav_element"><a class="navbar-brand" href="/main/mainPage.jsp"><img id="img_nav_main" src="/images/insta2.png"></a></span>
-	    	</div>
-	    <div >
-			<div id="search"class="well well-sm" onClick="active_search()"><span class="glyphicon glyphicon-search"></span>검색</div>
-			<div id="nav_upload" ><span class="nav_element"><button type="button"><img src="/images/img_upload/photo.png" onClick="upload1()" class="media-right"></button></span></div>
+	<!-- 상단바 -->
+	<div class="navbar navbar-default bg-white">
+		<div class="row">
+	  		<!-- 메인이미지 -->
+	  		<div class="col-sm-4"><img src="/images/insta1.png"></div>
+	 		
+	 		<!-- 검색 -->
+	 		<div class="col-sm-4">
+	 			<div class="input-group">
+	       			<input type="text" class="form-control" placeholder="Search..">
+	    		    <span class="input-group-btn">
+	    		   	   <button class="btn btn-default" type="button">
+	    	       		 <span class="glyphicon glyphicon-search"></span>
+	      	   			</button>
+	      			 </span>
+	     		 </div>
+	      	</div>
+			
+			<!-- 버튼 4개 -->
+			<div class="col-sm-4">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="javascript:upload()" ><span class="glyphicon glyphicon-camera"></span></a></li>
+	  				<li><a href="/"><span class="	glyphicon glyphicon-cloud"></span></a></li>
+	  				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
+	  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user"></span></a></li>
+	  			</ul>
+	  		</div>
 		</div>
 	</div>
-	</nav>
+	
 	<div id="main">
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">

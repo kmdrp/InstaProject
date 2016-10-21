@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ include file="/inc/upload.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +31,9 @@
 }
 
 /*친구찾기  */
+ul{
+	
+}
 .my1{
 	width:50%;
 	float:left;
@@ -47,6 +51,9 @@
 
 </style>
 <script>
+function upload(){
+	document.getElementById("upload").style.display="block";
+}
 
 </script>
 </head>
@@ -74,10 +81,10 @@
 		<!-- 버튼 4개 -->
 		<div class="col-sm-4">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a herf="#"><span class="glyphicon glyphicon-camera"></span></a></li>
-  				<li><a herf="#"><span class="	glyphicon glyphicon-cloud"></span></a></li>
-  				<li><a herf="#"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
-  				<li><a herf="#"><span class="glyphicon glyphicon-user"></span></a></li>
+				<li><a href="javascript:upload()" ><span class="glyphicon glyphicon-camera"></span></a></li>
+  				<li><a href="/"><span class="	glyphicon glyphicon-cloud"></span></a></li>
+  				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
+  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user"></span></a></li>
   			</ul>
   		</div>
 	</div>
@@ -91,8 +98,7 @@
 	
 	<div id="wrapper" class="col-sm-6 bg-white">
 		
-		<ul class="list-group">
-		<li class="list-group-item">
+		
 		<div class="my1" >
 			<img src="/images/img1.jpg"  class="img-circle myimg">
 			<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
@@ -100,34 +106,12 @@
 		<div class="right">
 			<button type="w3-button" class="btn btn-default bt">팔로우</button>
 		</div>
-		</li>
-		
-		<li class="list-group-item">
-		<div class="my1" >
-			<img src="/images/img1.jpg"  class="img-circle myimg">
-			<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
-		</div>
-		<div class="right">
-			<button type="w3-button" class="btn btn-default bt">팔로우</button>
-		</div>
-		</li>
-		
-		<li class="list-group-item">
-		<div class="my1" >
-			<img src="/images/img1.jpg"  class="img-circle myimg">
-			<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
-		</div>
-		<div class="right">
-			<button type="w3-button" class="btn btn-default bt">팔로우</button>
-		</div>
-		</li>
-		
-		</ul>
 		
 
 	</div>
-		
+
 	<div class="col-sm-3">col-sm-3</div>
+
 </div>
 </div>
 
@@ -196,7 +180,7 @@
 	</div>
 
 	<!-- 메인화면 중간 사진 부분 -->
-	<div id="page"><img  src="/images/kr5.jpg" width="100%"></div>
+	<div id="page"><img  src="/images/kr.jpg" width="100%"></div>
 
 	<!-- 메인화면 하단 댓글 보는 화면 -->
 	<div>

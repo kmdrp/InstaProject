@@ -37,13 +37,14 @@ function send(){
 </head>
 <body>
 	<!-- 상단바 -->
+<!-- 상단바 -->
 <div class="navbar navbar-default bg-white">
 	<div class="row">
   		<!-- 메인이미지 -->
-  		<div class="col-sm-4 nav_img"><img src="/images/insta1.png"></div>
+  		<div class="col-sm-4"><img src="/images/insta1.png"></div>
  		
  		<!-- 검색 -->
- 		<div class="col-sm-4 title">
+ 		<div class="col-sm-4">
  			<div class="input-group">
        			<input type="text" class="form-control" placeholder="Search..">
     		    <span class="input-group-btn">
@@ -55,12 +56,12 @@ function send(){
       	</div>
 		
 		<!-- 버튼 4개 -->
-		<div class="col-sm-4 title">
+		<div class="col-sm-4">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a herf="#"><span class="glyphicon glyphicon-camera"></span></a></li>
-  				<li><a herf="#"><span class="	glyphicon glyphicon-cloud"></span></a></li>
-  				<li><a herf="#"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
-  				<li><a herf="#"><span class="glyphicon glyphicon-user"></span></a></li>
+				<li><a href="javascript:upload()" ><span class="glyphicon glyphicon-camera"></span></a></li>
+  				<li><a href="/"><span class="	glyphicon glyphicon-cloud"></span></a></li>
+  				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
+  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user"></span></a></li>
   			</ul>
   		</div>
 	</div>
