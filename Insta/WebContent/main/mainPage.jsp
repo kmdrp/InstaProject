@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 /*전체 배경 보더 설정*/
-#wrapper{
+.wrapper{
 	border:1px solid  #c0c0c0;
 }
 .bg-grey {
@@ -19,6 +19,14 @@
 }
 .bg-white{
 	 background-color: white;
+}
+.container-fluid {
+	padding-top:20px;
+	padding-bottom:20px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 /*전체 배경 색상 끝 */
 
@@ -37,7 +45,7 @@ ul{
 	float:left;
 }
 .bt{
-	margin:20px;
+	margin:3%;
 	float:right;
 }
 /*친구찾기 끝  */
@@ -102,10 +110,10 @@ function upload(){
 <div  class="container-fluid bg-grey">
 
 	<div class="row">
-		<div class="col-sm-12">col-sm-12</div>
+		<div class="col-sm-12"></div>
 		
-		<div class="col-sm-3">col-sm-3</div>
-		<div id="wrapper" class="col-sm-6 bg-white">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6 bg-white wrapper">
 			<div class="row content" >	
 				<div class="col-sm-6" >
 					<h3><small>회원님을 위한 추천</small></h3>
@@ -115,12 +123,48 @@ function upload(){
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-3">col-sm-3</div>
+		<div class="col-sm-3"></div>
 	</div>
 
 	<div class="row">
-		<div class="col-sm-3">col-sm-3</div>
-		<div id="wrapper" class="col-sm-6 bg-white">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6 bg-white wrapper">
+			<div class="my1" >
+				<a href="#">
+				<img src="/images/img1.jpg"  class="img-circle myimg">
+				<h3 id="userId" name="userId" >adsdfdfdf<br>
+				</a>
+				<small>secondary text</small>
+				</h3>
+			</div>
+			<div >
+				<button type="w3-button" class="btn btn-default bt">팔로우</button>
+			</div>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6 bg-white wrapper">
+			<div class="my1" >
+				<a href="#">
+				<img src="/images/img1.jpg"  class="img-circle myimg">
+				<h3 id="userId" name="userId" >adsdfdfdf<br>
+				</a>
+				<small>secondary text</small>
+				</h3>
+			</div>
+			<div class="right">
+				<button type="w3-button" class="btn btn-default bt">팔로우</button>
+			</div>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6 bg-white wrapper">
 			<div class="my1" >
 				<img src="/images/img1.jpg"  class="img-circle myimg">
 				<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
@@ -129,38 +173,10 @@ function upload(){
 				<button type="w3-button" class="btn btn-default bt">팔로우</button>
 			</div>
 		</div>
-		<div class="col-sm-3">col-sm-3</div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-3">col-sm-3</div>
-		<div id="wrapper" class="col-sm-6 bg-white">
-			<div class="my1" >
-				<img src="/images/img1.jpg"  class="img-circle myimg">
-				<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
-			</div>
-			<div class="right">
-				<button type="w3-button" class="btn btn-default bt">팔로우</button>
-			</div>
-		</div>
-		<div class="col-sm-3">col-sm-3</div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-3">col-sm-3</div>
-		<div id="wrapper" class="col-sm-6 bg-white">
-			<div class="my1" >
-				<img src="/images/img1.jpg"  class="img-circle myimg">
-				<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
-			</div>
-			<div class="right">
-				<button type="w3-button" class="btn btn-default bt">팔로우</button>
-			</div>
-		</div>
-		<div class="col-sm-3">col-sm-3</div>
+		<div class="col-sm-3"></div>
 	</div>
 	
-	<div class="col-sm-12">col-sm-12</div>
+	<div class="col-sm-12"></div>
 
 </div>
 
@@ -169,58 +185,110 @@ function upload(){
 <div  class="container-fluid bg-grey">
 <div class="row">
 
-	<div class="col-sm-3">col-sm-3</div>
-	<div id="wrapper" class="col-sm-6 bg-white">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6 bg-white wrapper">
 	
 		<!-- 메인화면 상단 아이디 및 시간 부분 -->
 		<div class="row">
-			<div class="col-sm-6 text-left">
-				<img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> zenxen
+			<div class="col-sm-10 text-left">
+				<a href="#"><img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> zenxen</a>
 			</div>
-			<div class="col-sm-6 text-right">1주전</div>  
+			<div class="col-sm-2 text-center"><h4>1주전</h4></div>  
 		</div>
 	
 		<!-- 메인화면 중간 사진 부분 -->
-		<div id="page"><img  src="/images/kr5.jpg" width="100%"></div>
+		<div><img  src="/images/kr5.jpg" width="100%"></div>
 	
 		<!-- 메인화면 하단 댓글 보는 화면 -->
 		<div>
 		
-			<br>좋아요 1,649개</br>
-			<br>jeonsomihJeon Somi 전소미 - CJ Open Studio 'Comeback Countdown'</br>
+			<h2><p>좋아요 1,649개</p></h2>
+			<p><a href="#"><strong>zenxen</strong></a> 나이쁘지</p>
 		
-			<br>#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma</br> 
-			<br>#IdealOfIdol #VeryVeryVery #너무너무너무</br>
-			<br>댓글 8개 모두 보기</br>
-			<br>irhamwp_Gede :v</br>
-			<br>noonghil</br>
-			<br>sofeax.coBae</br>
-			<br>hannah_park19018나도 봤음요</br>
+			<p><a href="#">#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma 
+			#IdealOfIdol #VeryVeryVery #너무너무너무</a></p>
+			<p><a href="#">댓글 8개 모두 보기</a></p>
+			<p><a href="#"><strong>irhamwp_Gede</strong></a> 이쁘다</p>
+			<p><a href="#"><strong>noonghil</strong></a> 나랑결혼해죠</p>
+			<p><a href="#"><strong>sofeax.coBae</strong></a> ㅎㅎㅎㅎ 조아</p>
+			<p><a href="#"><strong>hannah_park19018</strong></a> 나도 봤음요</p>
 			
 		</div>
 	
 		<!-- 댓글 쓰는 화면 -->
 		<div class="row">
-			<div class="col-sm-1">
-				<span class="glyphicon glyphicon-heart-empty"></span>
+			<div class="col-sm-1 btn-lg">
+				<span class="glyphicon glyphicon-heart-empty "></span>
 			</div>
-			<div class="col-sm-9 form-group">
+			<div class="col-sm-9 ">
 				<input type="text" class="form-control" placeholder="Enter Comment">
 			</div>
 			<div class="col-sm-2">
-				<span id="span_more"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#btn_report"><img src="/images/more.png"></button></span>
+				<span id="span_more"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#btn_report"><img src="/images/more.png"></button></span>
 			</div>
 		</div>
 		
 	</div>
-	<div class="col-sm-3">col-sm-3</div>
-	<div class="col-sm-12">col-sm-12</div>
+	<div class="col-sm-3"></div>
+	<div class="col-sm-12"></div>
 	
 </div>
 </div>
 <!-- 메인화면1 끝 반복예정 -->
 
 <!-- 메인화면2 -->
+<div  class="container-fluid bg-grey">
+<div class="row">
+
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6 bg-white wrapper">
+	
+		<!-- 메인화면 상단 아이디 및 시간 부분 -->
+		<div class="row">
+			<div class="col-sm-10 text-left">
+				<a href="#"><img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> zenxen</a>
+			</div>
+			<div class="col-sm-2 text-center"><h4>1주전</h4></div>  
+		</div>
+	
+		<!-- 메인화면 중간 사진 부분 -->
+		<div><img  src="/images/kr1.jpg" width="100%"></div>
+	
+		<!-- 메인화면 하단 댓글 보는 화면 -->
+		<div>
+		
+			<h2><p>좋아요 1,649개</p></h2>
+			<p><a href="#"><strong>zenxen</strong></a> 나이쁘지</p>
+		
+			<p><a href="#">#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma 
+			#IdealOfIdol #VeryVeryVery #너무너무너무</a></p>
+			<p><a href="#">댓글 8개 모두 보기</a></p>
+			<p><a href="#"><strong>irhamwp_Gede</strong></a> 이쁘다</p>
+			<p><a href="#"><strong>noonghil</strong></a> 나랑결혼해죠</p>
+			<p><a href="#"><strong>sofeax.coBae</strong></a> ㅎㅎㅎㅎ 조아</p>
+			<p><a href="#"><strong>hannah_park19018</strong></a> 나도 봤음요</p>
+			
+		</div>
+	
+		<!-- 댓글 쓰는 화면 -->
+		<div class="row">
+			<div class="col-sm-1 btn-lg">
+				<span class="glyphicon glyphicon-heart-empty "></span>
+			</div>
+			<div class="col-sm-9 ">
+				<input type="text" class="form-control" placeholder="Enter Comment">
+			</div>
+			<div class="col-sm-2">
+				<span id="span_more"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#btn_report"><img src="/images/more.png"></button></span>
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-sm-3"></div>
+	<div class="col-sm-12"></div>
+	
+</div>
+</div>
 <!-- 메인화면2 끝-->
 
 <!-- 신고하기 모달 구성 -->
