@@ -11,15 +11,15 @@
 <style>
 #container{
 	width:100%;
-	margin:auot;
-}
-#wrapper{
 	margin:auto;
-	width:80%;
 }
-.col-sm-4{
+.div_title{
 	text-align:right;
 }
+.title{
+	text-align:right;
+}
+
 
 </style>
 <script>
@@ -31,91 +31,66 @@ function changePassword(){
 </script>
 </head>
 <body>
-	<!-- 상단바 -->
-<div class="navbar navbar-default bg-white">
-	<div class="row">
-  		<!-- 메인이미지 -->
-  		<div class="col-sm-4"><img src="/images/insta1.png"></div>
- 		
- 		<!-- 검색 -->
- 		<div class="col-sm-4">
- 			<div class="input-group">
-       			<input type="text" class="form-control" placeholder="Search..">
-    		    <span class="input-group-btn">
-    		   	   <button class="btn btn-default" type="button">
-    	       		 <span class="glyphicon glyphicon-search"></span>
-      	   			</button>
-      			 </span>
-     		 </div>
-      	</div>
-		
-		<!-- 버튼 4개 -->
-		<div class="col-sm-4">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="javascript:upload()" ><span class="glyphicon glyphicon-camera"></span></a></li>
-  				<li><a href="/"><span class="	glyphicon glyphicon-cloud"></span></a></li>
-  				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
-  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user"></span></a></li>
-  			</ul>
-  		</div>
-	</div>
-</div>
+<%@ include file="/inc/header.jsp" %>
 	<div class="container" >
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
 	      		<ul class="nav nav-pills nav-stacked">
-			        <li><a href="/my/account/edit.jsp">Home</a></li>
-			        <li  class="active"><a href="/my/account/password/change.jsp">Menu 1</a></li>
-			        <li><a href="#">Menu 2</a></li>
-			        <li><a href="#">Menu 3</a></li>
+			        <li><a href="/account/edit.jsp">Home</a></li>
+			        <li class="active"><a href="/account/password/change.jsp">Menu 1</a></li>
 		   		</ul>
 	   		</div>
-	  		<div class="col-sm-9" id="wrapper" >
+	  		<div class="col-sm-9" id="wrapper">
 	  			<div class="form-group">
 	  				<div class="row content">
-		        		<div class="col-sm-4">
+		        		<div class="col-sm-3 col-xs-3 title">
 		        			  <img src="/images/img1.jpg" class="img-circle" alt="Cinque Terre" width="60px">
 		        		</div>
-		        		<div class="col-sm-8">
+		        		<div class="col-sm-8 col-xs-8">
 		        			<h2>ajfzoa</h2>
 		        		</div>
+		        		<div class="col-sm-1 col-xs-1"></div>
 		     		</div>
 	  			</div>
 	  			<form name="form1" method="post">
 		  			<div class="form-group">
 		  				<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-3 col-xs-3 title">
 			        			<label for="pwd">이전 비밀번호</label>
 			        		</div>
-			        		<div class="col-sm-8">
+			        		<div class="col-sm-8 col-xs-8">
 			        			<input type="password" class="form-control"  nama="pwd_prev">
 			        		</div>
+			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-3 col-xs-3 title">
 			        			<label for="pwd">새 비밀번호</label>
 			        		</div>
-			        		<div class="col-sm-8">
+			        		<div class="col-sm-8 col-xs-8">
 			        			<input type="password" class="form-control"  nama="pwd_new">
 			        		</div>
+			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
 			     		<div class="row content">
-			        		<div class="col-sm-4">
+			        		<div class="col-sm-3 col-xs-3 title">
 			        			<label for="pwd">새 비밀번호 확인</label>
 			        		</div>
-			        		<div class="col-sm-8">
+			        		<div class="col-sm-8 col-xs-8">
 			        			<input type="password" class="form-control"  nama="pwd_ch">
 			        		</div>
+			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
 		  			</div>
 	  			</form>
 	  			<div class="form-group">
 	  				<div class="row content">
-		        		<div class="col-sm-4">
+		        		<div class="col-sm-3 col-xs-3">
 		        		</div>
-		        		<div class="col-sm-8">
+		        		<div class="col-sm-8 col-xs-8">
 		        			<button type="button" class="btn btn-primary" onClick="changePassword()">변경</button>
 		        		</div>
+		        		<div class="col-sm-1 col-xs-1"></div>
 		     		</div>
 	  			</div>
   			</div>

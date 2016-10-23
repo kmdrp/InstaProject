@@ -13,15 +13,7 @@
 <title>Insert title here</title>
 <style>
 #wrapper {
-	margin-top: 5%;
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
-}
-
-#loginform {
-	margin-top:auto;
-	margin-bottom:auto;
+	margin:5%;
 }
 
 #link_regist {
@@ -51,17 +43,17 @@ a:link, a:visited {
 <body>
 	<div class="container-fluid">
 		<div class="row content" id="wrapper">
-			<div class="col-sm-6 sidenav">
-				<img class="img-responsive" src="/images/img_index/aloe.jpeg" alt="Chania"
+			<div class="col-sm-2">
+			</div>
+			<div class="col-sm-4 sidenav" align="center">
+				<img class="img-responsive img_main"  src="/images/img_index/aloe.jpeg" alt="Chania"
 					id="main_img" height="80%">
 			</div>
-			<div class="col-sm-6" id="loginform">
+			<div class="col-sm-4" id="loginform">
 				<form class="form-horizontal">
 					<div class="well well-lg" >
 						<div class="form-group">
-							<div class="jumbotron text-center">
 								<h2>Instagram</h2>
-							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
@@ -87,6 +79,8 @@ a:link, a:visited {
 					계정이 없으신가요?? <a href="/regist.jsp">가입하기</a>
 				</div>
 			</div>
+		</div>
+		<div class="col-sm-2">
 		</div>
 	</div>
 	</div>
