@@ -12,11 +12,22 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style>
-
+#btn_load_img{
+	width:500px;
+	height:500px;
+	margin:0px;
+	padding:0px;
+}
+#img_default{
+	width:500px;
+	height:500px;
+	margin:0;
+	padding:0px;
+}
 #upload_img{
 	float:left;
-	width:
-	
+	width:500px;
+	height:500px;
 }
 #upload_img button{
 	background:white;
@@ -24,7 +35,7 @@
 }
 #upload_memo{
 	background:white;
-	width:373px;
+	width:398px;
 	margin:0px;
 }
 #upload_memo textarea{
@@ -33,12 +44,12 @@
 .media-left{
 	height:40px;
 	margin:0px;
-	width:373px;
+	width:398px;
 	padding:0px;
 }
 #btn_tag,#btn_pin{
 	display:table;
-	width:373px;
+	width:398px;
 }
 .span_img{
 	display:table-cell;
@@ -51,13 +62,14 @@
 	font-weight:bold
 }
 #container{
-	width:373px;
-	height:200px;
+	width:398px;
 	background:white;
 }
 #upload_content{
-	width:373px;
+	width:398px;
 	float:left;
+	height:500px;
+	background:white;
 }
 #btn_f,#btn_t,#btn_k,#btn_tb,#btn_l{
 	margin:0 auto;
@@ -83,7 +95,7 @@
 	font-size:20pt;
 	font-weight:bold;
 	padding:0px;
-	width:373px;
+	width:398px;
 	border-bottom:1px solid gray;
 	display:table;
 }
@@ -97,28 +109,17 @@
 }#reg{
 	display:table;
 	background:white;
-	height:128px;
-	width:373px;
+	width:398px;
+	margin-top:110px;
 }
 #btn_regist{
 	border:none;
 }#btn_aln{
-	display:table-cell;
-	vertical-align:middle;
-	margin:0 auto;
+	margin-right:10px;
+	float:right;
 }
 </style>
-<script>
-	function upload_file(){
-		document.getElementById("input_file").click();
-		
-		
-	}
-	function closeAll(){
-		var frame=document.getElementById("upload");
-		frame.style.display="none";
-	}
-</script>
+
 </head>
 <body>
 
@@ -127,9 +128,10 @@
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
     <div class="modal-content">
    		<div>
+   		<form name="upload_form">
 	   		<div id="upload_img">
-	   			<input type="file" id="input_file" style="display:none;">
-		   		<button type="button" onClick="upload_file()"><img src="/images/img_upload/upload_img.png" id="upload_img"></button>
+	   			<input type="file" name="upload_file" id="input_file" style="display:none;">
+		   		<button type="button" id="btn_load_img"onClick="load_img()"><img src="/images/img_upload/upload_img.png" id="img_default"></button>
 	   		</div>
 	   		<div id="upload_content">
 		      	<div id="upload_memo" class="form-group">
@@ -154,15 +156,55 @@
 			      	</div>
 		      	</div>
 		      	<div id="reg" class="media-group">
-		      		<span id="btn_aln"><button type="button" id="btn_regist" class="btn btn-primary media-right">사진 등록</button></span>		      		
+		      		<span id="btn_aln"><button type="button" id="btn_regist" class="btn btn-primary media-right" onClick="regist()">사진 등록</button></span>		      		
 		      	</div>
 	      	</div>
+      	</form>
       	</div>
-      	
     </div>
      <!--  <p id="caption"></p>  캡션 추가하는 부분-->
     </div>
   </div>
 
 </body>
+<script>
+var form_file=document.getElementById("input_file");
+window.addEventListener("load",function(){
+	form_file.addEventListener("change",function(){
+		preview();
+	});
+});
+function closeAll(){
+	var frame=document.getElementById("upload");
+	frame.style.display="none";
+}
+function load_img(){
+	document.getElementById("input_file").click();
+}
+/* function regist(){
+	form1.method="post";
+	form1.encoding="multipart/form-data";
+	form1.action="";
+	form1.submit();
+} */
+//이미지 미리보기 구현
+function preview(){
+	
+	var gall=document.getElementById("btn_load_img");//이미지 나오는 창
+	var file=form_file.files[0];
+	var reader=new FileReader();
+	reader.onload=function(event){
+		var newImg=new Image();
+		newImg.src=event.target.result;
+		newImg.style.width="500px";
+		newImg.style.height="500px";
+		gall.innerHTML="";
+		gall.appendChild(newImg);
+	};
+	reader.readAsDataURL(file);
+	return false;
+	
+}
+
+</script>
 </html>

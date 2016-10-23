@@ -51,7 +51,6 @@ body{
 	display:table-cell;
 	height:333px;
 }
-
 #line1{
 	display:table;
 	height:60px;
@@ -96,7 +95,6 @@ pre{
 	background:#F6F6F6;
 	border:1px solid #8C8C8C;
 }
-
 /* 프로필사진 */
 #btn_img{
 	border:0px;
@@ -106,7 +104,9 @@ strong{
 	font-weight:bold;
 }
 .w3-third img{
-	padding:20px;
+	padding:15px;
+	height:333px;
+	width:100%;
 }
 .w3-third img:hover{
 	opacity:0.6;
@@ -152,7 +152,6 @@ strong{
 	display:table-cell;
 	vertical-align:middle;
 }
-
 .well{
 	display:block;
 	margin:auto;
@@ -226,16 +225,18 @@ strong{
 	
 	<div id="p_zone" class="w3-row">
 			<div id="p1" class="w3-third">
-				<img src="/images/kr.jpg" style="width:100%;" onClick="onClick(this)">
-				<img src="/images/kr4.png" style="width:100%;" onClick="onClick(this)">
+				<img src="/images/kr.jpg" onClick="onClick(this)">
+				<img src="/images/kr4.png" onClick="onClick(this)">
+				<img src="/images/kr1.jpg" onClick="onClick(this)">
+				
 			</div>
 			<div id="p2" class="w3-third">
-				<img src="/images/kr3.jpg" style="width:100%;" onClick="onClick(this)">
-				<img src="/images/kr5.jpg" style="width:100%;" onClick="onClick(this)">
+				<img src="/images/kr3.jpg" onClick="onClick(this)">
+				<img src="/images/kr5.jpg" onClick="onClick(this)">
 			</div>
 			<div id="p3"class="w3-third">
-				<img src="/images/kr8.jpg" style="width:100%;" onClick="onClick(this)">
-				<img src="/images/kr7.jpg" style="width:100%;" onClick="onClick(this)">
+				<img src="/images/kr8.jpg" onClick="onClick(this)">
+				<img src="/images/kr7.jpg" onClick="onClick(this)">
 			</div>
 			
 	</div>
@@ -298,7 +299,7 @@ strong{
 	function active_search(){
 		//클릭으로 search 창 활성화 
 	}
-	function upload1(){
+	function upload(){
 		document.getElementById("upload").style.display="block";
 		
 	}
