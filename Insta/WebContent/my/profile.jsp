@@ -111,20 +111,7 @@ strong{
 .w3-third img:hover{
 	opacity:0.6;
 }
-#modal_img{
-	width:70%;
-	height:100%;
-	float:left;
-}
-#modal_content{
-	width:30%;
-	height:100%;
-	float:left;
-	background:#F6F6F6;
-}
-#modal_content img{
-	padding:7px;
-}
+
 #info_uploader span{
 	float:left;
 }
@@ -299,9 +286,9 @@ strong{
 	function active_search(){
 		//클릭으로 search 창 활성화 
 	}
+	//사진 업로드 버튼
 	function upload(){
 		document.getElementById("upload").style.display="block";
-		
 	}
 	
 </script>

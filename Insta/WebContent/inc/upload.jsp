@@ -12,22 +12,26 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style>
+.modal-content{
+	width:800px;
+	
+}
 #btn_load_img{
 	width:500px;
-	height:500px;
+	height:600px;
 	margin:0px;
 	padding:0px;
 }
 #img_default{
 	width:500px;
-	height:500px;
+	height:600px;
 	margin:0;
 	padding:0px;
 }
 #upload_img{
 	float:left;
 	width:500px;
-	height:500px;
+	height:600px;
 }
 #upload_img button{
 	background:white;
@@ -35,7 +39,7 @@
 }
 #upload_memo{
 	background:white;
-	width:398px;
+	width:298px;
 	margin:0px;
 }
 #upload_memo textarea{
@@ -49,7 +53,7 @@
 }
 #btn_tag,#btn_pin{
 	display:table;
-	width:398px;
+	width:298px;
 }
 .span_img{
 	display:table-cell;
@@ -62,18 +66,18 @@
 	font-weight:bold
 }
 #container{
-	width:398px;
+	width:298px;
 	background:white;
 }
 #upload_content{
-	width:398px;
+	width:298px;
 	float:left;
-	height:500px;
+	height:600px;
 	background:white;
 }
 #btn_f,#btn_t,#btn_k,#btn_tb,#btn_l{
 	margin:0 auto;
-	width:185px;
+	width:149px;
 	border:none;
 	float:left;
 	display:table;
@@ -95,7 +99,7 @@
 	font-size:20pt;
 	font-weight:bold;
 	padding:0px;
-	width:398px;
+	width:298px;
 	border-bottom:1px solid gray;
 	display:table;
 }
@@ -109,7 +113,7 @@
 }#reg{
 	display:table;
 	background:white;
-	width:398px;
+	width:298px;
 	margin-top:110px;
 }
 #btn_regist{
@@ -160,10 +164,22 @@
 		      	</div>
 	      	</div>
       	</form>
+      	
       	</div>
+      	
     </div>
+   
      <!--  <p id="caption"></p>  캡션 추가하는 부분-->
     </div>
+                                       <!--888888888888888888888888888888888888888888888888888888888888888 사진 슬라이드 옆으로 이동 -->
+     <!-- <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+     		<span class="sr-only">Previous</span>
+  		</a>
+    	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      	<span class="sr-only">Next</span>
+    	</a> -->
   </div>
 
 </body>
