@@ -61,13 +61,7 @@
 	<div>
 		<!-- 상단 친구 찾기 부분 -->
 		<!-- 상단바 -->
-<<<<<<< HEAD
-		<div class="navbar navbar-default bg-white">
-			<div class="row">
-				<!-- 메인이미지 -->
-				<div class="col-sm-4">
-					<img src="/images/insta1.png">
-=======
+
 		<%@include file="/inc/header.jsp" %>
 
 		<div id="main" class="container-fluid">
@@ -85,7 +79,7 @@
 				
 					<button type="w3-button" class="btn btn-default " id="bt">팔로우</button>
 				
->>>>>>> 0ba23385a9893e6b85f30446e2baeb29721a6ed1
+
 				</div>
 
 				<!-- 검색 -->
