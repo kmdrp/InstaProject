@@ -263,7 +263,7 @@ function upload(){
 <!-- 신고하기 모달 구성 -->
  <div class="modal fade" id="btn_report" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" style="width:100%">
       <div class="btn-group-vertical" style="width:100%";">
   			<button type="button" class="btn btn-default">부적절한 콘텐츠 신고</button>
   			<button type="button" class="btn btn-default">퍼가기</button>
