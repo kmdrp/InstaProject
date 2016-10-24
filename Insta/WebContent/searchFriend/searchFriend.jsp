@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -61,11 +61,31 @@
 	<div>
 		<!-- 상단 친구 찾기 부분 -->
 		<!-- 상단바 -->
+<<<<<<< HEAD
 		<div class="navbar navbar-default bg-white">
 			<div class="row">
 				<!-- 메인이미지 -->
 				<div class="col-sm-4">
 					<img src="/images/insta1.png">
+=======
+		<%@include file="/inc/header.jsp" %>
+
+		<div id="main" class="container-fluid">
+			<ul class="list-group">
+				<li class="list-group-item">사람 찾기</li>
+			</ul>
+			<!-- 친구 정보 -->
+			<div id="sub" class="row-fluid">
+				<div id="my1" >
+					<img src="/images/img1.jpg" id="myimg"  class="img-circle">
+					<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
+					
+				</div>
+				<div class="right">
+				
+					<button type="w3-button" class="btn btn-default " id="bt">팔로우</button>
+				
+>>>>>>> 0ba23385a9893e6b85f30446e2baeb29721a6ed1
 				</div>
 
 				<!-- 검색 -->

@@ -33,7 +33,7 @@ function upload(){
 <div class="navbar navbar-default bg-white nav_header">
 	<div class="row" >
   		<!-- 메인이미지 -->
-  		<div class="col-sm-4 col-xs-4 nav_left"><img src="/images/insta1.png" height="100%"></div>
+  		<div class="col-sm-4 col-xs-4 nav_left"><a href="/main/mainPage.jsp"><img src="/images/insta1.png" height="100%"></a></div>
  		
  		<!-- 검색 -->
  		<div class="col-sm-4 col-xs-4 nav_middle" >
@@ -48,7 +48,7 @@ function upload(){
 				<li><a href="javascript:upload()"><span class="glyphicon glyphicon-camera icon_nav"></span></a></li>
   				<li><a href="/"><span class="glyphicon glyphicon-cloud icon_nav"></span></a></li>
   				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty icon_nav"></span></a></li>
-  				<li><a href="/searchFriend/my/profile.jsp"><span class="glyphicon glyphicon-user icon_navx"></span></a></li>
+  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user icon_navx"></span></a></li>
   			</ul>
   		</div>
 	</div>

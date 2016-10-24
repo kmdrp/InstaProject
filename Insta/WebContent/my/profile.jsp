@@ -162,34 +162,7 @@ strong{
 </head>
 <body>
 	<!-- 상단바 -->
-	<div class="navbar navbar-default bg-white">
-		<div class="row">
-	  		<!-- 메인이미지 -->
-	  		<div class="col-sm-4"><img src="/images/insta1.png"></div>
-	 		
-	 		<!-- 검색 -->
-	 		<div class="col-sm-4">
-	 			<div class="input-group">
-	       			<input type="text" class="form-control" placeholder="Search..">
-	    		    <span class="input-group-btn">
-	    		   	   <button class="btn btn-default" type="button">
-	    	       		 <span class="glyphicon glyphicon-search"></span>
-	      	   			</button>
-	      			 </span>
-	     		 </div>
-	      	</div>
-			
-			<!-- 버튼 4개 -->
-			<div class="col-sm-4">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="javascript:upload()" ><span class="glyphicon glyphicon-camera"></span></a></li>
-	  				<li><a href="/"><span class="	glyphicon glyphicon-cloud"></span></a></li>
-	  				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
-	  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user"></span></a></li>
-	  			</ul>
-	  		</div>
-		</div>
-	</div>
+	<%@include file="/inc/header.jsp" %>
 	
 	<div id="main">
 	<div class="row" id="profile">
@@ -200,7 +173,7 @@ strong{
 		</div>
 		<div id="profile_detail" class="col-md-8">
 				<p id="line1"><span id="id_profile" style="float:left;"><strong>ajfzoa</strong></span>
-				<span id="span_btn"><a href="/my/account/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
+				<span id="span_btn"><a href="/account/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
 				<span id="span_more"><button><img src="/images/more.png" onClick="myId()"></button></span>
 				</p>
 				<p id="line2"> 게시물<strong> 6</strong> 개&nbsp;&nbsp; 팔로워 <strong>100</strong>명  팔로우<strong> 100</strong>명 </p> 
