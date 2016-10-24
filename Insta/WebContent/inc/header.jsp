@@ -33,7 +33,7 @@ function upload(){
 <div class="navbar navbar-default bg-white nav_header">
 	<div class="row" >
   		<!-- 메인이미지 -->
-  		<div class="col-sm-4 col-xs-4 nav_left"><img src="/images/insta1.png" height="100%"></div>
+  		<div class="col-sm-4 col-xs-4 nav_left"><a href="/main/mainPage.jsp"><img src="/images/insta1.png" height="100%"></a></div>
  		
  		<!-- 검색 -->
  		<div class="col-sm-4 col-xs-4 nav_middle" >
