@@ -48,7 +48,7 @@ function upload(){
 				<li><a href="javascript:upload()"><span class="glyphicon glyphicon-camera icon_nav"></span></a></li>
   				<li><a href="/"><span class="glyphicon glyphicon-cloud icon_nav"></span></a></li>
   				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty icon_nav"></span></a></li>
-  				<li><a href="/searchFriend/my/profile.jsp"><span class="glyphicon glyphicon-user icon_navx"></span></a></li>
+  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user icon_navx"></span></a></li>
   			</ul>
   		</div>
 	</div>

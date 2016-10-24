@@ -173,7 +173,7 @@ strong{
 		</div>
 		<div id="profile_detail" class="col-md-8">
 				<p id="line1"><span id="id_profile" style="float:left;"><strong>ajfzoa</strong></span>
-				<span id="span_btn"><a href="/my/account/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
+				<span id="span_btn"><a href="/account/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
 				<span id="span_more"><button><img src="/images/more.png" onClick="myId()"></button></span>
 				</p>
 				<p id="line2"> 게시물<strong> 6</strong> 개&nbsp;&nbsp; 팔로워 <strong>100</strong>명  팔로우<strong> 100</strong>명 </p> 
