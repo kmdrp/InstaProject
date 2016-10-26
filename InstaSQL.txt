@@ -1,0 +1,55 @@
+create table member(
+	member_id number primary key
+	,email varchar2(50)
+	,name varchar2(20)
+	,Nick varchar2(20)
+	,Password varchar2(50)
+	,regdate date default sysdate
+	,Phone varchar2(15) default 01000000000
+	,gender VARCHAR(1) NOT NULL CHECK (gender IN ('m', 'f'))
+	,Memo clob
+	,privacy number
+);
+
+create sequence seq_member increment by 1 start with 1;
+
+ 
+select * from member;
+
+create table comments(
+	Comments_id number primary key
+	,post_id number
+	,Member_id number
+	,comments varchar2(100)
+	,regdate date default sysdate
+);
+
+
+create sequence seq_comments increment by 1 start with 1;
+select * from comments;
+
+create table post(
+	post_id number primary key
+	,Member_id number
+	,img_type varchar2(10)
+	,gps varchar2(20)
+	,Path varchar2(50)
+	,Regdate date default sysdate
+	,Content clob
+);
+create sequence seq_post increment by 1 start with 1;
+
+create table love(
+	love_id number primary key
+	,post_id number
+	,Member_id number
+);
+
+create sequence seq_love increment by 1 start with 1;
+
+create table follow(
+	follow_id number primary key
+	,me number
+	,you number
+);
+create sequence seq_follow increment by 1 start with 1;

@@ -1,0 +1,11 @@
+create tablespace insta
+datafile 'C:\oraclexe\app\oracle\oradata\XE\insta.dbf'
+size 10m;
+
+create user insta
+identified by gram
+default tablespace insta
+quota unlimited on insta;
+
+grant create session, create table,
+create sequence to insta;
