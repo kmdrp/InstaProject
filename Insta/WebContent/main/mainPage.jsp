@@ -14,7 +14,7 @@
 	border:1px solid  #c0c0c0;
 }
 .bg-grey {
-    background-color: #f6f6f6;
+    background-color: white;
 }
 .bg-white{
 	 background-color: white;
