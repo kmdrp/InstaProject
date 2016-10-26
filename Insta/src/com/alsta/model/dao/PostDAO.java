@@ -1,6 +1,7 @@
 package com.alsta.model.dao;
 
-import java.awt.List;
+
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,5 @@ public interface PostDAO {
 	public int delete(int post_id);
 	public List selectList(int post_id);
 	public void selectOne(Post post);
+	public List selectAll();
 }

@@ -1,6 +1,7 @@
 package com.alsta.model.dao;
 
-import java.awt.List;
+
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,10 @@ public class PostDAOMybatis implements PostDAO{
 
 	public void selectOne(Post post) {
 		
+	}
+
+	public List selectAll() {
+		List list = (List)sessionTemplate.selectList("Post.selectAll");
+		return list;
 	}
 }
