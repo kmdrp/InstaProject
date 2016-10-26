@@ -30,9 +30,7 @@ public class MemberDAOMybatis implements MemberDAO{
 		return null;
 	}
 
-	@Override
 	public void selectOne(Member meber) {
-		// TODO Auto-generated method stub
 		
 	}
 
