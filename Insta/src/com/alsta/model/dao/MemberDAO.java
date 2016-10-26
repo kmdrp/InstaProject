@@ -4,7 +4,7 @@ import java.awt.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.aslta.model.domain.Member;
+import com.alsta.model.domain.Member;
 @Repository
 public interface MemberDAO {
 	public int insert(Member member);//회원가입

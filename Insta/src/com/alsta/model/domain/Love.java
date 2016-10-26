@@ -1,4 +1,4 @@
-package com.aslta.model.domain;
+package com.alsta.model.domain;
 
 public class Love {
 	private int love_id;
