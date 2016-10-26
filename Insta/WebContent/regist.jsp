@@ -78,19 +78,19 @@ a:link, a:visited {
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 col-xs-12">
-								<input type="password" class="form-control" id="name"
+								<input type="name" class="form-control" id="name"
 									name="name" placeholder="성명">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 col-xs-12">
-								<input type="email" class="form-control" id="nickname"
-									name="nickname" placeholder="사용자 이름">
+								<input type="nickname" class="form-control" id="nickname"
+									name="nick" placeholder="사용자 이름">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 col-xs-12">
-								<input type="password" class="form-control" id="pwd" name="pwd"
+								<input type="password" class="form-control" id="pwd" name="password"
 									placeholder="비밀번호">
 							</div>
 						</div>

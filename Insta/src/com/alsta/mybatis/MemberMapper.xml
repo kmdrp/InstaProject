@@ -7,6 +7,7 @@
 		select * from member
 	</sql>
 	<insert id="insert" parameterType="Member">
-		insert into member() values()
+		insert into member(member_id,email,name,nick,password) 
+		values(seq_member.nextval,#{email},#{name},#{nick},#{password})
 	</insert>
 </mapper>

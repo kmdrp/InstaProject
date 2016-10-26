@@ -13,8 +13,7 @@ public class MemberDAOMybatis implements MemberDAO{
 	private SqlSessionTemplate sessionTemplate;
 	
 	public int insert(Member member) {
-		String sql="insert into member() values()";
-		int result=sessionTemplate.update(sql, member);
+		int result=sessionTemplate.update("Member.insert", member);
 		return result;
 	}
 
