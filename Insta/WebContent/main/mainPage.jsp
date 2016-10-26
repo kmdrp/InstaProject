@@ -59,7 +59,9 @@ ul{
 	border:0px;
 	
 }
-
+#mainPage_gallery{
+	padding:10px;
+}
 /*메인화면끝*/
 
 </style>
@@ -166,7 +168,7 @@ function upload(){
 		</div>
 	
 		<!-- 메인화면 중간 사진 부분 -->
-		<div><img  src="/images/kr5.jpg" width="100%"></div>
+		<div id="mainPage_gallery"><img  src="/images/kr5.jpg" width="100%"></div>
 	
 		<!-- 메인화면 하단 댓글 보는 화면 -->
 		<div>
@@ -221,7 +223,7 @@ function upload(){
 		</div>
 	
 		<!-- 메인화면 중간 사진 부분 -->
-		<div><img  src="/images/kr1.jpg" width="100%"></div>
+		<div id="mainPage_gallery"><img  src="/images/kr1.jpg" width="100%"></div>
 	
 		<!-- 메인화면 하단 댓글 보는 화면 -->
 		<div>
