@@ -39,7 +39,10 @@ a:link, a:visited {
 	text-decoration: none;
 	display: inline-block;
 }
-
+.jumbo{
+	padding-left:0px;
+	padding-right:0px;
+}
 
 </style>
 <script>
@@ -63,8 +66,8 @@ a:link, a:visited {
 				<form class="form-horizontal">
 					<div class="well well-lg">
 						<div class="form-group">
-							<div class="col-sm-12 col-xs-12" align="center">					
-								<label>Instagram</label>								
+							<div class="jumbotron jumbo" align="center">
+						   		<h1>Aloegram</h1>
 							</div>
 						</div>
 						<div class="form-group">
