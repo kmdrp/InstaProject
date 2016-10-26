@@ -162,7 +162,7 @@ strong{
 </head>
 <body>
 	<!-- 상단바 -->
-	<%@include file="/inc/header.jsp" %>
+	<%@include file="/inc/header.jsp"%>
 	
 	<div id="main">
 	<div class="row" id="profile">

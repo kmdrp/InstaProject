@@ -14,7 +14,6 @@
 <style>
 .modal-content{
 	width:800px;
-	
 }
 #btn_load_img{
 	width:500px;
