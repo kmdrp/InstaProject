@@ -23,7 +23,7 @@
 	<!-- mybatis 설정 sqlsessionfactory 메모리 올리기 -->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
-		p:configLocation="classpath:com/alsta/mybatis.xml"
+		p:configLocation="classpath:com/alsta/mybatis/config.xml"
 	/>
 	<!-- sqlsessionfactory에서 session얻어오기 -->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
