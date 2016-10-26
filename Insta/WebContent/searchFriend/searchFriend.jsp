@@ -98,6 +98,8 @@
 		</div>
 		<div class="col-sm-1"></div> 
 	</div>
+	
+	<!-- 친구 찾기 for문 영역 -->
 	<div class="row" >
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6 bg-white wrapper">
@@ -127,6 +129,7 @@
 		</div>
 		<div class="col-sm-3"></div>
 	</div>
+	<!-- 친구 찾기 for문 영역 끝 -->
 
 	<div class="col-sm-12"></div>
 
