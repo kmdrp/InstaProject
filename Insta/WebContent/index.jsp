@@ -53,7 +53,11 @@ a:link, a:visited {
 				<form class="form-horizontal">
 					<div class="well well-lg" >
 						<div class="form-group">
-								<h2>Instagram</h2>
+							<div class="jumbotron text-center" align="center">
+							<div class="container">
+						   		<h1>Aloegram</h1>
+						   		</div>
+							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
