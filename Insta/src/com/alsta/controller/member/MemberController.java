@@ -9,6 +9,7 @@ import com.alsta.model.domain.Member;
 import com.alsta.model.service.MemberService;
 
 @Controller
+@RequestMapping("/alsta/")
 public class MemberController {
 	@Autowired
 	@Qualifier("memberServiceImpl")

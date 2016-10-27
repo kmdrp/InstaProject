@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alsta.model.service.MainPageService;
 
 @Controller
+@RequestMapping("/alsta/")
 public class MainPageController {
 	@Autowired
 	@Qualifier("mainPageServiceImpl")
@@ -20,7 +21,7 @@ public class MainPageController {
 		List list = mainPageService.selectAll();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("post",list);
-		mav.setViewName("/main/mainPage");
+		mav.setViewName("/alsta/mainPage");
 		return mav;
 	}
 	

@@ -38,7 +38,7 @@ div_img{
 </style>
 <script>
 	function logIn() {
-		location.href="/main/mainPage.jsp";
+		location.href="/alsta/post.do";
 	}
 </script>
 </head>
@@ -82,7 +82,7 @@ div_img{
 					</div>
 				</form>
 				<div class="well well-sm" id="link_regist">
-					계정이 없으신가요?? <a href="/regist.jsp">가입하기</a>
+					계정이 없으신가요?? <a href="/alsta/regist.jsp">가입하기</a>
 				</div>
 			</div>
 		</div>
