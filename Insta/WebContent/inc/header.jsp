@@ -47,7 +47,7 @@ $(document).ready(function(){
   		<!-- 메인이미지 -->
   		<div class="col-sm-4 col-xs-4 nav_left" id="nav_left">
   			<span id="nav_img">
-  				<a href="/alsta/main.jsp"><img  align="right" src="/images/insta1.png" height="100%"></a>
+  				<a href="/alsta/post.do"><img  align="right" src="/images/insta1.png" height="100%"></a>
   			</span>
   		</div>		
  		<!-- 검색 -->
