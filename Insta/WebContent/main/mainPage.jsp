@@ -1,4 +1,7 @@
+<%@page import="com.alsta.model.domain.Post"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%List <Post> postList = (List) request.getAttribute("post"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
 	border:1px solid  #c0c0c0;
 }
 .bg-grey {
-    background-color: #f6f6f6;
+    background-color: white;
 }
 .bg-white{
 	 background-color: white;
@@ -151,7 +154,7 @@ function upload(){
 
 </div>
 
-
+<%for(int i=0;i<postList.size();i++){ %>
 <!-- 메인화면1 -->
 <div  class="container-fluid bg-grey">
 <div class="row">
@@ -162,7 +165,11 @@ function upload(){
 		<!-- 메인화면 상단 아이디 및 시간 부분 -->
 		<div class="row">
 			<div class="col-sm-10 text-left">
-				<a href="#"><img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> zenxen</a>
+				<a href="#">
+				<img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
+				<%Post post = postList.get(i); %>
+				<%=post.getMember_id() %>
+				</a>
 			</div>
 			<div class="col-sm-2 text-center"><h4>1주전</h4></div>  
 		</div>
@@ -206,6 +213,7 @@ function upload(){
 </div>
 </div>
 <!-- 메인화면1 끝 반복예정 -->
+<%} %>
 
 <!-- 메인화면2 -->
 <div  class="container-fluid bg-grey">
