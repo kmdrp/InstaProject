@@ -47,7 +47,7 @@ a:link, a:visited {
 </style>
 <script>
 	function regist() {
-		form1.action="/regist.do";
+		form1.action="/alsta/regist.do";
 		form1.submit();
 	}
 </script>

@@ -1,4 +1,4 @@
-package com.alsta.model.dao;
+package com.alsta.model.spring.dao;
 
 import java.awt.List;
 
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 
+import com.alsta.model.dao.MemberDAO;
 import com.alsta.model.domain.Member;
 @Repository
 public class MemberDAOMybatis implements MemberDAO{
@@ -20,8 +21,13 @@ public class MemberDAOMybatis implements MemberDAO{
 		return result;
 	}
 
-	public int update(Member member) {
-		return 0;
+	public int updateDetail(Member member) {
+		int result=sessionTemplate.update("Member.updateDetail",member);
+		return result;
+	}
+	public int updatePassword(Member member) {
+		int result=sessionTemplate.update("Member.updatePassword",member);
+		return result;
 	}
 
 	public int delete(int member_id) {

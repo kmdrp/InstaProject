@@ -47,7 +47,7 @@ $(document).ready(function(){
   		<!-- 메인이미지 -->
   		<div class="col-sm-4 col-xs-4 nav_left" id="nav_left">
   			<span id="nav_img">
-  				<a href="/main/mainPage.jsp"><img  align="right" src="/images/insta1.png" height="100%"></a>
+  				<a href="/alsta/main.jsp"><img  align="right" src="/images/insta1.png" height="100%"></a>
   			</span>
   		</div>		
  		<!-- 검색 -->
@@ -61,9 +61,9 @@ $(document).ready(function(){
 		<div class="col-sm-4 col-xs-4 nav_right" height="100%">
 			<ul class="nav navbar-nav nav_list">
 				<li><a href="javascript:upload()"><span class="glyphicon glyphicon-camera icon_nav"></span></a></li>
-  				<li><a href="/searchFriend/searchFriend.jsp" ><span class="glyphicon glyphicon-user icon_nav" ></span></a></li>
+  				<li><a href="/alsta/friend.jsp" ><span class="glyphicon glyphicon-user icon_nav" ></span></a></li>
   				<li><a href="#" data-toggle="popover"><span class="glyphicon glyphicon-globe" ></span></a></li>
-  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-home icon_navx"></span></a></li>
+  				<li><a href="/alsta/profile.jsp"><span class="glyphicon glyphicon-home icon_navx"></span></a></li>
   			</ul>
   		</div>
 	</div>

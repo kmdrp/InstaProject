@@ -29,4 +29,14 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
+	
+	<bean id="myLogger" class="com.alsta.common.log.MyLogger"/>
+	<aop:config>
+		<aop:aspect id="LoggerAspect" ref="myLogger">
+		<aop:pointcut 
+		expression="execution(public * com.alsta.controller..*Controller.*(..))" 
+		id="controllerCut"/>
+		<aop:around method="printMsg" pointcut-ref="controllerCut"/>
+		</aop:aspect>
+	</aop:config>
 </beans>

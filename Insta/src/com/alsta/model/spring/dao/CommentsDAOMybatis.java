@@ -1,4 +1,4 @@
-package com.alsta.model.dao;
+package com.alsta.model.spring.dao;
 
 import java.awt.List;
 
@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.alsta.model.dao.CommentsDAO;
 import com.alsta.model.domain.Comments;
 @Repository
 public class CommentsDAOMybatis implements CommentsDAO{

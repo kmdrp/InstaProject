@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 import com.alsta.model.domain.Member;
 @Repository
 public interface MemberDAO {
-	public int insert(Member member);//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	public int update(Member member);//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-	public int delete(int member_id);//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-	public List selectList(int member_id);//Ä£ï¿½ï¿½ Ã£ï¿½ï¿½
+	public int insert(Member member);//È¸¿ø°¡ÀÔ
+	public int updateDetail(Member member);//È¸¿øÁ¤º¸ ¼öÁ¤
+	public int updatePassword(Member member);//È¸¿øÁ¤º¸ ¼öÁ¤
+	public int delete(int member_id);//È¸¿ø »èÁ¦
+	public List selectList(int member_id);//Ä£±¸ Ã£±â
 	public void selectOne(Member meber);
 }
