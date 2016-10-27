@@ -1,6 +1,6 @@
 package com.alsta.model.spring.dao;
 
-import java.awt.List;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

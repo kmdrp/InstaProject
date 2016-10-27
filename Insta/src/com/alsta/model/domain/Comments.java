@@ -2,17 +2,16 @@ package com.alsta.model.domain;
 
 public class Comments {
 
-	private int comment_id;
+	private int comments_id;
 	private int post_id;
 	private int member_id;
-	private String comment;
-	private String	 regdate;
-	
-	public int getComment_id() {
-		return comment_id;
+	private String comments;
+	private String regdate;
+	public int getComments_id() {
+		return comments_id;
 	}
-	public void setComment_id(int comment_id) {
-		this.comment_id = comment_id;
+	public void setComments_id(int comments_id) {
+		this.comments_id = comments_id;
 	}
 	public int getPost_id() {
 		return post_id;
@@ -26,11 +25,11 @@ public class Comments {
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
 	}
-	public String getComment() {
-		return comment;
+	public String getComments() {
+		return comments;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 	public String getRegdate() {
 		return regdate;
@@ -40,5 +39,4 @@ public class Comments {
 	}
 	
 	
-
 }

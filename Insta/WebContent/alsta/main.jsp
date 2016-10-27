@@ -73,6 +73,11 @@ ul{
 function upload(){
 	document.getElementById("upload").style.display="block";
 }
+function regist(){
+	/* commentRegist.action="/alsta/comments.do"
+	commentRegist.submit(); */
+	location.href="/alsta/comments.do?comments='test'"
+}
 
 </script>
 </head>
@@ -199,7 +204,9 @@ function upload(){
 				<span class="glyphicon glyphicon-heart-empty "></span>
 			</div>
 			<div class="col-sm-9 ">
-				<input type="text" class="form-control" placeholder="Enter Comment">
+				<form name="commentRegist" method="post">
+				<input type="text" class="form-control" placeholder="Enter Comment" name="comments" value="test"><button onClick="regist()">전송</button>
+				</form>
 			</div>
 			<div class="col-sm-2">
 				<span id="span_more"><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#btn_report"><img src="/images/more.png"></button></span>

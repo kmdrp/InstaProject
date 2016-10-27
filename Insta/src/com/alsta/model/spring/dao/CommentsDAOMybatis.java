@@ -1,6 +1,6 @@
 package com.alsta.model.spring.dao;
 
-import java.awt.List;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ public class CommentsDAOMybatis implements CommentsDAO{
 	private SqlSessionTemplate sessionTemplate;
 
 	public int insert(Comments comments) {
+		sessionTemplate.insert("Comments.insert",comments);
 		return 0;
 	}
 
@@ -21,11 +22,11 @@ public class CommentsDAOMybatis implements CommentsDAO{
 		return 0;
 	}
 
-	public int delete(int comment_id) {
+	public int delete(int comments_id) {
 		return 0;
 	}
 
-	public List selectList(int member_id) {
+	public List selectList(int comments_id) {
 		return null;
 	}
 

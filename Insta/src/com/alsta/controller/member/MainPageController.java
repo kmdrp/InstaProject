@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alsta.model.domain.Comments;
 import com.alsta.model.service.MainPageService;
 
 @Controller
@@ -16,6 +17,7 @@ public class MainPageController {
 	@Autowired
 	@Qualifier("mainPageServiceImpl")
 	private MainPageService mainPageService;
+	
 	@RequestMapping("post.do")
 	public ModelAndView selectAll(){
 		List list = mainPageService.selectAll();
@@ -23,6 +25,13 @@ public class MainPageController {
 		mav.addObject("post",list);
 		mav.setViewName("/alsta/main");
 		return mav;
+	}
+	
+	@RequestMapping("comments.do")
+	public String regist(Comments comments){
+		comments.setComments("제발좀 되라");
+		mainPageService.regist(comments);
+		return "/alsta/main";
 	}
 	
 	
