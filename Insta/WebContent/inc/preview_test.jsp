@@ -16,8 +16,8 @@
 	margin:0 auto;
 }
 #w3_modal{
-	padding:auto;
 	margin:0 auto;
+	height:600px;
 }
 #modal{
 	margin:0 auto;
@@ -167,13 +167,13 @@ var content=document.getElementById("content");
 var modal=document.getElementById("modal");
 var div_mod=document.getElementById("w3_modal");
 window.addEventListener("load",function(){
-	img.style.height="600px";
-	gallery.style.width=img.style.width;
+ 	img.style.height=600+"px";
+ 	/*gallery.style.width=img.style.width;
+	
 	wrapper.style.width=gallery.style.width+content.style.width;
 	modal.style.width=wrapper.style.width;
-	div_mod.style.width=modal.style.width;
+	div_mod.style.width=modal.style.width; */
 });
-
 function roro(){
 	document.getElementById("img_detail").style.display="block";
 	
@@ -182,17 +182,7 @@ function closeAll(){
 	var frame=document.getElementById("img_detail");
 	frame.style.display="none";
 }
-function like(){
-	var img_like=document.getElementById("img_like");
-	if(!btn_red){
-		img_like.src="/images/button/heart1.png";
-		btn_red=true;
-	}else{
-		img_like.src="/images/button/heart.png";
-		btn_red=false;
-	}
-	
-}
+
 </script>
 
 </html>

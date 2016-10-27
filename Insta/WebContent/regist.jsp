@@ -47,7 +47,8 @@ a:link, a:visited {
 </style>
 <script>
 	function regist() {
-		location.href = "/regist.do";
+		form1.action="/regist.do";
+		form1.submit();
 	}
 </script>
 </head>
@@ -64,6 +65,7 @@ a:link, a:visited {
 			</div>
 			<div class="col-sm-4" id="loginform">
 				<form class="form-horizontal" name="form1" method="post">
+					<input type="hidden" name="gender" value="m">
 					<div class="well well-lg">
 						<div class="form-group">
 							<div class="jumbotron jumbo" align="center">
