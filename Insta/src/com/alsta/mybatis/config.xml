@@ -4,24 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <typeAliases>
-<<<<<<< HEAD
   	<typeAlias type="com.alsta.model.domain.Member" alias="Member"/>
-  </typeAliases>
-  <mappers>
-    <mapper resource="com/alsta/mybatis/MemberMapper.xml"/>
-=======
   	<typeAlias type="com.alsta.model.domain.Comments" alias="Comments"/>
   	<typeAlias type="com.alsta.model.domain.Follow" alias="Follow"/>
   	<typeAlias type="com.alsta.model.domain.Love" alias="Love"/>
-  	<typeAlias type="com.alsta.model.domain.Member" alias="Member"/>
   	<typeAlias type="com.alsta.model.domain.Post" alias="Post"/>
   </typeAliases>
   <mappers>
+    <mapper resource="com/alsta/mybatis/MemberMapper.xml"/>
     <mapper resource="com/alsta/mybatis/CommentsMapper.xml"/>
     <mapper resource="com/alsta/mybatis/FollowMapper.xml"/>
     <mapper resource="com/alsta/mybatis/LoveMapper.xml"/>
-    <mapper resource="com/alsta/mybatis/MemberMapper.xml"/>
     <mapper resource="com/alsta/mybatis/PostMapper.xml"/>
->>>>>>> e8ab2b5491357aaf899d1cfdced59dafa052d930
+
   </mappers>
 </configuration>
