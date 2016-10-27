@@ -93,7 +93,7 @@ function upload(){
 					<h3><small>회원님을 위한 추천</small></h3>
 				</div>
 				<div class="col-sm-6 text-right">
-					<h3><small><a href="/searchFriend/searchFriend.jsp">모두보기</a>></small></h3>
+					<h3><small><a href="/alsta/friend.jsp">모두보기</a>></small></h3>
 				</div>
 			</div>
 		</div>

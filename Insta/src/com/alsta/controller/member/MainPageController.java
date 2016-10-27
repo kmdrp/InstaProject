@@ -21,7 +21,7 @@ public class MainPageController {
 		List list = mainPageService.selectAll();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("post",list);
-		mav.setViewName("/alsta/mainPage");
+		mav.setViewName("/alsta/main");
 		return mav;
 	}
 	

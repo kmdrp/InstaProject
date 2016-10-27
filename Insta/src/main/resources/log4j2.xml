@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-  
-  <Appenders> <!-- 어디에? -->
+  <!-- 어디에? -->
+  <Appenders> 
     <Console name="STDOUT" target="SYSTEM_OUT"><!-- 어떻게? -->
       <PatternLayout pattern="%d %-5p - %m%n"/>
     </Console>
