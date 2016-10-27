@@ -1,4 +1,4 @@
-package com.alsta.model.dao;
+package com.alsta.model.spring.dao;
 
 import java.awt.List;
 
@@ -6,29 +6,30 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.alsta.model.domain.Follow;
+import com.alsta.model.dao.LoveDAO;
+import com.alsta.model.domain.Love;
 @Repository
-public class FollowDAOMybatis implements FollowDAO{
+public class LoveDAOMybatis implements LoveDAO{
 	@Autowired
 	private SqlSessionTemplate sessionTemplate;
 
-	public int insert(Follow follow) {
+	public int insert(Love love) {
 		return 0;
 	}
 
-	public int update(Follow follow) {
+	public int update(Love love) {
 		return 0;
 	}
 
-	public int delete(int follow_id) {
+	public int delete(int love_id) {
 		return 0;
 	}
 
-	public List selectList(int follow_id) {
+	public List selectList(int love_id) {
 		return null;
 	}
 
-	public void selectOne(Follow follow) {
+	public void selectOne(Love love) {
 		
 	}
 }

@@ -18,5 +18,14 @@ public class MemberServiceImpl implements MemberService{
 		String view=null;
 		return result;
 	}
+	public int updateDetail(Member member) {
+		
+		return 0;
+	}
+
+	public int updatePassword(Member member) {
+
+		return 0;
+	}
 
 }
