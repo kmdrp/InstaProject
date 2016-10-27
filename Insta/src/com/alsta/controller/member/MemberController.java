@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alsta.model.domain.Member;
 import com.alsta.model.service.MemberService;
-//�귣ġ
+
 @Controller
 public class MemberController {
 	@Autowired

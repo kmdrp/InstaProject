@@ -31,7 +31,9 @@ a:link, a:visited {
 	text-decoration: none;
 	display: inline-block;
 }
-
+div_img{
+	margin-top:20px;
+}
 
 </style>
 <script>
@@ -45,8 +47,8 @@ a:link, a:visited {
 		<div class="row content" id="wrapper">
 			<div class="col-sm-2">
 			</div>
-			<div class="col-sm-4 sidenav" align="center">
-				<img class="img-responsive img_main"  src="/images/img_index/aloe.jpeg" alt="Chania"
+			<div class="col-sm-4 sidenav " align="center" >
+				<img class="img-responsive img_main div_img"  src="/images/img_index/aloe.jpeg" alt="Chania"
 					id="main_img" height="80%">
 			</div>
 			<div class="col-sm-4" id="loginform">
