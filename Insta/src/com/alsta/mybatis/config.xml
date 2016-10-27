@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <typeAliases>
-  	<typeAlias type="com.alsta.model.Member" alias="Member"/>
+  	<typeAlias type="com.alsta.model.domain.Member" alias="Member"/>
   </typeAliases>
   <mappers>
-    <mapper resource="com/alsta/model/MemberMapper.xml"/>
+    <mapper resource="com/alsta/mybatis/MemberMapper.xml"/>
   </mappers>
 </configuration>

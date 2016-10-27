@@ -1,4 +1,4 @@
-package com.aslta.model.domain;
+package com.alsta.model.domain;
 
 public class Follow {
 	private int follow_id;

@@ -1,4 +1,4 @@
-package com.aslta.model.domain;
+package com.alsta.model.domain;
 
 import org.springframework.web.multipart.MultipartFile;
 

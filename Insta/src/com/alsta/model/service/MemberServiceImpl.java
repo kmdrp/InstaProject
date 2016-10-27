@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alsta.model.dao.MemberDAO;
-import com.aslta.model.domain.Member;
+import com.alsta.model.domain.Member;
 @Service
 public class MemberServiceImpl implements MemberService{
 	@Autowired
