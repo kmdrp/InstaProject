@@ -22,22 +22,21 @@
 #modal{
 	margin:0 auto;
 }
-#wrapper{
-	height:600px;
+/* #wrapper{
 	margin:0px;
 	padding:0px;
-}
+} */
 #gallery{
-	height:600px;
 	margin:0px;
 	padding:0px;
 	float:left;
 }
 #content{
 	width:330px;
-	height:600px;
 	background:yellow;
 	float:left;
+	margin:0px;
+	display:table;
 }
 #info_writer{
 	width:100%;
@@ -58,7 +57,7 @@
 	text-align:left;
 }
 #follow_writer{
-	width:70px;
+	width:80px;
 	margin-right:20px;
 }
 #info_content{
@@ -77,15 +76,17 @@
 	font-weight:bold;
 }
 #div_comment{
-	backgronud:purple;
-	height:420px;
+	width:100%;
+	background:orange;
 }
 #div_input{
-	height:70px;
+	height:60px;
 	display:table;
 	padding:0px;
 	margin:0px;
 	background:white;
+	margin-bottom:0px;
+	vertical-align:middle;
 }
 .line4{
 	display:table-cell;
@@ -108,9 +109,81 @@
 	margin:10px;
 }
 </style>
+<script>
+var img;
+var wrapper;
+var content;
+var modal;
+var div_mod;
+var comment;
+function init(){
+	gallery=document.getElementById("gallery");
+	img=document.getElementById("selected_img");
+	wrapper=document.getElementById("wrapper");
+	content=document.getElementById("content");
+	modal=document.getElementById("modal");
+	div_mod=document.getElementById("w3_modal");
+	comment=document.getElementById("div_comment");
+}/* 
+window.addEventListener("load",function(){
+	img.style.height="600px";
+	 showSize();
+	gallery.style.width=img.style.width;
+	wrapper.style.width=gallery.style.width+content.style.width;
+	modal.style.width=wrapper.style.width;
+	div_mod.style.width=modal.style.width;
+}); */
+function roro(){
+	document.getElementById("img_detail").style.display="block";
+	imgSize();
+	//alert(wrapper.style.width);
+	/* wrapper.style.width=(img.naturalWidth)*(600/img.naturalHeight)+330+"px";
+	wrapper.style.height=600+"px";
+	modal.style.width=wrapper.style.width;
+	modal.style.height=600+"px";
+	alert("naWidty:"+img.naturalWidth+"&width"+img.style.width); */
+}
+function closeAll(){
+	var frame=document.getElementById("img_detail");
+	frame.style.display="none";
+}
+function imgSize(){
+	var imgWidth=img.naturalWidth;
+	var imgHeight=img.naturalHeight;
+	if(imgWidth<=imgHeight){
+		if(imgHeight>600){
+			img.style.height=600+"px";
+			wrapper.style.width=imgWidth*(600/imgHeight)+331+"px";
+			content.style.height=600+"px";
+			comment.style.height=430+"px";
+		}else{
+			img.style.width=imgWidth+"px";
+			gallery.style.height=imgHeight+"px";
+			gallery.style.width=imgWidth+"px";
+			content.style.height=gallery.style.height;
+			comment.style.height=imgHeight-170+"px";
+			wrapper.style.width=imgWidth+331+"px";
+			wrapper.style.height=content.style.height;
+		}
+	}
+	modal.style.width=wrapper.style.width;
+	modal.style.height=wrapper.style.height+"px";
+}
 
+function like(){
+	var img_like=document.getElementById("img_like");
+	if(!btn_red){
+		img_like.src="/images/button/heart1.png";
+		btn_red=true;
+	}else{
+		img_like.src="/images/button/heart.png";
+		btn_red=false;
+	}
+}
+
+</script>
 </head>
-<body>
+<body onLoad="init()">
 
 <div>
 	<button type="button" onclick="roro()">open this</button>
@@ -125,7 +198,7 @@
    		<!-- wrapper height로 사진  height고정  -->
    			<!-- 사진들어가는  div -->
    			<div id="gallery">
-				<img src="/images/ir9.jpg" id="selected_img">   				
+				<img src="/images/ir12.jpg" id="selected_img">   				
    			</div>
    			<!-- 사진 정보 들어가는 div -->
    			<div id="content">
@@ -152,47 +225,21 @@
 				</div>
    			</div>
       	</div>
-		
     </div>
-    
     </div>
 </div>
-
 </body>
-<script>
-var gallery=document.getElementById("gallery");
-var img=document.getElementById("selected_img");
-var wrapper=document.getElementById("wrapper");
-var content=document.getElementById("content");
-var modal=document.getElementById("modal");
-var div_mod=document.getElementById("w3_modal");
-window.addEventListener("load",function(){
-	img.style.height="600px";
-	gallery.style.width=img.style.width;
-	wrapper.style.width=gallery.style.width+content.style.width;
-	modal.style.width=wrapper.style.width;
-	div_mod.style.width=modal.style.width;
-});
-
-function roro(){
-	document.getElementById("img_detail").style.display="block";
-	
-}
-function closeAll(){
-	var frame=document.getElementById("img_detail");
-	frame.style.display="none";
-}
-function like(){
-	var img_like=document.getElementById("img_like");
-	if(!btn_red){
-		img_like.src="/images/button/heart1.png";
-		btn_red=true;
-	}else{
-		img_like.src="/images/button/heart.png";
-		btn_red=false;
-	}
-	
-}
-</script>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
