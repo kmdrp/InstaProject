@@ -36,7 +36,7 @@ function changePassword(){
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
 	      		<ul class="nav nav-pills nav-stacked">
-			        <li><a href="/account/edit.jsp">Home</a></li>
+			        <li><a href="/alsta/edit.jsp">Home</a></li>
 			        <li class="active"><a href="/account/password/change.jsp">Menu 1</a></li>
 		   		</ul>
 	   		</div>

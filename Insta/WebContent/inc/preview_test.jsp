@@ -16,8 +16,8 @@
 	margin:0 auto;
 }
 #w3_modal{
-	padding:auto;
 	margin:0 auto;
+	height:600px;
 }
 #modal{
 	margin:0 auto;
@@ -230,16 +230,5 @@ function like(){
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+  	<typeAlias type="com.alsta.model.domain.Member" alias="Member"/>
+  	<typeAlias type="com.alsta.model.domain.Comments" alias="Comments"/>
+  	<typeAlias type="com.alsta.model.domain.Follow" alias="Follow"/>
+  	<typeAlias type="com.alsta.model.domain.Love" alias="Love"/>
+  	<typeAlias type="com.alsta.model.domain.Post" alias="Post"/>
+  </typeAliases>
+  <mappers>
+    <mapper resource="com/alsta/mybatis/MemberMapper.xml"/>
+    <mapper resource="com/alsta/mybatis/CommentsMapper.xml"/>
+    <mapper resource="com/alsta/mybatis/FollowMapper.xml"/>
+    <mapper resource="com/alsta/mybatis/LoveMapper.xml"/>
+    <mapper resource="com/alsta/mybatis/PostMapper.xml"/>
+
+  </mappers>
+</configuration>

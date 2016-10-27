@@ -1,5 +1,7 @@
+<%@page import="com.alsta.model.domain.Post"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ include file="/inc/upload.jsp" %>
+<%List <Post> postList = (List) request.getAttribute("post"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +17,7 @@
 	border:1px solid  #c0c0c0;
 }
 .bg-grey {
-    background-color: #f6f6f6;
+    background-color: white;
 }
 .bg-white{
 	 background-color: white;
@@ -60,7 +62,9 @@ ul{
 	border:0px;
 	
 }
-
+#mainPage_gallery{
+	padding:10px;
+}
 /*메인화면끝*/
 
 </style>
@@ -73,38 +77,8 @@ function upload(){
 </script>
 </head>
 <body>
-
-
 <!-- 상단바 -->
-<div class="navbar navbar-default bg-white">
-	<div class="row">
-  		<!-- 메인이미지 -->
-  		<div class="col-sm-4"><img src="/images/insta1.png"></div>
- 		
- 		<!-- 검색 -->
- 		<div class="col-sm-4">
- 			<div class="input-group">
-       			<input type="text" class="form-control" placeholder="Search..">
-    		    <span class="input-group-btn">
-    		   	   <button class="btn btn-default" type="button">
-    	       		 <span class="glyphicon glyphicon-search"></span>
-      	   			</button>
-      			 </span>
-     		 </div>
-      	</div>
-		
-		<!-- 버튼 4개 -->
-		<div class="col-sm-4">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="javascript:upload()" ><span class="glyphicon glyphicon-camera"></span></a></li>
-  				<li><a href="/"><span class="	glyphicon glyphicon-cloud"></span></a></li>
-  				<li><a href="/searchFriend/searchFriend.jsp"><span class="glyphicon glyphicon-heart-empty"></span></a></li>
-  				<li><a href="/my/profile.jsp"><span class="glyphicon glyphicon-user"></span></a></li>
-  			</ul>
-  		</div>
-	</div>
-</div>
-
+<%@include file="/inc/header.jsp" %>
 
 <!-- 친구 찾기 -->
 <div  class="container-fluid bg-grey">
@@ -119,7 +93,7 @@ function upload(){
 					<h3><small>회원님을 위한 추천</small></h3>
 				</div>
 				<div class="col-sm-6 text-right">
-					<h3><small><a href="/searchFriend/searchFriend.jsp">모두보기</a>></small></h3>
+					<h3><small><a href="/alsta/friend.jsp">모두보기</a>></small></h3>
 				</div>
 			</div>
 		</div>
@@ -150,7 +124,7 @@ function upload(){
 			<div class="my1" >
 				<a href="#">
 				<img src="/images/img1.jpg"  class="img-circle myimg">
-				<h3 id="userId" name="userId" >adsdfdfdf<br>
+				<h3 id="userId" name="userId" >ajfzoawhdk<br>
 				</a>
 				<small>secondary text</small>
 				</h3>
@@ -180,7 +154,7 @@ function upload(){
 
 </div>
 
-
+<%for(int i=0;i<postList.size();i++){ %>
 <!-- 메인화면1 -->
 <div  class="container-fluid bg-grey">
 <div class="row">
@@ -191,13 +165,17 @@ function upload(){
 		<!-- 메인화면 상단 아이디 및 시간 부분 -->
 		<div class="row">
 			<div class="col-sm-10 text-left">
-				<a href="#"><img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> zenxen</a>
+				<a href="#">
+				<img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
+				<%Post post = postList.get(i); %>
+				<%=post.getMember_id() %>
+				</a>
 			</div>
 			<div class="col-sm-2 text-center"><h4>1주전</h4></div>  
 		</div>
 	
 		<!-- 메인화면 중간 사진 부분 -->
-		<div><img  src="/images/kr5.jpg" width="100%"></div>
+		<div id="mainPage_gallery"><img  src="/images/kr5.jpg" width="100%"></div>
 	
 		<!-- 메인화면 하단 댓글 보는 화면 -->
 		<div>
@@ -235,6 +213,7 @@ function upload(){
 </div>
 </div>
 <!-- 메인화면1 끝 반복예정 -->
+<%} %>
 
 <!-- 메인화면2 -->
 <div  class="container-fluid bg-grey">
@@ -252,7 +231,7 @@ function upload(){
 		</div>
 	
 		<!-- 메인화면 중간 사진 부분 -->
-		<div><img  src="/images/kr1.jpg" width="100%"></div>
+		<div id="mainPage_gallery"><img  src="/images/kr1.jpg" width="100%"></div>
 	
 		<!-- 메인화면 하단 댓글 보는 화면 -->
 		<div>
@@ -294,7 +273,7 @@ function upload(){
 <!-- 신고하기 모달 구성 -->
  <div class="modal fade" id="btn_report" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" style="width:100%">
       <div class="btn-group-vertical" style="width:100%";">
   			<button type="button" class="btn btn-default">부적절한 콘텐츠 신고</button>
   			<button type="button" class="btn btn-default">퍼가기</button>

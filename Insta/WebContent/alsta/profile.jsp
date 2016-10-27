@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ include file="/inc/upload.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,6 @@ body{
 	display:table-cell;
 	height:333px;
 }
-
 #line1{
 	display:table;
 	height:60px;
@@ -95,7 +95,6 @@ pre{
 	background:#F6F6F6;
 	border:1px solid #8C8C8C;
 }
-
 /* 프로필사진 */
 #btn_img{
 	border:0px;
@@ -105,25 +104,14 @@ strong{
 	font-weight:bold;
 }
 .w3-third img{
-	padding:20px;
+	padding:15px;
+	height:333px;
+	width:100%;
 }
 .w3-third img:hover{
 	opacity:0.6;
 }
-#modal_img{
-	width:70%;
-	height:100%;
-	float:left;
-}
-#modal_content{
-	width:30%;
-	height:100%;
-	float:left;
-	background:#F6F6F6;
-}
-#modal_content img{
-	padding:7px;
-}
+
 #info_uploader span{
 	float:left;
 }
@@ -140,11 +128,17 @@ strong{
 #div_navhead{
 	display:table;	
 }
+#nav_upload{
+	display:table;
+}
+.nav_element{
+	display:table-cell;
+	vertical-align:middle;
+}
 #span_navhead{
 	display:table-cell;
 	vertical-align:middle;
 }
-
 .well{
 	display:block;
 	margin:auto;
@@ -160,20 +154,16 @@ strong{
 #img_nav_main{
 	margin-top:0px;
 }
-
+#nav_upload button{
+	border:none;
+	background:white;
+}
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div id="nav_head" class="container-fluid">
-			<div id="div_navhead" class="nav navbar-nav">
-	      		<a class="navbar-brand" href="/main/mainPage.jsp"><img id="img_nav_main" src="/images/insta1.png"></a>
-	    	</div>
-			<div id="search"class="well well-sm" onClick="active_search()"><span class="glyphicon glyphicon-search"></span>검색</div>
-			<div id="upload" > <img src="/images/plus.png" onClick="upload()"></div>
-		</div>
+	<!-- 상단바 -->
+	<%@include file="/inc/header.jsp"%>
 	
-	</nav>
 	<div id="main">
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
@@ -183,7 +173,7 @@ strong{
 		</div>
 		<div id="profile_detail" class="col-md-8">
 				<p id="line1"><span id="id_profile" style="float:left;"><strong>ajfzoa</strong></span>
-				<span id="span_btn"><a href="/my/account/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
+				<span id="span_btn"><a href="/alsta/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
 				<span id="span_more"><button><img src="/images/more.png" onClick="myId()"></button></span>
 				</p>
 				<p id="line2"> 게시물<strong> 6</strong> 개&nbsp;&nbsp; 팔로워 <strong>100</strong>명  팔로우<strong> 100</strong>명 </p> 
@@ -195,16 +185,18 @@ strong{
 	
 	<div id="p_zone" class="w3-row">
 			<div id="p1" class="w3-third">
-				<img src="/images/kr.jpg" style="width:100%;" onClick="onClick(this)">
-				<img src="/images/kr4.png" style="width:100%;" onClick="onClick(this)">
+				<img src="/images/kr.jpg" onClick="onClick(this)">
+				<img src="/images/kr4.png" onClick="onClick(this)">
+				<img src="/images/kr1.jpg" onClick="onClick(this)">
+				
 			</div>
 			<div id="p2" class="w3-third">
-				<img src="/images/kr3.jpg" style="width:100%;" onClick="onClick(this)">
-				<img src="/images/kr5.jpg" style="width:100%;" onClick="onClick(this)">
+				<img src="/images/kr3.jpg" onClick="onClick(this)">
+				<img src="/images/kr5.jpg" onClick="onClick(this)">
 			</div>
 			<div id="p3"class="w3-third">
-				<img src="/images/kr8.jpg" style="width:100%;" onClick="onClick(this)">
-				<img src="/images/kr7.jpg" style="width:100%;" onClick="onClick(this)">
+				<img src="/images/kr8.jpg" onClick="onClick(this)">
+				<img src="/images/kr7.jpg" onClick="onClick(this)">
 			</div>
 			
 	</div>
@@ -266,6 +258,10 @@ strong{
 	}
 	function active_search(){
 		//클릭으로 search 창 활성화 
+	}
+	//사진 업로드 버튼
+	function upload(){
+		document.getElementById("upload").style.display="block";
 	}
 	
 </script>

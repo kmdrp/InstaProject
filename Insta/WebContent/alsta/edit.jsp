@@ -34,7 +34,7 @@ function send(){
 			<div class="col-sm-2 sidenav">
 	      		<ul class="nav nav-pills nav-stacked">
 			        <li class="active"><a href="/account/edit.jsp">Home</a></li>
-			        <li><a href="/account/password/change.jsp">Menu 1</a></li>
+			        <li><a href="/alsta/password.jsp">Menu 1</a></li>
 		   		</ul>
 	   		</div>
 	  		<div class="col-sm-9" id="wrapper">

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+	<!--접두어 접미어  뷰핸들러 설정  -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		p:prefix="/"
+		p:suffix=".jsp"
+	/>
+	<!-- 파일 업로드 핸들러 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	<!-- 컴포넌트 메모리 올리기 -->
+	<context:component-scan base-package="com.alsta"/>
+	<!-- jndi 읽어 오기 -->
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/oracle" resource-ref="true"/>
+	<!-- mybatis 설정 sqlsessionfactory 메모리 올리기 -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="dataSource"
+		p:configLocation="classpath:com/alsta/mybatis/config.xml"
+	/>
+	<!-- sqlsessionfactory에서 session얻어오기 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactoryBean"/>
+	</bean>
+	
+	<bean id="myLogger" class="com.alsta.common.log.MyLogger"/>
+	<aop:config>
+		<aop:aspect id="LoggerAspect" ref="myLogger">
+		<aop:pointcut 
+		expression="execution(public * com.alsta.controller..*Controller.*(..))" 
+		id="controllerCut"/>
+		<aop:around method="printMsg" pointcut-ref="controllerCut"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
