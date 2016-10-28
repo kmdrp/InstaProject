@@ -74,9 +74,9 @@ function upload(){
 	document.getElementById("upload").style.display="block";
 }
 function regist(){
-	/* commentRegist.action="/alsta/comments.do"
-	commentRegist.submit(); */
-	location.href="/alsta/comments.do?comments='test'"
+	commentRegist.action="/alsta/comments.do";
+	commentRegist.submit();
+	/* location.href="/alsta/comments.do?comments='test'"; */
 }
 
 </script>

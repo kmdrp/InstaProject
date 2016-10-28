@@ -6,6 +6,7 @@ create table member(
 	,Password varchar2(50)
 	,regdate date default sysdate
 	,Phone varchar2(15) default 01000000000
+	,gender VARCHAR(1) CHECK (gender IN ('m', 'f'))
 	,gender VARCHAR(10) 
 	,Memo clob
 	,privacy number

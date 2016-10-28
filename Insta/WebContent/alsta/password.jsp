@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="com.alsta.model.domain.Member"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%
+	Member member=(Member)request.getAttribute("member");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,6 +27,15 @@
 </style>
 <script>
 function changePassword(){
+	if(form1.pwd_prev.value!="<%=member.getPassword()%>"){
+		alert("비밀번호가 틀렸습니다.");
+		return;
+	}
+	alert("하하");
+	if(form1.password.value!=form1.pwd_ch.value){
+		alert("변경할 비밀번호가 일치하지 않습니다.");
+		return;
+	}
 	alert("비밀번호 변경");
 	form1.action="/alsta/updatePassword.do";
 	form1.submit();
@@ -36,8 +48,8 @@ function changePassword(){
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
 	      		<ul class="nav nav-pills nav-stacked">
-			        <li><a href="/alsta/edit.jsp">Home</a></li>
-			        <li class="active"><a href="/account/password/change.jsp">Menu 1</a></li>
+			        <li><a href="/alsta/edit.do?member_id=<%=member.getMember_id()%>">Home</a></li>
+			        <li class="active"><a href="/alsta/password.do?member_id=<%=member.getMember_id()%>">Menu 1</a></li>
 		   		</ul>
 	   		</div>
 	  		<div class="col-sm-9" id="wrapper">
@@ -59,7 +71,7 @@ function changePassword(){
 			        			<label for="pwd">이전 비밀번호</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="password" class="form-control"  nama="pwd_prev">
+			        			<input type="password" class="form-control"  name="pwd_prev">
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
@@ -68,7 +80,8 @@ function changePassword(){
 			        			<label for="pwd">새 비밀번호</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="password" class="form-control"  nama="pwd_new">
+			        			<input type="password" class="form-control"  name="password">
+			        			<input type="hidden" name="member_id" value="<%=member.getMember_id()%>">
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
@@ -77,7 +90,7 @@ function changePassword(){
 			        			<label for="pwd">새 비밀번호 확인</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="password" class="form-control"  nama="pwd_ch">
+			        			<input type="password" class="form-control"  name="pwd_ch">
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
