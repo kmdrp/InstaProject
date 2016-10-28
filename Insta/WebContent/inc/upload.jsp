@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
-	int member_id=Integer.parseInt(request.getParameter("member_id"));
+	//int member_id=Integer.parseInt(request.getParameter("member_id"));
 %>
 <style>
 .modal-content{
@@ -128,7 +128,7 @@ function registPost(){
    		<form name="upload_form" method="post">
 	   		<div id="upload_img">
 	   			<input type="file" name="myFile" id="input_file" style="display:none;">
-	   			<input type="hidden" name="id" value="<%=member_id%>">
+	   			<input type="hidden" name="id" value="">
 		   		<button type="button" id="btn_load_img"onClick="load_img()"><img src="/images/img_upload/upload_img.png" id="img_default"></button>
 	   		</div>
 	   		<div id="upload_content">

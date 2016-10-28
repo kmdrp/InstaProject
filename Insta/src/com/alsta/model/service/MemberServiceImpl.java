@@ -32,6 +32,7 @@ public class MemberServiceImpl implements MemberService{
 		return memberDAO.selectOne(member_id);
 	}
 	public int registPost(Post post) {
+		post.getMyFile();
 		return postDAO.insert(post);
 	}
 
