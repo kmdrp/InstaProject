@@ -122,7 +122,6 @@
 	float:right;
 }
 </style>
-
 </head>
 <body>
 
@@ -143,8 +142,6 @@
 		      	<div class="btn-group-vertical">
 		      		<button type="button" class="btn btn-default" id="btn_tag"><span class="span_img"><img src="/images/img_upload/tag.png" id="well_object"class="media-object"></span><span class="span_text">사람 태그</span></button>
 		      		<button type="button" class="btn btn-default" id="btn_pin"><span class="span_img"><img src="/images/img_upload/pin.png" id="well_object"class="media-object"></span><span class="span_text">위치 추가</span></button>
-		      		
-		      		
 		      	</div>
 		      	<div id="container" >
 		      		<div id="share"><span id="span_share">공유하기</span></div>
@@ -163,9 +160,7 @@
 		      	</div>
 	      	</div>
       	</form>
-      	
       	</div>
-      	
     </div>
    
      <!--  <p id="caption"></p>  캡션 추가하는 부분-->
