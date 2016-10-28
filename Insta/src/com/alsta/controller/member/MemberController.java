@@ -7,13 +7,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alsta.model.dao.MemberDAO;
 import com.alsta.model.domain.Member;
+import com.alsta.model.domain.Post;
 import com.alsta.model.service.MemberService;
 
 @Controller
 @RequestMapping("/alsta/")
 public class MemberController {
 	@Autowired
-	@Qualifier("memberServiceImpl")
+	
 	private MemberService memberService;
 	@RequestMapping("regist.do")
 	public String regist(Member member){
@@ -38,13 +39,21 @@ public class MemberController {
 		return mav;
 	}
 	@RequestMapping("updateDetail.do")
-	public String updateDetail(Member member){
+	public ModelAndView updateDetail(Member member){
 		int result=memberService.updateDetail(member);
-		return "alsta/edit";
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("member_id", member.getMember_id());
+		mav.setViewName("redirect:/alsta/edit.do");
+		return mav;
 	}
 	@RequestMapping("updatePassword.do")
 	public String updatePassword(Member member){
 		int result=memberService.updatePassword(member);
-		return "alsta/password";
+		return "redirect:/alsta/password.do?member_id="+member.getMember_id();
+	}
+	@RequestMapping("registPost.do")
+	public String registPost(Post post){
+		int result=memberService.registPost(post);
+		return "redirect:/alsta/post.do?member_id="+post.getMember_id();
 	}
 }

@@ -1,16 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%
+	//int member_id=Integer.parseInt(request.getParameter("member_id"));
+%>
 <style>
 .modal-content{
 	width:800px;
@@ -122,29 +113,26 @@
 	float:right;
 }
 </style>
-
 </head>
 <body>
-
 <div id="upload" class="w3-modal w3-gray" >
     <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="closeAll()">×</span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
     <div class="modal-content">
    		<div>
-   		<form name="upload_form">
+   		<form name="upload_form" method="post">
 	   		<div id="upload_img">
-	   			<input type="file" name="upload_file" id="input_file" style="display:none;">
+	   			<input type="file" name="myFile" id="input_file" style="display:none;">
+	   			<input type="hidden" name="id" value="">
 		   		<button type="button" id="btn_load_img"onClick="load_img()"><img src="/images/img_upload/upload_img.png" id="img_default"></button>
 	   		</div>
 	   		<div id="upload_content">
 		      	<div id="upload_memo" class="form-group">
-		      		<textarea class="form-control"placeholder="설명 쓰기....." rows="5" id="comment"></textarea>
+		      		<textarea class="form-control" placeholder="설명 쓰기....." rows="5" id="comment" name="content"></textarea>
 		      	</div>
 		      	<div class="btn-group-vertical">
 		      		<button type="button" class="btn btn-default" id="btn_tag"><span class="span_img"><img src="/images/img_upload/tag.png" id="well_object"class="media-object"></span><span class="span_text">사람 태그</span></button>
 		      		<button type="button" class="btn btn-default" id="btn_pin"><span class="span_img"><img src="/images/img_upload/pin.png" id="well_object"class="media-object"></span><span class="span_text">위치 추가</span></button>
-		      		
-		      		
 		      	</div>
 		      	<div id="container" >
 		      		<div id="share"><span id="span_share">공유하기</span></div>
@@ -159,13 +147,11 @@
 			      	</div>
 		      	</div>
 		      	<div id="reg" class="media-group">
-		      		<span id="btn_aln"><button type="button" id="btn_regist" class="btn btn-primary media-right" onClick="regist()">사진 등록</button></span>		      		
+		      		<span id="btn_aln"><button type="button" id="btn_regist" class="btn btn-primary media-right" onClick="registPost()">사진 등록</button></span>		      		
 		      	</div>
 	      	</div>
       	</form>
-      	
       	</div>
-      	
     </div>
    
      <!--  <p id="caption"></p>  캡션 추가하는 부분-->
@@ -180,8 +166,6 @@
       	<span class="sr-only">Next</span>
     	</a> -->
   </div>
-
-</body>
 <script>
 var form_file=document.getElementById("input_file");
 window.addEventListener("load",function(){

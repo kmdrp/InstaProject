@@ -15,7 +15,6 @@ import com.alsta.model.service.MainPageService;
 @RequestMapping("/alsta/")
 public class MainPageController {
 	@Autowired
-	@Qualifier("mainPageServiceImpl")
 	private MainPageService mainPageService;
 	
 	@RequestMapping("post.do")

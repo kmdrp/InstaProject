@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,31 +17,27 @@
 }
 #w3_modal{
 	margin:0 auto;
-	height:600px;
 }
 #modal{
 	margin:0 auto;
 }
 #wrapper{
-	height:600px;
 	margin:0px;
 	padding:0px;
 }
 #gallery{
-	height:600px;
 	margin:0px;
 	padding:0px;
 	float:left;
 }
-#content{
+#view_content{
 	width:330px;
-	height:600px;
 	background:yellow;
 	float:left;
 }
 #info_writer{
 	width:100%;
-	height:70px;
+	height:60px;
 	background:blue;
 	display:table;
 	padding:10px;
@@ -77,7 +74,7 @@
 }
 #div_comment{
 	backgronud:purple;
-	height:420px;
+	width:100%;
 }
 #div_input{
 	height:70px;
@@ -107,27 +104,94 @@
 	margin:10px;
 }
 </style>
+<script>
+var img;
+var wrapper=document.getElementById("wrapper");
+var content;
+var vmodal;
+var div_mod;
+var comment;
 
+function init1(){
+	gallery=document.getElementById("gallery");
+	img=document.getElementById("selected_img");
+	wrapper=document.getElementById("wrapper");
+	content=document.getElementById("view_content");
+	vmodal=document.getElementById("view_modal");
+	div_mod=document.getElementById("w3_modal");
+	comment=document.getElementById("div_comment");
+}
+
+function closeAll(){
+	var frame=document.getElementById("img_detail");
+	frame.style.display="none";
+}
+function sizeCheck(){
+	img=document.getElementById("selected_img")
+	/* var width=img.naturalWidth;
+	var height=img.naturalHeight;
+	alert(width+"&&"+height); */
+}
+function imgSize(){
+	var imgWidth=img.naturalWidth;
+	var imgHeight=img.naturalHeight;
+	if(imgWidth<=imgHeight){
+		if(imgHeight>600){
+			//width<height && height>600
+			//alert("width<height && height>600");
+			img.style.height=600+"px";
+			gallery.style.height=600+"px";
+			img.style.width=imgWidth*(600/imgHeight);
+			wrapper.style.width=imgWidth*(600/imgHeight)+331+"px";
+			content.style.height=600+"px";
+			comment.style.background="orange";
+			comment.style.height=430+"px";
+		}else{
+			//width<height && height<=600
+			//alert("width<height && height<=600")
+			img.style.width=imgWidth;
+			img.style.height=imgHeight;
+			gallery.style.height=imgHeight+"px";
+			gallery.style.width=imgWidth+"px";
+			content.style.height=gallery.style.height;
+			comment.style.height=imgHeight-170+"px";
+			wrapper.style.width=imgWidth+331+"px";
+			wrapper.style.height=content.style.height;
+		}
+	}
+	//else는 나중에....
+	vmodal.style.width=wrapper.style.width+"px";
+	vmodal.style.height=wrapper.style.height+"px";
+	
+}
+	
+function like(){
+	var img_like=document.getElementById("img_like");
+	if(!btn_red){
+		img_like.src="/images/button/heart1.png";
+		btn_red=true;
+	}else{
+		img_like.src="/images/button/heart.png";
+		btn_red=false;
+	}
+}
+
+</script>
 </head>
-<body>
-
-<div>
-	<button type="button" onclick="roro()">open this</button>
-</div>
-
-
-<div id="img_detail" class="w3-modal w3-gray" >
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="closeAll()">×</span>
+<body onLoad="init1()">
+<!-- 버튼 구현 -->
+<div id="gallery_view" class="w3-modal w3-gray" >
+    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="close_view()">×</span>
     <div id="w3_modal"class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <div class="modal-content" id="modal">
-   		<div id="wrapper">
+    <div class="modal-content" id="view_modal">
+   		<div id="wrapper" >
    		<!-- wrapper height로 사진  height고정  -->
    			<!-- 사진들어가는  div -->
    			<div id="gallery">
-				<img src="/images/ir9.jpg" id="selected_img">   				
+				<img src="" id="selected_img">  					
    			</div>
    			<!-- 사진 정보 들어가는 div -->
-   			<div id="content">
+   			<div id="view_content">
    				<!-- 글쓴이 정보  프사_아이디_팔로우 버튼(팔로우중이면 팔로잉+색깔변화)-->
    				<div id="info_writer">
    					<span id="img_writer"><img src="/images/ir4.jpg" id="profileImg" class="img-circle" width="40px" height="40px"></span>	
@@ -158,30 +222,4 @@
 </div>
 
 </body>
-<script>
-var gallery=document.getElementById("gallery");
-var img=document.getElementById("selected_img");
-var wrapper=document.getElementById("wrapper");
-var content=document.getElementById("content");
-var modal=document.getElementById("modal");
-var div_mod=document.getElementById("w3_modal");
-window.addEventListener("load",function(){
- 	img.style.height=600+"px";
- 	/*gallery.style.width=img.style.width;
-	
-	wrapper.style.width=gallery.style.width+content.style.width;
-	modal.style.width=wrapper.style.width;
-	div_mod.style.width=modal.style.width; */
-});
-function roro(){
-	document.getElementById("img_detail").style.display="block";
-	
-}
-function closeAll(){
-	var frame=document.getElementById("img_detail");
-	frame.style.display="none";
-}
-
-</script>
-
 </html>

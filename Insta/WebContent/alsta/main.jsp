@@ -76,6 +76,7 @@ ul{
 function upload(){
 	document.getElementById("upload").style.display="block";
 }
+
 function regist(i){
 	commentRegist[i].action="/alsta/comments.do";
 	commentRegist[i].submit();

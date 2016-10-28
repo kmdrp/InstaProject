@@ -13,7 +13,8 @@ import com.alsta.model.domain.Post;
 public class PostDAOMybatis implements PostDAO{
 	@Autowired
 	private SqlSessionTemplate sessionTemplate;
-
+	
+	
 	public int insert(Post post) {
 		return 0;
 	}
@@ -37,6 +38,11 @@ public class PostDAOMybatis implements PostDAO{
 
 	public List selectAll() {
 		List list = sessionTemplate.selectList("Post.selectAll");
+		return list;
+	}
+	
+	public List selectMy(int member_id){
+		List list=(List)sessionTemplate.selectList("Post.selectMy");
 		return list;
 	}
 }

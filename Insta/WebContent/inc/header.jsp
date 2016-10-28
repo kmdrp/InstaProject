@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@include file="/inc/upload.jsp" %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -61,7 +60,7 @@ $(document).ready(function(){
 		<div class="col-sm-4 col-xs-4 nav_right" height="100%">
 			<ul class="nav navbar-nav nav_list">
 				<li><a href="javascript:upload()"><span class="glyphicon glyphicon-camera icon_nav"></span></a></li>
-  				<li><a href="/alsta/friend.jsp" ><span class="glyphicon glyphicon-user icon_nav" ></span></a></li>
+  				<li><a href="/alsta/followList.do" ><span class="glyphicon glyphicon-user icon_nav" ></span></a></li>
   				<li><a href="#" data-toggle="popover"><span class="glyphicon glyphicon-globe" ></span></a></li>
   				<li><a href="/alsta/profile.jsp"><span class="glyphicon glyphicon-home icon_navx"></span></a></li>
   			</ul>
