@@ -1,5 +1,7 @@
 package com.alsta.model.domain;
 
+import java.util.List;
+
 public class Post {
 	private int post_id;
 	private int member_id;
@@ -8,6 +10,7 @@ public class Post {
 	private String path;
 	private String regdate;
 	private String content;
+	private Follow follow;
 	
 	public int getPost_id() {
 		return post_id;
@@ -51,6 +54,12 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 	
+	public Follow getFollow() {
+		return follow;
+	}
+		
+	public void setFollow(Follow follow) {
+		this.follow = follow;
+	}
 }

@@ -13,7 +13,7 @@ import com.alsta.model.service.MemberService;
 @RequestMapping("/alsta/")
 public class MemberController {
 	@Autowired
-	@Qualifier("memberServiceImpl")
+	
 	private MemberService memberService;
 	@RequestMapping("regist.do")
 	public String regist(Member member){

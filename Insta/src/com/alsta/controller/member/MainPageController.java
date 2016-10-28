@@ -15,7 +15,6 @@ import com.alsta.model.service.MainPageService;
 @RequestMapping("/alsta/")
 public class MainPageController {
 	@Autowired
-	@Qualifier("mainPageServiceImpl")
 	private MainPageService mainPageService;
 	
 	@RequestMapping("post.do")
@@ -29,7 +28,7 @@ public class MainPageController {
 	
 	@RequestMapping("comments.do")
 	public String regist(Comments comments){
-		comments.setComments("Á¦¹ßÁ» µÇ¶ó");
+		comments.setComments("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¶ï¿½");
 		mainPageService.regist(comments);
 		return "/alsta/main";
 	}
