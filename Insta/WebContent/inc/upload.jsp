@@ -113,19 +113,12 @@
 	float:right;
 }
 </style>
-<script>
-function registPost(){
-	upload_form.encoding="multipart/form-data";
-	upload_form.action="/alsta/registPost.do";
-	upload_form.submit();
-}
-</script>
 <div id="upload" class="w3-modal w3-gray" >
     <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="closeAll()">×</span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
     <div class="modal-content">
    		<div>
-   		<form name="upload_form" method="post">
+   		<form name="upload_form">
 	   		<div id="upload_img">
 	   			<input type="file" name="myFile" id="input_file" style="display:none;">
 	   			<input type="hidden" name="id" value="">
@@ -189,12 +182,12 @@ function closeAll(){
 function load_img(){
 	document.getElementById("input_file").click();
 }
-/* function regist(){
+function registPost(){
 	form1.method="post";
 	form1.encoding="multipart/form-data";
-	form1.action="";
+	form1.action="/alsta/registPost.do";
 	form1.submit();
-} */
+} 
 //이미지 미리보기 구현
 function preview(){
 	
@@ -215,4 +208,4 @@ function preview(){
 }
 
 </script>
-</html>
+

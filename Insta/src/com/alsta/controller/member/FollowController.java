@@ -13,7 +13,6 @@ import com.alsta.model.service.FollowService;
 @RequestMapping("/alsta/")
 public class FollowController {
 	@Autowired
-	@Qualifier("followServiceImpl")
 	private FollowService followService;
 	@RequestMapping("follow.do")
 	public ModelAndView regist(Follow follow){

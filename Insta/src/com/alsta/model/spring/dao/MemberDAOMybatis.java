@@ -1,5 +1,6 @@
 package com.alsta.model.spring.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -27,5 +28,10 @@ public class MemberDAOMybatis implements MemberDAO{
 	}
 	public Member selectOne(int member_id) {
 		return sessionTemplate.selectOne("Member.selectOne", member_id);
+	}
+	public List selectList(Member member) {
+		List list=new ArrayList();
+		list=sessionTemplate.selectList("Member.selectList", member);
+		return list;
 	}
 }

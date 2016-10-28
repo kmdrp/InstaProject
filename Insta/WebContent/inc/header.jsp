@@ -39,7 +39,7 @@ $(document).ready(function(){
    
 });
 </script>
-
+<body>
 	<!-- 상단바 -->
 <div class="navbar navbar-default bg-white nav_header">
 	<div class="row" >
@@ -67,3 +67,4 @@ $(document).ready(function(){
   		</div>
 	</div>
 </div>
+</body>

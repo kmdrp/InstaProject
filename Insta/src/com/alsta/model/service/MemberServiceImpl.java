@@ -1,5 +1,7 @@
 package com.alsta.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,10 @@ public class MemberServiceImpl implements MemberService{
 	public int registPost(Post post) {
 		post.getMyFile();
 		return postDAO.insert(post);
+	}
+	public List logIn(Member dto) {
+		List list=memberDAO.selectList(dto);
+		return list;
 	}
 
 }
