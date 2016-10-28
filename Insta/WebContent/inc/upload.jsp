@@ -113,11 +113,9 @@
 	float:right;
 }
 </style>
-<<<<<<< HEAD
-=======
+
 </head>
 <body>
->>>>>>> 215651d1996829fd89ef1dd1720a5dfa3a19d23b
 <div id="upload" class="w3-modal w3-gray" >
     <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="closeAll()">×</span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
