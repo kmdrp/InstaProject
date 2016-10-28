@@ -11,6 +11,5 @@ public interface MemberDAO {
 	public int updateDetail(Member member);//회원정보 수정
 	public int updatePassword(Member member);//회원정보 수정
 	public int delete(int member_id);//회원 삭제
-	public List selectList(int member_id);//친구 찾기
-	public void selectOne(Member meber);
+	public Member selectOne(int member_id);//친구 상세(), 회원 상세
 }
