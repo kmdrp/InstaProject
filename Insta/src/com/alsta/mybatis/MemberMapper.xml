@@ -6,7 +6,7 @@
 	<sql id="sql">
 		select * from member
 	</sql>
-	<select id="selectOne" parameterType="int">
+	<select id="selectOne" parameterType="int" resultType="Member">
 		<include refid="sql"/> where member_id=#{member_id}
 	</select>
 	<insert id="insert" parameterType="Member">
