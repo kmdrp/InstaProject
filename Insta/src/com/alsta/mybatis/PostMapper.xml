@@ -11,5 +11,29 @@
 		<include refid="select"/>
 			order by post_id desc
 	</select>
+	
+	<resultMap type="Post" id="postMap">
+		<id column="post_id" property="post_id"/>
+		<result column="member_id" property="member_id"/>
+		<result column="img_type" property="img_type"/>
+		<result column="gps" property="gps"/>
+		<result column="path" property="path"/>
+		<result column="regdate" property="regdate"/>
+		<result column="content" property="content"/>
+		<collection property="commentsList" javaType="java.util.ArrayList" ofType="Comments">
+			<id column="comments_id" property="comments_id"/>
+			<result column="post_id" property="post_id"/>
+		<!-- 	<result column="member_id" property="member_id"/> -->
+			<result column="comments" property="comments"/>
+			<!-- <result column="regdate" property="regdate"/> -->
+		</collection>
+	</resultMap>
+	
+	<select id="selectList" resultType="Post" resultMap="postMap">
+		select p.post_id as post_id ,p.member_id as member_id,img_type,gps,path,content,regdate,
+		comments
+		FROM POST p, COMMENTS c
+		where p.post_id = c.post_id;
+	</select>
 
 </mapper>

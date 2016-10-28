@@ -26,8 +26,9 @@ public class PostDAOMybatis implements PostDAO{
 		return 0;
 	}
 
-	public List selectList(int post_id) {
-		return null;
+	public List selectList() {
+		List list = sessionTemplate.selectList("Post.selectList");
+		return list;
 	}
 
 	public void selectOne(Post post) {
@@ -35,7 +36,7 @@ public class PostDAOMybatis implements PostDAO{
 	}
 
 	public List selectAll() {
-		List list = (List)sessionTemplate.selectList("Post.selectAll");
+		List list = sessionTemplate.selectList("Post.selectAll");
 		return list;
 	}
 }

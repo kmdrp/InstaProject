@@ -1,7 +1,10 @@
 <%@page import="com.alsta.model.domain.Post"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%List <Post> postList = (List) request.getAttribute("post"); %>
+<%
+	List <Post> postList = (List) request.getAttribute("post"); 
+	/* List <Post> postList = (List)request.getAttribute("cpost"); */
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,10 +76,10 @@ ul{
 function upload(){
 	document.getElementById("upload").style.display="block";
 }
-function regist(){
-	/* commentRegist.action="/alsta/comments.do"
-	commentRegist.submit(); */
-	location.href="/alsta/comments.do?comments='test'"
+function regist(i){
+	commentRegist[i].action="/alsta/comments.do";
+	commentRegist[i].submit();
+	/* location.href="/alsta/comments.do?comments='test'" */
 }
 
 </script>
@@ -160,9 +163,12 @@ function regist(){
 </div>
 
 <%for(int i=0;i<postList.size();i++){ %>
+<%Post post = postList.get(i); %>
 <!-- 메인화면1 -->
 <div  class="container-fluid bg-grey">
 <div class="row">
+	
+	
 
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6 bg-white wrapper">
@@ -172,7 +178,7 @@ function regist(){
 			<div class="col-sm-10 text-left">
 				<a href="#">
 				<img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
-				<%Post post = postList.get(i); %>
+				
 				<%=post.getMember_id() %>
 				</a>
 			</div>
@@ -205,7 +211,13 @@ function regist(){
 			</div>
 			<div class="col-sm-9 ">
 				<form name="commentRegist" method="post">
-				<input type="text" class="form-control" placeholder="Enter Comment" name="comments" value="test"><button onClick="regist()">전송</button>
+				
+				<!-- post 및 member_id 저장 -->
+				<input type="hidden" name="post_id" value="<%=post.getPost_id()%>">
+				<input type="hidden" name="member_id" value="<%=post.getMember_id()%>">
+				
+				
+				<input type="text" class="form-control" placeholder="Enter Comment" name="comments"><button onClick="regist(<%=i%>)">전송</button>
 				</form>
 			</div>
 			<div class="col-sm-2">

@@ -1,5 +1,7 @@
 package com.alsta.model.domain;
 
+import java.util.ArrayList;
+
 public class Post {
 	private int post_id;
 	private int member_id;
@@ -8,7 +10,15 @@ public class Post {
 	private String path;
 	private String regdate;
 	private String content;
+	ArrayList<Comments> commentsList;
 	
+	
+	public ArrayList<Comments> getCommentsList() {
+		return commentsList;
+	}
+	public void setCommentsList(ArrayList<Comments> commentsList) {
+		this.commentsList = commentsList;
+	}
 	public int getPost_id() {
 		return post_id;
 	}
