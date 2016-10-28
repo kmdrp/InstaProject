@@ -14,19 +14,16 @@ public class MemberServiceImpl implements MemberService{
 	private MemberDAO memberDAO; 
 
 	public int regist(Member member) {
-		System.out.println(member.getEmail());
-		System.out.println(member.getName());
-		int result=memberDAO.insert(member);
-		return result;
+		return memberDAO.insert(member);
 	}
 	public int updateDetail(Member member) {
-		
-		return 0;
+		return memberDAO.updateDetail(member);
 	}
-
 	public int updatePassword(Member member) {
-
-		return 0;
+		return memberDAO.updatePassword(member);
+	}
+	public Member selectOne(int member_id) {
+		return memberDAO.selectOne(member_id);
 	}
 
 }

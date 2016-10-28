@@ -1,6 +1,6 @@
 package com.alsta.model.spring.dao;
 
-import java.awt.List;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,34 +12,20 @@ import com.alsta.model.domain.Member;
 @Repository
 public class MemberDAOMybatis implements MemberDAO{
 	@Autowired
-	private SqlSessionTemplate sessionTemplate;
-	
-	
+	private SqlSessionTemplate sessionTemplate;	
 	public int insert(Member member) {
-		System.out.println(member.getName());
-		int result=sessionTemplate.update("Member.insert", member);
-		return result;
+		return sessionTemplate.update("Member.insert", member);
 	}
-
 	public int updateDetail(Member member) {
-		int result=sessionTemplate.update("Member.updateDetail",member);
-		return result;
+		return sessionTemplate.update("Member.updateDetail",member);
 	}
 	public int updatePassword(Member member) {
-		int result=sessionTemplate.update("Member.updatePassword",member);
-		return result;
+		return sessionTemplate.update("Member.updatePassword",member);
 	}
-
 	public int delete(int member_id) {
 		return 0;
 	}
-
-	public List selectList(int member_id) {
-		return null;
+	public Member selectOne(int member_id) {
+		return sessionTemplate.selectOne("Member.selectOne", member_id);
 	}
-
-	public void selectOne(Member meber) {
-		
-	}
-
 }

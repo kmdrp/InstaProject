@@ -18,7 +18,7 @@ Logger logger;
 		Object target=joinPoint.getTarget();
 		String className=target.getClass().getName();
 		String methodName=joinPoint.getSignature().getName();
-		System.out.println("아무거나");
+		
 		try {
 			logger.debug(className+"."+methodName+"수행전");//어떤클래스? 어떤 메서드?
 			obj=joinPoint.proceed();//타겟의 본래 로직 수행

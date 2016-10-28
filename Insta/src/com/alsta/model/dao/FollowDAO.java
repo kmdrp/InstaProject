@@ -1,6 +1,6 @@
 package com.alsta.model.dao;
 
-import java.awt.List;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 

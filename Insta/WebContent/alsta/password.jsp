@@ -25,7 +25,7 @@
 <script>
 function changePassword(){
 	alert("비밀번호 변경");
-	form1.action="#";
+	form1.action="/alsta/updatePassword.do";
 	form1.submit();
 }
 </script>
