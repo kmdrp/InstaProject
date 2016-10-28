@@ -6,13 +6,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alsta.model.dao.MemberDAO;
+import com.alsta.model.dao.PostDAO;
 import com.alsta.model.domain.Member;
+import com.alsta.model.domain.Post;
 @Service
 public class MemberServiceImpl implements MemberService{
 	@Autowired
 	@Qualifier("memberDAOMybatis")
 	private MemberDAO memberDAO; 
-
+	
+	@Autowired
+	@Qualifier("postDAOMybatis")
+	private PostDAO postDAO;
+	
 	public int regist(Member member) {
 		return memberDAO.insert(member);
 	}
@@ -24,6 +30,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 	public Member selectOne(int member_id) {
 		return memberDAO.selectOne(member_id);
+	}
+	public int registPost(Post post) {
+		return postDAO.insert(post);
 	}
 
 }

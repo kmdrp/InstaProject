@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alsta.model.dao.MemberDAO;
 import com.alsta.model.domain.Member;
+import com.alsta.model.domain.Post;
 import com.alsta.model.service.MemberService;
 
 @Controller
@@ -49,5 +50,10 @@ public class MemberController {
 	public String updatePassword(Member member){
 		int result=memberService.updatePassword(member);
 		return "redirect:/alsta/password.do?member_id="+member.getMember_id();
+	}
+	@RequestMapping("registPost.do")
+	public String registPost(Post post){
+		int result=memberService.registPost(post);
+		return "redirect:/alsta/post.do?member_id="+post.getMember_id();
 	}
 }
