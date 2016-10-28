@@ -1,5 +1,9 @@
+<%@page import="com.alsta.model.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	Member member=(Member)request.getAttribute("member");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,6 +25,10 @@
 </style>
 <script>
 function send(){
+	if(form1.gender.value=='0'){
+		alert("성별을 선택해 주세요");
+		return;
+	}
 	alert("제출");
 	form1.action="/alsta/updateDetail.do";
 	form1.submit();
@@ -33,8 +41,8 @@ function send(){
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
 	      		<ul class="nav nav-pills nav-stacked">
-			        <li class="active"><a href="/account/edit.jsp">Home</a></li>
-			        <li><a href="/alsta/password.jsp">Menu 1</a></li>
+			        <li class="active"><a href="/alsta/edit.do?member_id=<%=member.getMember_id()%>">Home</a></li>
+			        <li><a href="/alsta/password.do?member_id=<%=member.getMember_id()%>">Menu 1</a></li>
 		   		</ul>
 	   		</div>
 	  		<div class="col-sm-9" id="wrapper">
@@ -44,7 +52,7 @@ function send(){
 		        			  <img src="/images/img1.jpg" class="img-circle" alt="Cinque Terre" width="60px">
 		        		</div>
 		        		<div class="col-sm-8 col-xs-8">
-		        			<h2>ajfzoa</h2>
+		        			<h2><%=member.getNick()%></h2>
 		        		</div>
 		        		<div class="col-sm-1 col-xs-1"></div>
 		     		</div>
@@ -53,10 +61,11 @@ function send(){
 		  			<div class="form-group">
 		  				<div class="row content">
 			        		<div class="col-sm-3 col-xs-3 title">
+			        			<input type="hidden" name="member_id" value="<%=member.getMember_id() %>">
 			        			<label>이름</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="text" class="form-control" name="name">
+			        			<input type="text" class="form-control" name="name" value="<%=member.getName()%>">
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
@@ -65,7 +74,7 @@ function send(){
 			        			<label>사용자 이름</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="text" class="form-control" name="nickname">
+			        			<input type="text" class="form-control" name="nick" value="<%=member.getNick()%>">
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
@@ -74,7 +83,7 @@ function send(){
 			        			<label>소개</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<textarea class="form-control" rows="3" name="comments"></textarea>
+			        			<textarea class="form-control" rows="3" name="memo"><%=member.getMemo()%></textarea>
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
@@ -93,7 +102,7 @@ function send(){
 			        			<label>이메일</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="text" class="form-control" name="email">
+			        			<input type="text" class="form-control" name="email" value="<%=member.getEmail()%>">
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
@@ -102,7 +111,7 @@ function send(){
 			        			<label>전화번호</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="text" class="form-control" name="phone">
+			        			<input type="text" class="form-control" name="phone" value="<%=member.getPhone()%>">
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
@@ -112,9 +121,9 @@ function send(){
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
 			        			<select class="form-control" name="gender">
-							        <option>선택없음</option>
-							        <option>남</option>
-							        <option>여</option>
+							        <option <%if(member.getGender()=="0"){%>selected<%}%> value="0">선택없음</option>
+							        <option <%if(member.getGender()=="m"){%>selected<%}%> value="m">남</option>
+							        <option <%if(member.getGender()=="f"){%>selected<%}%> value="f">여</option>
 							    </select>
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>

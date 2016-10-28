@@ -14,7 +14,7 @@
 		values(seq_member.nextval,#{email},#{name},#{nick},#{password})
 	</insert>
 	<update id="updateDetail" parameterType="Member">
-		update member set phone=#{phone},gender=#{gender}, memo=#{memo}
+		update member set phone=#{phone},gender=#{gender}, memo=#{memo},name=#{name},nick=#{nick}
 		where member_id=#{member_id} 
 	</update>
 	<update id="updatePassword" parameterType="Member">

@@ -38,13 +38,16 @@ public class MemberController {
 		return mav;
 	}
 	@RequestMapping("updateDetail.do")
-	public String updateDetail(Member member){
+	public ModelAndView updateDetail(Member member){
 		int result=memberService.updateDetail(member);
-		return "alsta/edit";
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("member_id", member.getMember_id());
+		mav.setViewName("redirect:/alsta/edit.do");
+		return mav;
 	}
 	@RequestMapping("updatePassword.do")
 	public String updatePassword(Member member){
 		int result=memberService.updatePassword(member);
-		return "alsta/password";
+		return "redirect:/alsta/password.do?member_id="+member.getMember_id();
 	}
 }
