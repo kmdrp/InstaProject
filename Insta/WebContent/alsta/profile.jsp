@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ include file="/inc/upload.jsp"%>
-<%@ include file="/inc/preview.jsp"%>
-
+<%@include file="/inc/preview.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
