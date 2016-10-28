@@ -22,7 +22,7 @@
 <script>
 function send(){
 	alert("제출");
-	form1.action="#";
+	form1.action="/alsta/updateDetail.do";
 	form1.submit();
 }
 </script>
@@ -71,19 +71,10 @@ function send(){
 			     		</div>
 			     		<div class="row content">
 			        		<div class="col-sm-3 col-xs-3 title">
-			        			<label>웹사이트</label>
-			        		</div>
-			        		<div class="col-sm-8 col-xs-8">
-			        			<input type="text" class="form-control" name="website">
-			        		</div>
-			        		<div class="col-sm-1 col-xs-1"></div>
-			     		</div>
-			     		<div class="row content">
-			        		<div class="col-sm-3 col-xs-3 title">
 			        			<label>소개</label>
 			        		</div>
 			        		<div class="col-sm-8 col-xs-8">
-			        			<textarea class="form-control" rows="3" name="comment"></textarea>
+			        			<textarea class="form-control" rows="3" name="comments"></textarea>
 			        		</div>
 			        		<div class="col-sm-1 col-xs-1"></div>
 			     		</div>
