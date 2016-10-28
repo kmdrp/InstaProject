@@ -10,6 +10,7 @@ public class Post {
 	private String path;
 	private String regdate;
 	private String content;
+
 	private MultipartFile myFile;
 	public MultipartFile getMyFile() {
 		return myFile;
@@ -59,6 +60,4 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	
 }

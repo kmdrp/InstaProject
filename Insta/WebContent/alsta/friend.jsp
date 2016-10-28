@@ -1,4 +1,11 @@
+<%@page import="com.alsta.model.domain.Follow"%>
+<%@page import="com.alsta.model.domain.Post"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%
+	List<Post>list=(List)request.getAttribute("list");
+	System.out.print("list 사이즈는"+list.size());
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,15 +83,20 @@
 </style>
 <script>
 
-function followRegist(){
-	form1.action="/alsta/follow.do";
-	form1.submit();
+function followRegist(i){
+	if(i != 1){
+		form1[i].action="/alsta/follow.do";
+		form1[i].submit();
+	}else{
+		form1.action="/alsta/follow.do";
+		form1.submit();
+	}
 }
 </script>
 </head>
 <body>
 	<!-- 상단바 -->
-	<%@include file="/inc/header.jsp"%>
+	<%@include file="/inc/header.jsp"%> 
 
 	<!-- 친구 찾기 -->
 	<div class="container-fluid bg-grey">
@@ -104,9 +116,14 @@ function followRegist(){
 		</div>
 		<div class="col-sm-1"></div> 
 	</div>
-	<form class="form-horizontal" name="form1" method="post">
 	<!-- 친구 찾기 for문 영역 -->
-	<%for(int i=1;i<8;i++){ %>
+	<%for(int i=1;i<=list.size();i++){ %>
+	<%Post post=list.get(i-1); %>
+	<%System.out.print("post"+post.getMember_id()); %>
+	
+	<form class="form-horizontal" name="form1" method="post">
+	<input type="hidden" value="<%=post.getMember_id() %>" name="you">
+	<input type="hidden" value="1" name="me">
 	<div class="row" >
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6 bg-white wrapper">
@@ -119,7 +136,7 @@ function followRegist(){
 				</h3>
 			</div>
 			<div>
-				<button type="w3-button" class="btn btn-default bt" onClick="followRegist()">팔로우</button>
+				<button type="w3-button" class="btn btn-default bt" onClick="followRegist(<%=i%>)">팔로우</button>
 			</div>
 			<div id="p_zone" class="w3-row">
 				<div id="p1" class="w3-col s4">
@@ -136,9 +153,9 @@ function followRegist(){
 		</div>
 		<div class="col-sm-3"></div>
 	</div>
+	</form>
 	<%} %>
 	<!-- 친구 찾기 for문 영역 끝 -->
-	</form>
 	<div class="col-sm-12"></div>
 
 
