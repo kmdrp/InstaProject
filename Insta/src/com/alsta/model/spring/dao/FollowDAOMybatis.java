@@ -14,22 +14,24 @@ public class FollowDAOMybatis implements FollowDAO{
 	private SqlSessionTemplate sessionTemplate;
 
 	public int insert(Follow follow) {
-		return 0;
+		int result=sessionTemplate.insert("Follow.insert", follow);
+		return result;
 	}
 
-	public int update(Follow follow) {
-		return 0;
-	}
+
 
 	public int delete(int follow_id) {
-		return 0;
+		int result=sessionTemplate.delete("Follow.delete", follow_id);
+		return result;
 	}
 
-	public List selectList(int follow_id) {
-		return null;
+	public List selectAll() {
+		List list=(List)sessionTemplate.selectList("Follow.selectAll");
+		return list;
 	}
 
-	public void selectOne(Follow follow) {
-		
+	public Follow selectOne(int follow_id) {
+		Follow follow=sessionTemplate.selectOne("Follow.selectOne", follow_id);
+		return follow;
 	}
 }
