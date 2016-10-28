@@ -23,19 +23,20 @@
 		<result column="regdate" property="regdate"/>
 		<result column="content" property="content"/>
 		<collection property="commentsList" javaType="java.util.ArrayList" ofType="Comments">
-			<id column="comments_id" property="comments_id"/>
-			<result column="post_id" property="post_id"/>
-		<!-- 	<result column="member_id" property="member_id"/> -->
 			<result column="comments" property="comments"/>
+			<result column="comem_id" property="comem_id"/>
+			<!-- <id column="comments_id" property="comments_id"/> -->
+			<!-- <result column="post_id" property="post_id"/> -->			
 			<!-- <result column="regdate" property="regdate"/> -->
 		</collection>
 	</resultMap>
 	
 	<select id="selectList" resultType="Post" resultMap="postMap">
-		select p.post_id as post_id ,p.member_id as member_id,img_type,gps,path,content,regdate,
-		comments
+		select p.post_id as post_id ,p.member_id as member_id,img_type,gps,path,content, p.regdate as regdate,
+		comments, comem_id
 		FROM POST p, COMMENTS c
-		where p.post_id = c.post_id;
+		where p.post_id = c.post_id
+		order by c.comments_id desc
 	</select>
 
 

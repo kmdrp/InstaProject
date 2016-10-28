@@ -1,9 +1,11 @@
+<%@page import="com.alsta.model.domain.Comments"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.alsta.model.domain.Post"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
-	List <Post> postList = (List) request.getAttribute("post"); 
-	/* List <Post> postList = (List)request.getAttribute("cpost"); */
+	List <Post> postList = (List) request.getAttribute("post");
+	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -193,15 +195,17 @@ function regist(i){
 		<div>
 		
 			<h2><p>좋아요 1,649개</p></h2>
-			<p><a href="#"><strong>zenxen</strong></a> 나이쁘지</p>
+			<p><a href="#"><strong><%=post.getMember_id() %></strong></a><%=post.getContent()%></p>
 		
 			<p><a href="#">#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma 
 			#IdealOfIdol #VeryVeryVery #너무너무너무</a></p>
-			<p><a href="#">댓글 8개 모두 보기</a></p>
-			<p><a href="#"><strong>irhamwp_Gede</strong></a> 이쁘다</p>
-			<p><a href="#"><strong>noonghil</strong></a> 나랑결혼해죠</p>
-			<p><a href="#"><strong>sofeax.coBae</strong></a> ㅎㅎㅎㅎ 조아</p>
-			<p><a href="#"><strong>hannah_park19018</strong></a> 나도 봤음요</p>
+			
+			<%ArrayList <Comments> comments = post.getCommentsList(); %>		
+			<p><a href="#">댓글 <%=comments.size() %>개 모두 보기</a></p>
+			<%for(int a=0;a<comments.size();a++){ %>
+			<p><a href="#"><strong><%=comments.get(a).getComem_id()%></strong></a><%=comments.get(a).getComments() %></p>
+			<%} %>
+			
 			
 		</div>
 	

@@ -17,14 +17,14 @@ public class MainPageController {
 	@Autowired
 	private MainPageService mainPageService;
 	
-	@RequestMapping("post.do")
+	/*@RequestMapping("post.do")
 	public ModelAndView selectAll(){
 		List list = mainPageService.selectAll();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("post",list);
 		mav.setViewName("/alsta/main");
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping("comments.do")
 	public String regist(Comments comments){
@@ -32,11 +32,11 @@ public class MainPageController {
 		return "redirect:/alsta/post.do";
 	}
 	
-	@RequestMapping("cpost.do")
+	@RequestMapping("post.do")
 	public ModelAndView selectList(){
 		List list = mainPageService.selectList();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("cpost",list);
+		mav.addObject("post",list);
 		mav.setViewName("/alsta/main");
 		return mav;
 	}
