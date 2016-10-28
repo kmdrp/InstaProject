@@ -1,7 +1,12 @@
+<%@page import="com.alsta.model.domain.Comments"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.alsta.model.domain.Post"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%List <Post> postList = (List) request.getAttribute("post"); %>
+<%
+	List <Post> postList = (List) request.getAttribute("post");
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,10 +78,11 @@ ul{
 function upload(){
 	document.getElementById("upload").style.display="block";
 }
-function regist(){
-	commentRegist.action="/alsta/comments.do";
-	commentRegist.submit();
-	/* location.href="/alsta/comments.do?comments='test'"; */
+
+function regist(i){
+	commentRegist[i].action="/alsta/comments.do";
+	commentRegist[i].submit();
+	/* location.href="/alsta/comments.do?comments='test'" */
 }
 
 </script>
@@ -160,9 +166,12 @@ function regist(){
 </div>
 
 <%for(int i=0;i<postList.size();i++){ %>
+<%Post post = postList.get(i); %>
 <!-- 메인화면1 -->
 <div  class="container-fluid bg-grey">
 <div class="row">
+	
+	
 
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6 bg-white wrapper">
@@ -172,7 +181,7 @@ function regist(){
 			<div class="col-sm-10 text-left">
 				<a href="#">
 				<img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
-				<%Post post = postList.get(i); %>
+				
 				<%=post.getMember_id() %>
 				</a>
 			</div>
@@ -186,15 +195,17 @@ function regist(){
 		<div>
 		
 			<h2><p>좋아요 1,649개</p></h2>
-			<p><a href="#"><strong>zenxen</strong></a> 나이쁘지</p>
+			<p><a href="#"><strong><%=post.getMember_id() %></strong></a><%=post.getContent()%></p>
 		
 			<p><a href="#">#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma 
 			#IdealOfIdol #VeryVeryVery #너무너무너무</a></p>
-			<p><a href="#">댓글 8개 모두 보기</a></p>
-			<p><a href="#"><strong>irhamwp_Gede</strong></a> 이쁘다</p>
-			<p><a href="#"><strong>noonghil</strong></a> 나랑결혼해죠</p>
-			<p><a href="#"><strong>sofeax.coBae</strong></a> ㅎㅎㅎㅎ 조아</p>
-			<p><a href="#"><strong>hannah_park19018</strong></a> 나도 봤음요</p>
+			
+			<%ArrayList <Comments> comments = post.getCommentsList(); %>		
+			<p><a href="#">댓글 <%=comments.size() %>개 모두 보기</a></p>
+			<%for(int a=0;a<comments.size();a++){ %>
+			<p><a href="#"><strong><%=comments.get(a).getComem_id()%></strong></a><%=comments.get(a).getComments() %></p>
+			<%} %>
+			
 			
 		</div>
 	
@@ -205,7 +216,13 @@ function regist(){
 			</div>
 			<div class="col-sm-9 ">
 				<form name="commentRegist" method="post">
-				<input type="text" class="form-control" placeholder="Enter Comment" name="comments" value="test"><button onClick="regist()">전송</button>
+				
+				<!-- post 및 member_id 저장 -->
+				<input type="hidden" name="post_id" value="<%=post.getPost_id()%>">
+				<input type="hidden" name="member_id" value="<%=post.getMember_id()%>">
+				
+				
+				<input type="text" class="form-control" placeholder="Enter Comment" name="comments"><button onClick="regist(<%=i%>)">전송</button>
 				</form>
 			</div>
 			<div class="col-sm-2">

@@ -15,23 +15,30 @@ import com.alsta.model.service.MainPageService;
 @RequestMapping("/alsta/")
 public class MainPageController {
 	@Autowired
-	@Qualifier("mainPageServiceImpl")
 	private MainPageService mainPageService;
 	
-	@RequestMapping("post.do")
+	/*@RequestMapping("post.do")
 	public ModelAndView selectAll(){
 		List list = mainPageService.selectAll();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("post",list);
 		mav.setViewName("/alsta/main");
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping("comments.do")
 	public String regist(Comments comments){
-		comments.setComments("제발좀 되라");
 		mainPageService.regist(comments);
-		return "/alsta/main";
+		return "redirect:/alsta/post.do";
+	}
+	
+	@RequestMapping("post.do")
+	public ModelAndView selectList(){
+		List list = mainPageService.selectList();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("post",list);
+		mav.setViewName("/alsta/main");
+		return mav;
 	}
 	
 	

@@ -6,9 +6,9 @@
 	<sql id="sql">
 		select * from follow
 	</sql>
-	<select id="selectAll" resultType="Follow" >
-		<include refid="sql"/>
-		order by follow_id desc
+	<select id="selectAll" resultType="Post"  parameterType="int">
+		select to_char(p.content),f.you as member_id from follow f, post p where 
+		f.me!=#{member_id} and p.member_id=f.you group by f.you  ,to_char(p.content)
 	</select>
 	<select id="selectOne" resultType="Follow" parameterType="int">
 		<include refid="sql"/>
