@@ -15,4 +15,5 @@ public interface PostDAO {
 	public List selectList(int post_id);
 	public void selectOne(Post post);
 	public List selectAll();
+	public List selectMy(int member_id);
 }

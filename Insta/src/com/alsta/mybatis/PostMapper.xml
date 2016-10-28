@@ -7,9 +7,14 @@
 		select * from post
 	</sql>
 	
+	<!--  나중에 로직 추가해서 내가 팔로우한사람의 게시물만 + (추가로직) 불러오기 -->
 	<select id="selectAll" resultType="Post">
 		<include refid="select"/>
 			order by post_id desc
 	</select>
-
+	
+	<!-- profile에서 내 사진만 불러오는 select문 -->
+	<select id="selectMy" resultType="Post" parameterType="int">
+		where member_id#{member_id}
+	</select>
 </mapper>
