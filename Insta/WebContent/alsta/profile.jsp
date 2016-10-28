@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ include file="/inc/upload.jsp"%>
+<%@ include file="/inc/preview.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -158,12 +160,47 @@ strong{
 	border:none;
 	background:white;
 }
+
+#btn_img,#btn_profile,#btn_more,#span_more{
+	background:white;
+}
 </style>
+<script>
+var img;
+
+function init(){
+	init1();
+}
+function viewImg(element){
+	img=document.getElementById("selected_img");
+	img.src=element.src;
+	imgSize();
+	document.getElementById("gallery_view").style.display="block";
+	//document.getElementById("gallery_view").style.height=element.height;
+	/* var captionText= 캡션추가가능 */
+	
+}
+function myId(){
+	document.getElementById("btn_logout").style.display="block";
+}
+//t사진업로드
+function upload(){
+	document.getElementById("upload").style.display="block";
+}
+function logout(){
+	alert("로그아웃되었습니다.");		
+}
+function change_profile_img(){
+	document.getElementById("profile_img").style.display="block";
+}
+function close_view(){
+	document.getElementById("gallery_view").style.display="none";
+}
+</script>
 </head>
-<body>
+<body onLoad="init()">
 	<!-- 상단바 -->
 	<%@include file="/inc/header.jsp"%>
-	
 	<div id="main">
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
@@ -174,7 +211,7 @@ strong{
 		<div id="profile_detail" class="col-md-8">
 				<p id="line1"><span id="id_profile" style="float:left;"><strong>ajfzoa</strong></span>
 				<span id="span_btn"><a href="/alsta/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
-				<span id="span_more"><button><img src="/images/more.png" onClick="myId()"></button></span>
+				<span id="span_more"><button><img id="btn_more" src="/images/more.png" onClick="myId()"></button></span>
 				</p>
 				<p id="line2"> 게시물<strong> 6</strong> 개&nbsp;&nbsp; 팔로워 <strong>100</strong>명  팔로우<strong> 100</strong>명 </p> 
 				<!-- <div id="line1"> <input type="text" value="ajfzoa">
@@ -182,43 +219,22 @@ strong{
 				<p id="line3"><strong> 박경리 </strong> 안녕하세요 멀티캠퍼스 경리 박경리입니다.</p>
 		</div>
 	</div>	
-	
 	<div id="p_zone" class="w3-row">
 			<div id="p1" class="w3-third">
-				<img src="/images/kr.jpg" onClick="onClick(this)">
-				<img src="/images/kr4.png" onClick="onClick(this)">
-				<img src="/images/kr1.jpg" onClick="onClick(this)">
-				
+				<img src="/images/kr.jpg" onClick="viewImg(this)">
+				<img src="/images/kr4.png" onClick="viewImg(this)">
+				<img src="/images/kr1.jpg" onClick="viewImg(this)">
 			</div>
 			<div id="p2" class="w3-third">
-				<img src="/images/kr3.jpg" onClick="onClick(this)">
-				<img src="/images/kr5.jpg" onClick="onClick(this)">
+				<img src="/images/kr3.jpg" onClick="viewImg(this)">
+				<img src="/images/kr5.jpg" onClick="viewImg(this)">
 			</div>
 			<div id="p3"class="w3-third">
-				<img src="/images/kr8.jpg" onClick="onClick(this)">
-				<img src="/images/kr7.jpg" onClick="onClick(this)">
+				<img src="/images/kr8.jpg" onClick="viewImg(this)">
+				<img src="/images/kr7.jpg" onClick="viewImg(this)">
 			</div>
-			
 	</div>
-	<div id="mainImg" class="w3-modal w3-gray" onclick="this.style.display='none'">
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <div class="modal-content">
-   		<div id="modal_img">
-	   		<img id="img01" class="w3-image">
-   		</div>
-      	<div id="modal_content" role="dialog">
-      		<div id="info_uploader">
-      			<span id="img_small"><img src="/images/img1.jpg" id="p_img" class="img-circle" alt="Cinque Terre" width="50" height="50"></span>
-      			<span> ajfzoa </span>
-      		</div>	
-      		<div id="comments"></div>	
-      		<div id="input_comments"></div>
-      	</div>
-    </div>
-     <!--  <p id="caption"></p>  캡션 추가하는 부분-->
-    </div>
-  </div>
+	
   <div id="profile_img" class="w3-modal w3-gray" onclick="this.style.display='none'">
   	<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
   		<div class="btn-group-vertical" style="width:400px;margin-top:100px;">
@@ -239,33 +255,7 @@ strong{
   </div>
   </div>
   
-<script>
-//클릭했을때 modal 이벤트
-	function onClick(element){
-		document.getElementById("img01").src=element.src;
-		document.getElementById("mainImg").style.display="block";
-		document.getElementById("mainImg").style.height=element.height;
-		/* var captionText= 캡션추가가능 */
-	}
-	function change_profile_img(){
-		document.getElementById("profile_img").style.display="block";
-	}
-	function logout(){
-		alert("로그아웃되었습니다.");		
-	}
-	function myId(){
-		document.getElementById("btn_logout").style.display="block";
-	}
-	function active_search(){
-		//클릭으로 search 창 활성화 
-	}
-	//사진 업로드 버튼
-	function upload(){
-		document.getElementById("upload").style.display="block";
-	}
-	
-</script>
-	
+
 </body>
 </html>
 
