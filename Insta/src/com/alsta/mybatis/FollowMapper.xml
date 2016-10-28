@@ -3,5 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Follow">
-
+	<sql id="sql">
+		select * from follow
+	</sql>
+	<select id="selectAll" resultType="Follow" >
+		<include refid="sql"/>
+		order by follow_id desc
+	</select>
+	<select id="selectOne" resultType="Follow" parameterType="int">
+		<include refid="sql"/>
+		where follow_id=#{follow_id}
+	</select>
+	
+	<insert id="insert"  parameterType="Follow">
+		insert into follow (follow_id ,me,you)
+		values(seq_follow.nextval,#{me},#{you})
+	</insert>
+	 <delete id="delete" parameterType="int">
+	 	delete from follow where follow_id=#{follow_id}
+	 </delete>
+	 
+	
 </mapper>
