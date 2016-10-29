@@ -6,16 +6,22 @@
 	<sql id="sql">
 		select * from member
 	</sql>
+	<select id="selectOne" parameterType="int" resultType="Member">
+		<include refid="sql"/> where member_id=#{member_id}
+	</select>
 	<insert id="insert" parameterType="Member">
 		insert into member(member_id,email,name,nick,password) 
 		values(seq_member.nextval,#{email},#{name},#{nick},#{password})
 	</insert>
 	<update id="updateDetail" parameterType="Member">
-		update member set phone=#{phone},gender=#{gender}, memo=#{memo}
+		update member set phone=#{phone},gender=#{gender}, memo=#{memo},name=#{name},nick=#{nick}
 		where member_id=#{member_id} 
 	</update>
 	<update id="updatePassword" parameterType="Member">
 		update member set password=#{password}
 		where member_id=#{member_id} 
 	</update>
+	<select id="selectList" parameterType="Member" resultType="Member">
+		<include refid="sql"/> where nick=#{nick} and password=#{password}
+	</select>
 </mapper>

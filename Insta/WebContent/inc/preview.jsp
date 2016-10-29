@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,30 +17,27 @@
 }
 #w3_modal{
 	margin:0 auto;
-	height:600px;
 }
 #modal{
 	margin:0 auto;
 }
-/* #wrapper{
+#wrapper{
 	margin:0px;
 	padding:0px;
-} */
+}
 #gallery{
 	margin:0px;
 	padding:0px;
 	float:left;
 }
-#content{
+#view_content{
 	width:330px;
 	background:yellow;
 	float:left;
-	margin:0px;
-	display:table;
 }
 #info_writer{
 	width:100%;
-	height:70px;
+	height:60px;
 	background:blue;
 	display:table;
 	padding:10px;
@@ -56,7 +54,7 @@
 	text-align:left;
 }
 #follow_writer{
-	width:80px;
+	width:70px;
 	margin-right:20px;
 }
 #info_content{
@@ -75,17 +73,15 @@
 	font-weight:bold;
 }
 #div_comment{
+	backgronud:purple;
 	width:100%;
-	background:orange;
 }
 #div_input{
-	height:60px;
+	height:70px;
 	display:table;
 	padding:0px;
 	margin:0px;
 	background:white;
-	margin-bottom:0px;
-	vertical-align:middle;
 }
 .line4{
 	display:table-cell;
@@ -110,53 +106,51 @@
 </style>
 <script>
 var img;
-var wrapper;
+var wrapper=document.getElementById("wrapper");
 var content;
-var modal;
+var vmodal;
 var div_mod;
 var comment;
-function init(){
+
+function init1(){
 	gallery=document.getElementById("gallery");
 	img=document.getElementById("selected_img");
 	wrapper=document.getElementById("wrapper");
-	content=document.getElementById("content");
-	modal=document.getElementById("modal");
+	content=document.getElementById("view_content");
+	vmodal=document.getElementById("view_modal");
 	div_mod=document.getElementById("w3_modal");
 	comment=document.getElementById("div_comment");
-}/* 
-window.addEventListener("load",function(){
-	img.style.height="600px";
-	 showSize();
-	gallery.style.width=img.style.width;
-	wrapper.style.width=gallery.style.width+content.style.width;
-	modal.style.width=wrapper.style.width;
-	div_mod.style.width=modal.style.width;
-}); */
-function roro(){
-	document.getElementById("img_detail").style.display="block";
-	imgSize();
-	//alert(wrapper.style.width);
-	/* wrapper.style.width=(img.naturalWidth)*(600/img.naturalHeight)+330+"px";
-	wrapper.style.height=600+"px";
-	modal.style.width=wrapper.style.width;
-	modal.style.height=600+"px";
-	alert("naWidty:"+img.naturalWidth+"&width"+img.style.width); */
 }
+
 function closeAll(){
 	var frame=document.getElementById("img_detail");
 	frame.style.display="none";
+}
+function sizeCheck(){
+	img=document.getElementById("selected_img")
+	/* var width=img.naturalWidth;
+	var height=img.naturalHeight;
+	alert(width+"&&"+height); */
 }
 function imgSize(){
 	var imgWidth=img.naturalWidth;
 	var imgHeight=img.naturalHeight;
 	if(imgWidth<=imgHeight){
 		if(imgHeight>600){
+			//width<height && height>600
+			//alert("width<height && height>600");
 			img.style.height=600+"px";
+			gallery.style.height=600+"px";
+			img.style.width=imgWidth*(600/imgHeight);
 			wrapper.style.width=imgWidth*(600/imgHeight)+331+"px";
 			content.style.height=600+"px";
+			comment.style.background="orange";
 			comment.style.height=430+"px";
 		}else{
-			img.style.width=imgWidth+"px";
+			//width<height && height<=600
+			//alert("width<height && height<=600")
+			img.style.width=imgWidth;
+			img.style.height=imgHeight;
 			gallery.style.height=imgHeight+"px";
 			gallery.style.width=imgWidth+"px";
 			content.style.height=gallery.style.height;
@@ -165,10 +159,12 @@ function imgSize(){
 			wrapper.style.height=content.style.height;
 		}
 	}
-	modal.style.width=wrapper.style.width;
-	modal.style.height=wrapper.style.height+"px";
+	//else는 나중에....
+	vmodal.style.width=wrapper.style.width+"px";
+	vmodal.style.height=wrapper.style.height+"px";
+	
 }
-
+	
 function like(){
 	var img_like=document.getElementById("img_like");
 	if(!btn_red){
@@ -182,25 +178,20 @@ function like(){
 
 </script>
 </head>
-<body onLoad="init()">
-
-<div>
-	<button type="button" onclick="roro()">open this</button>
-</div>
-
-
-<div id="img_detail" class="w3-modal w3-gray" >
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="closeAll()">×</span>
+<body onLoad="init1()">
+<!-- 버튼 구현 -->
+<div id="gallery_view" class="w3-modal w3-gray" >
+    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright" id="span_x" onClick="close_view()">×</span>
     <div id="w3_modal"class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <div class="modal-content" id="modal">
-   		<div id="wrapper">
+    <div class="modal-content" id="view_modal">
+   		<div id="wrapper" >
    		<!-- wrapper height로 사진  height고정  -->
    			<!-- 사진들어가는  div -->
    			<div id="gallery">
-				<img src="/images/ir12.jpg" id="selected_img">   				
+				<img src="" id="selected_img">  					
    			</div>
    			<!-- 사진 정보 들어가는 div -->
-   			<div id="content">
+   			<div id="view_content">
    				<!-- 글쓴이 정보  프사_아이디_팔로우 버튼(팔로우중이면 팔로잉+색깔변화)-->
    				<div id="info_writer">
    					<span id="img_writer"><img src="/images/ir4.jpg" id="profileImg" class="img-circle" width="40px" height="40px"></span>	
@@ -224,10 +215,11 @@ function like(){
 				</div>
    			</div>
       	</div>
+		
     </div>
+    
     </div>
 </div>
+
 </body>
 </html>
-
-

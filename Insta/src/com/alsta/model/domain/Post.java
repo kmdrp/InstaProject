@@ -1,5 +1,11 @@
 package com.alsta.model.domain;
 
+
+import java.util.ArrayList;
+
+import org.springframework.web.multipart.MultipartFile;
+
+
 public class Post {
 	private int post_id;
 	private int member_id;
@@ -8,7 +14,25 @@ public class Post {
 	private String path;
 	private String regdate;
 	private String content;
+
+	ArrayList<Comments> commentsList;
 	
+	
+	public ArrayList<Comments> getCommentsList() {
+		return commentsList;
+	}
+	public void setCommentsList(ArrayList<Comments> commentsList) {
+		this.commentsList = commentsList;
+	}
+
+	private MultipartFile myFile;
+	public MultipartFile getMyFile() {
+		return myFile;
+	}
+	public void setMyFile(MultipartFile myFile) {
+		this.myFile = myFile;
+
+	}
 	public int getPost_id() {
 		return post_id;
 	}
@@ -51,6 +75,4 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	
 }

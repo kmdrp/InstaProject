@@ -29,12 +29,12 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
-	
+	<!-- AOP log4j를 이용하여 로그 남기기 -->
 	<bean id="myLogger" class="com.alsta.common.log.MyLogger"/>
 	<aop:config>
 		<aop:aspect id="LoggerAspect" ref="myLogger">
 		<aop:pointcut 
-		expression="execution(public * com.alsta.controller..*Controller.*(..))" 
+		expression="execution(public * com.alsta..*..*(..))" 
 		id="controllerCut"/>
 		<aop:around method="printMsg" pointcut-ref="controllerCut"/>
 		</aop:aspect>

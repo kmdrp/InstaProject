@@ -7,9 +7,42 @@
 		select * from post
 	</sql>
 	
+	<!--  나중에 로직 추가해서 내가 팔로우한사람의 게시물만 + (추가로직) 불러오기 -->
 	<select id="selectAll" resultType="Post">
 		<include refid="select"/>
 			order by post_id desc
+	</select>
+	
+
+	<resultMap type="Post" id="postMap">
+		<id column="post_id" property="post_id"/>
+		<result column="member_id" property="member_id"/>
+		<result column="img_type" property="img_type"/>
+		<result column="gps" property="gps"/>
+		<result column="path" property="path"/>
+		<result column="regdate" property="regdate"/>
+		<result column="content" property="content"/>
+		<collection property="commentsList" javaType="java.util.ArrayList" ofType="Comments">
+			<result column="comments" property="comments"/>
+			<result column="comem_id" property="comem_id"/>
+			<!-- <id column="comments_id" property="comments_id"/> -->
+			<!-- <result column="post_id" property="post_id"/> -->			
+			<!-- <result column="regdate" property="regdate"/> -->
+		</collection>
+	</resultMap>
+	
+	<select id="selectList" resultType="Post" resultMap="postMap">
+		select p.post_id as post_id ,p.member_id as member_id,img_type,gps,path,content, p.regdate as regdate,
+		comments, comem_id
+		FROM POST p, COMMENTS c
+		where p.post_id = c.post_id
+		order by c.comments_id desc
+	</select>
+
+
+	<!-- profile에서 내 사진만 불러오는 select문 -->
+	<select id="selectMy" resultType="Post" parameterType="int">
+		where member_id#{member_id}
 	</select>
 
 </mapper>
