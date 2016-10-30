@@ -21,7 +21,6 @@ import com.alsta.model.service.MemberService;
 @RequestMapping("/alsta/")
 public class MemberController {
 	@Autowired
-	
 	private MemberService memberService;
 	
 	@RequestMapping("logIn.do")

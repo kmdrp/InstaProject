@@ -7,8 +7,13 @@
 <%
 	Member member=(Member)request.getAttribute("member");
 	List<Post> postList=(List)request.getAttribute("post");
-	List<Follow>followList=(List)request.getAttribute("follow");
-	List<Follow>followerList=(List)request.getAttribute("follower");
+	List<Follow> followList=(List)request.getAttribute("follow");
+	List<Follow> followerList=(List)request.getAttribute("follower");
+	/* System.out.println("member_id:"+member.getMember_id());
+	System.out.println("post size:"+postList.size());
+	System.out.println("follow size"+followList.size());
+	System.out.println("follower size:"+followerList.size());
+	 */
 %>
 <!DOCTYPE html>
 <html>
@@ -174,7 +179,6 @@ strong{
 </style>
 <script>
 var img;
-
 function init(){
 	init1();
 }
@@ -223,7 +227,7 @@ function close_view(){
 				<p id="line2"> 게시물<strong><%=postList.size() %></strong> 개&nbsp;&nbsp; 팔로워 <strong><%=followerList.size() %></strong>명  팔로우<strong><%=followList.size() %></strong>명 </p> 
 				<!-- <div id="line1"> <input type="text" value="ajfzoa">
 				<button type="button" class="btn btn-default">프로필 편집</button></div> -->
-				<p id="line3"><strong><%=member.getName() %></strong><%=member.getMemo() %></p>
+				<p id="line3"><strong><%=member.getName() %></strong>&nbsp;&nbsp;&nbsp;<%=member.getMemo() %></p>
 		</div>
 	</div>	
 	<div id="p_zone" class="w3-row">

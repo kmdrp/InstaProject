@@ -7,11 +7,10 @@
 	System.out.print("list 사이즈는"+list.size());
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title>알로에그램</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
