@@ -35,20 +35,20 @@
 	</resultMap>
 	
 	<select id="selectList" resultType="Post" resultMap="postMap">
-		select p.post_id as post_id ,p.member_id as member_id,img_type,gps,path,content, p.regdate as regdate,
+		select p.post_id as post_id ,p.pomem_id as pomem_id,img_type,gps,path,content, p.regdate as regdate,
 		comments, comem_id
-		FROM POST p, COMMENTS c
+		from post p, comments c
 		where p.post_id = c.post_id
 		order by c.comments_id asc
 	</select>
 	<!-- profile에서 내 사진만 불러오는 select문 -->
 	<select id="selectMy" resultType="Post" parameterType="int">
 		<include refid="select"/>
-		where member_id#{member_id} order by post_id desc
+		where pomem_id=#{pomem_id} order by post_id asc
 	</select>
 	
 	<!-- 게시물 등록 -->
 	<insert id="insert" parameterType="Post">
-		insert into post(post_id,member_id,path,img_type,content) values(seq_post.nextval,#{member_id},#{path},#{img_type},#{content})
+		insert into post(post_id,pomem_id,path,img_type,content) values(seq_post.nextval,#{pomem_id},#{path},#{img_type},#{content})
 	</insert>
 </mapper>
