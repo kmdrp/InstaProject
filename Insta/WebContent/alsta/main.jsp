@@ -1,8 +1,10 @@
+<%@page import="com.alsta.model.domain.Member"%>
 <%@page import="com.alsta.model.domain.Comments"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.alsta.model.domain.Post"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@include file="/inc/preview.jsp" %>
 <%
 	List <Post> postList = (List) request.getAttribute("post");
 	
@@ -104,7 +106,7 @@ function regist(i){
 					<h3><small>회원님을 위한 추천</small></h3>
 				</div>
 				<div class="col-sm-6 text-right">
-					<h3><small><a href="/alsta/friend.jsp">모두보기</a>></small></h3>
+					<h3><small><a href="/alsta/followList.do?member_id=1">모두보기</a>></small></h3>
 				</div>
 			</div>
 		</div>
@@ -167,6 +169,7 @@ function regist(i){
 
 <%for(int i=0;i<postList.size();i++){ %>
 <%Post post = postList.get(i); %>
+<%ArrayList <Member> member = post.getMemberList(); %>
 <!-- 메인화면1 -->
 <div  class="container-fluid bg-grey">
 <div class="row">
@@ -178,14 +181,14 @@ function regist(i){
 	
 		<!-- 메인화면 상단 아이디 및 시간 부분 -->
 		<div class="row">
-			<div class="col-sm-10 text-left">
+			<div class="col-sm-9 text-left">
 				<a href="#">
 				<img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
 				
-				<%=post.getMember_id() %>
+				<%=member.get(0).getNick() %>
 				</a>
 			</div>
-			<div class="col-sm-2 text-center"><h4>1주전</h4></div>  
+			<div class="col-sm-3 text-center"><h4><%=post.getRegdate().substring(0,10) %></h4></div>  
 		</div>
 	
 		<!-- 메인화면 중간 사진 부분 -->
@@ -195,7 +198,7 @@ function regist(i){
 		<div>
 		
 			<h2><p>좋아요 1,649개</p></h2>
-			<p><a href="#"><strong><%=post.getMember_id() %></strong></a><%=post.getContent()%></p>
+			<p><a href="#"><strong><%=member.get(0).getNick() %></strong></a><%=post.getContent()%></p>
 		
 			<p><a href="#">#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma 
 			#IdealOfIdol #VeryVeryVery #너무너무너무</a></p>

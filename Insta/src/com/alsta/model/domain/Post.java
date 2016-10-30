@@ -16,8 +16,15 @@ public class Post {
 	private String content;
 
 	ArrayList<Comments> commentsList;
+	ArrayList<Member> memberList;
 	
 	
+	public ArrayList<Member> getMemberList() {
+		return memberList;
+	}
+	public void setMemberList(ArrayList<Member> memberList) {
+		this.memberList = memberList;
+	}
 	public ArrayList<Comments> getCommentsList() {
 		return commentsList;
 	}
