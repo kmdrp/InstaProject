@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Post {
 	private int post_id;
-	private int member_id;
+	private int pomem_id;
 	private String img_type;
 	private String gps;
 	private String path;
@@ -20,6 +20,12 @@ public class Post {
 	ArrayList<Member> memberList;
 	
 	
+	public int getPomem_id() {
+		return pomem_id;
+	}
+	public void setPomem_id(int pomem_id) {
+		this.pomem_id = pomem_id;
+	}
 	public ArrayList<Member> getMemberList() {
 		return memberList;
 	}
@@ -46,12 +52,7 @@ public class Post {
 	public void setPost_id(int post_id) {
 		this.post_id = post_id;
 	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
+	
 	public String getImg_type() {
 		return img_type;
 	}
