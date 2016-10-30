@@ -38,7 +38,7 @@ create table post(
 	,pomem_id number
 	,img_type varchar2(10)
 	,gps varchar2(20)
-	,path varchar2(50)
+	,path varchar2(200)
 	,regdate date default sysdate
 	,content clob
 );
