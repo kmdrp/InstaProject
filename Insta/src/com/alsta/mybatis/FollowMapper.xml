@@ -26,12 +26,12 @@
 	 
 	 <select id="followMe" parameterType="int" resultType="Follow">
 	 	<include refid="sql"/>
-	 	where me=#{me}
+	 	where you=#{you}
 	 </select>
 	 
 	 <select id="followByMe" parameterType="int" resultType="Follow">
 	 	<include refid="sql"/>
-	 	where you=#{you}
+	 	where me=#{me}
 	 </select>
 	
 </mapper>
