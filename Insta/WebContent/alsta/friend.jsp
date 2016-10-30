@@ -96,6 +96,7 @@ function followRegist(i){
 </head>
 <body>
 	<!-- 상단바 -->
+	<%@include file="/inc/preview.jsp" %>
 	<%@include file="/inc/header.jsp"%> 
 
 	<!-- 친구 찾기 -->
@@ -119,10 +120,10 @@ function followRegist(i){
 	<!-- 친구 찾기 for문 영역 -->
 	<%for(int i=1;i<=list.size();i++){ %>
 	<%Post post=list.get(i-1); %>
-	<%System.out.print("post"+post.getMember_id()); %>
+	<%System.out.print("post"+post.getPomem_id()); %>
 	
 	<form class="form-horizontal" name="form1" method="post">
-	<input type="hidden" value="<%=post.getMember_id() %>" name="you">
+	<input type="hidden" value="<%=post.getPomem_id() %>" name="you">
 	<input type="hidden" value="1" name="me">
 	<div class="row" >
 		<div class="col-sm-3"></div>

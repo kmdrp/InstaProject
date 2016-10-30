@@ -98,8 +98,8 @@ drop sequence seq_member;
 drop table post;
 drop sequence seq_post;
 
-drop table comment;
-drop sequence seq_comment;
+drop table comments;
+drop sequence seq_comments;
 
 drop table love;
 drop sequence seq_love;
