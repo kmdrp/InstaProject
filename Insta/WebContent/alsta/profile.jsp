@@ -17,7 +17,6 @@ body{
 	align:center;
 	background:#F6F6F6;
 }
-
 #main{
 	width:1000px;
 	margin:0 auto;
@@ -172,8 +171,8 @@ function init(){
 function viewImg(element){
 	img=document.getElementById("selected_img");
 	img.src=element.src;
-	imgSize();
 	document.getElementById("gallery_view").style.display="block";
+	imgSize();
 	//document.getElementById("gallery_view").style.height=element.height;
 	/* var captionText= 캡션추가가능 */
 	

@@ -1,14 +1,18 @@
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 create table member(
 	member_id number primary key
 	,email varchar2(50)
 	,name varchar2(20)
-	,Nick varchar2(20)
-	,Password varchar2(50)
+	,nick varchar2(20)
+	,password varchar2(50)
 	,regdate date default sysdate
-	,Phone varchar2(15) default 01000000000
-	,gender VARCHAR(1) CHECK (gender IN ('m', 'f'))
-	,gender VARCHAR(10) 
-	,Memo clob
+	,phone varchar2(15) default 01000000000
+	,gender varchar(1) check (gender in ('m', 'f'))
+	,memo clob
 	,privacy number
 );
 
@@ -18,9 +22,9 @@ create sequence seq_member increment by 1 start with 1;
 select * from member;
 
 create table comments(
-	Comments_id number primary key
+	comments_id number primary key
 	,post_id number
-	,Member_id number
+	,comem_id number
 	,comments varchar2(100)
 	,regdate date default sysdate
 );
@@ -31,19 +35,19 @@ select * from comments;
 
 create table post(
 	post_id number primary key
-	,Member_id number
+	,pomem_id number
 	,img_type varchar2(10)
 	,gps varchar2(20)
-	,Path varchar2(50)
-	,Regdate date default sysdate
-	,Content clob
+	,path varchar2(50)
+	,regdate date default sysdate
+	,content clob
 );
 create sequence seq_post increment by 1 start with 1;
 
 create table love(
 	love_id number primary key
 	,post_id number
-	,Member_id number
+	,lomem_id number
 );
 
 create sequence seq_love increment by 1 start with 1;
@@ -53,4 +57,32 @@ create table follow(
 	,me number
 	,you number
 );
+
 create sequence seq_follow increment by 1 start with 1;
+
+---------------------------------------------------------------------------------------------------------------------
+
+ insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'admin','admin','admin','admin');
+
+---------------------------------------------------------------------------------------------------------------------
+
+insert into post(post_id,pomem_id,img_type,content) values(seq_post.nextval,1,'img','post : ¸Þ·Õ¸Þ·Õ#¸Þ·Õ#hashtage');
+
+
+
+
+----------------------drop
+drop table member;
+drop sequence seq_member;
+
+drop table post;
+drop sequence seq_post;
+
+drop table comment;
+drop sequence seq_comment;
+
+drop table love;
+drop sequence seq_love;
+
+drop table follow;
+drop sequence seq_follow;
