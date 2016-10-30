@@ -1,5 +1,15 @@
+<%@page import="com.alsta.model.domain.Follow"%>
+<%@page import="com.alsta.model.domain.Post"%>
+<%@page import="java.util.List"%>
+<%@page import="com.alsta.model.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@include file="/inc/preview.jsp" %>
+<%
+	Member member=(Member)request.getAttribute("member");
+	List<Post> postList=(List)request.getAttribute("post");
+	List<Follow>followList=(List)request.getAttribute("follow");
+	List<Follow>followerList=(List)request.getAttribute("follower");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +27,6 @@ body{
 	align:center;
 	background:#F6F6F6;
 }
-
 #main{
 	width:1000px;
 	margin:0 auto;
@@ -172,8 +181,8 @@ function init(){
 function viewImg(element){
 	img=document.getElementById("selected_img");
 	img.src=element.src;
-	imgSize();
 	document.getElementById("gallery_view").style.display="block";
+	imgSize();
 	//document.getElementById("gallery_view").style.height=element.height;
 	/* var captionText= 캡션추가가능 */
 	

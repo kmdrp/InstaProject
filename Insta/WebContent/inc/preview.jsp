@@ -32,7 +32,6 @@
 }
 #view_content{
 	width:330px;
-	background:yellow;
 	float:left;
 }
 #info_writer{
@@ -138,14 +137,17 @@ function imgSize(){
 	if(imgWidth<=imgHeight){
 		if(imgHeight>600){
 			//width<height && height>600
-			//alert("width<height && height>600");
 			img.style.height=600+"px";
+			//alert("width<height && height>600 width="+imgWidth);
 			gallery.style.height=600+"px";
+			gallery.style.width=img.style.width;
 			img.style.width=imgWidth*(600/imgHeight);
 			wrapper.style.width=imgWidth*(600/imgHeight)+331+"px";
+			wrapper.style.height=600+"px";
 			content.style.height=600+"px";
 			comment.style.background="orange";
 			comment.style.height=430+"px";
+			//alert("")
 		}else{
 			//width<height && height<=600
 			//alert("width<height && height<=600")
@@ -160,7 +162,8 @@ function imgSize(){
 		}
 	}
 	//else는 나중에....
-	vmodal.style.width=wrapper.style.width+"px";
+	alert("wrapper width"+wrapper.style.width);
+	vmodal.style.width=wrapper.style.width;
 	vmodal.style.height=wrapper.style.height+"px";
 	
 }

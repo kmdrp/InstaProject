@@ -13,4 +13,7 @@ public interface FollowDAO {
 	public int delete(int follow_id);
 	public List selectAll(int member_id);
 	public Follow selectOne(int follow_id);
+	public List followMe(int member_id);
+	public List followByMe(int member_id);
+	
 }
