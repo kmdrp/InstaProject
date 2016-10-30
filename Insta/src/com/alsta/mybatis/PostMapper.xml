@@ -29,14 +29,19 @@
 			<!-- <result column="post_id" property="post_id"/> -->			
 			<!-- <result column="regdate" property="regdate"/> -->
 		</collection>
+		<collection property="memberList" javaType="java.util.ArrayList" ofType="Member">
+			<result column="nick" property="nick"/>
+		</collection>
 	</resultMap>
 	
 	<select id="selectList" resultType="Post" resultMap="postMap">
-		select p.post_id as post_id ,p.member_id as member_id,img_type,gps,path,content, p.regdate as regdate,
-		comments, comem_id
-		FROM POST p, COMMENTS c
-		where p.post_id = c.post_id
-		order by c.comments_id desc
+		SELECT p.post_id AS post_id,
+		p.member_id AS member_id,
+		img_type,gps,PATH,content,p.regdate AS regdate,comments,comem_id,
+		m.nick as nick
+		FROM POST p, COMMENTS c, member m
+		WHERE p.post_id = c.post_id and m.member_id=p.member_id
+		ORDER BY c.comments_id DESC
 	</select>
 
 

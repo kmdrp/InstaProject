@@ -17,8 +17,15 @@ public class Post {
 	private MultipartFile myFile;
 
 	ArrayList<Comments> commentsList;
+	ArrayList<Member> memberList;
 	
 	
+	public ArrayList<Member> getMemberList() {
+		return memberList;
+	}
+	public void setMemberList(ArrayList<Member> memberList) {
+		this.memberList = memberList;
+	}
 	public ArrayList<Comments> getCommentsList() {
 		return commentsList;
 	}
