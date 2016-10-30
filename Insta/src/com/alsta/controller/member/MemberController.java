@@ -77,6 +77,6 @@ public class MemberController {
 	public String registPost(Post post,HttpServletRequest request){
 	
 		int result=memberService.registPost(post,request);
-		return "redirect:/alsta/post.do?member_id="+post.getMember_id();
+		return "redirect:/alsta/post.do?member_id="+post.getPomem_id();
 	}
 }

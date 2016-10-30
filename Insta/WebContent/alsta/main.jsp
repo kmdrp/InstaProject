@@ -223,7 +223,7 @@ function regist(i){
 				
 				<!-- post 및 member_id 저장 -->
 				<input type="hidden" name="post_id" value="<%=post.getPost_id()%>">
-				<input type="hidden" name="member_id" value="<%=post.getMember_id()%>">
+				<input type="hidden" name="member_id" value="<%=post.getPomem_id()%>">
 				
 				
 				<input type="text" class="form-control" placeholder="Enter Comment" name="comments"><button onClick="regist(<%=i%>)">전송</button>
