@@ -8,7 +8,7 @@
 	</sql>
 	
 	<select id="selectAll" resultType="Post"  parameterType="int">
-		select to_char(p.content),f.you as member_id from follow f, post p where 
+		select to_char(p.content),f.you as pomem_id from follow f, post p where 
 		f.me!=#{member_id} and p.pomem_id=f.you group by f.you  ,to_char(p.content)
 	</select>
 	<select id="selectOne" resultType="Follow" parameterType="int">

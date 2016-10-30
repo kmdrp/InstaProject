@@ -217,7 +217,7 @@ function close_view(){
 		</div>
 		<div id="profile_detail" class="col-md-8">
 				<p id="line1"><span id="id_profile" style="float:left;"><strong><%=member.getNick() %></strong></span>
-				<span id="span_btn"><a href="/alsta/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
+				<span id="span_btn"><a href="/alsta/edit.do"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
 				<span id="span_more"><button><img id="btn_more" src="/images/more.png" onClick="myId()"></button></span>
 				</p>
 				<p id="line2"> 게시물<strong><%=postList.size() %></strong> 개&nbsp;&nbsp; 팔로워 <strong><%=followerList.size() %></strong>명  팔로우<strong><%=followList.size() %></strong>명 </p> 

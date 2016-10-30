@@ -16,7 +16,7 @@
 
 	<resultMap type="Post" id="postMap">
 		<id column="post_id" property="post_id"/>
-		<result column="member_id" property="member_id"/>
+		<result column="pomem_id" property="pomem_id"/>
 		<result column="img_type" property="img_type"/>
 		<result column="gps" property="gps"/>
 		<result column="path" property="path"/>
@@ -36,9 +36,9 @@
 	
 	<select id="selectList" resultType="Post" resultMap="postMap">
 		select p.post_id as post_id ,p.pomem_id as pomem_id,img_type,gps,path,content, p.regdate as regdate,
-		comments, comem_id
-		from post p, comments c
-		where p.post_id = c.post_id
+		comments, comem_id, nick
+		from post p, comments c, member m
+		where p.post_id = c.post_id and pomem_id=member_id
 		order by c.comments_id asc
 	</select>
 	<!-- profile에서 내 사진만 불러오는 select문 -->
