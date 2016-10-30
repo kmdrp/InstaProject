@@ -43,7 +43,8 @@ public class MemberController {
 		return "index";
 	}
 	@RequestMapping("edit.do")
-	public ModelAndView memberDetail(int member_id){
+	public ModelAndView memberDetail(HttpServletRequest request){
+		int member_id=(int)request.getSession().getAttribute("member_id");
 		ModelAndView mav=new ModelAndView();
 		Member member=memberService.selectOne(member_id);
 		mav.addObject("member", member);
@@ -51,7 +52,8 @@ public class MemberController {
 		return mav;
 	}
 	@RequestMapping("password.do")
-	public ModelAndView memberPassword(int member_id){
+	public ModelAndView memberPassword(HttpServletRequest request){
+		int member_id=(int)request.getSession().getAttribute("member_id");
 		ModelAndView mav=new ModelAndView();
 		Member member=memberService.selectOne(member_id);
 		mav.addObject("member", member);
