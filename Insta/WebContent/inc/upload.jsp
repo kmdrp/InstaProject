@@ -124,7 +124,7 @@
    		<form name="upload_form">
 	   		<div id="upload_img">
 	   			<input type="file" name="myFile" id="input_file" style="display:none;">
-	   			<input type="hidden" name="member_id" value="<%=member_id%>">
+	   			<input type="hidden" name="pomem_id" value="<%=member_id%>">
 		   		<button type="button" id="btn_load_img"onClick="load_img()"><img src="/images/img_upload/upload_img.png" id="img_default"></button>
 	   		</div>
 	   		<div id="upload_content">
