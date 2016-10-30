@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
-	//int member_id=Integer.parseInt(request.getParameter("member_id"));
+	int member_id=(int)session.getAttribute("member_id");
 %>
 <style>
 .modal-content{
@@ -124,7 +124,7 @@
    		<form name="upload_form">
 	   		<div id="upload_img">
 	   			<input type="file" name="myFile" id="input_file" style="display:none;">
-	   			<input type="hidden" name="id" value="">
+	   			<input type="hidden" name="member_id" value="<%=member_id%>">
 		   		<button type="button" id="btn_load_img"onClick="load_img()"><img src="/images/img_upload/upload_img.png" id="img_default"></button>
 	   		</div>
 	   		<div id="upload_content">
@@ -182,10 +182,10 @@ function load_img(){
 	document.getElementById("input_file").click();
 }
 function registPost(){
-	form1.method="post";
-	form1.encoding="multipart/form-data";
-	form1.action="/alsta/registPost.do";
-	form1.submit();
+	upload_form.method="post";
+	upload_form.encoding="multipart/form-data";
+	upload_form.action="/alsta/registPost.do";
+	upload_form.submit();
 } 
 //이미지 미리보기 구현
 function preview(){

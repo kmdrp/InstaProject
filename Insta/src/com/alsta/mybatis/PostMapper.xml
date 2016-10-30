@@ -49,5 +49,9 @@
 	<select id="selectMy" resultType="Post" parameterType="int">
 		where member_id#{member_id}
 	</select>
-
+	
+	<!-- 게시물 등록 -->
+	<insert id="insert" parameterType="Post">
+		insert into post(post_id,member_id,path,img_type,content) values(seq_post.nextval,#{member_id},#{path},#{img_type},#{content})
+	</insert>
 </mapper>

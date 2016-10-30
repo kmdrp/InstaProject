@@ -35,6 +35,7 @@ function send(){
 </script>
 </head>
 <body>
+<%@include file="/inc/preview.jsp" %>
 <%@include file="/inc/header.jsp" %>
 	<div class="container-fluid" >
 		<div class="row content">

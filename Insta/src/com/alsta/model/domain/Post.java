@@ -14,6 +14,7 @@ public class Post {
 	private String path;
 	private String regdate;
 	private String content;
+	private MultipartFile myFile;
 
 	ArrayList<Comments> commentsList;
 	ArrayList<Member> memberList;
@@ -32,7 +33,6 @@ public class Post {
 		this.commentsList = commentsList;
 	}
 
-	private MultipartFile myFile;
 	public MultipartFile getMyFile() {
 		return myFile;
 	}
