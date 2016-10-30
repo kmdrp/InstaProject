@@ -6,6 +6,7 @@
 	<sql id="sql">
 		select * from follow
 	</sql>
+	
 	<select id="selectAll" resultType="Post"  parameterType="int">
 		select to_char(p.content),f.you as pomem_id from follow f, post p where 
 		f.me!=#{member_id} and p.pomem_id=f.you group by f.you  ,to_char(p.content)

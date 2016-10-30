@@ -44,7 +44,7 @@
 	<!-- profile에서 내 사진만 불러오는 select문 -->
 	<select id="selectMy" resultType="Post" parameterType="int">
 		<include refid="select"/>
-		where member_id#{member_id} order by post_id desc
+		where pomem_id=#{pomem_id} order by post_id asc
 	</select>
 	
 	<!-- 게시물 등록 -->
