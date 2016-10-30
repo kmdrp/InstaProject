@@ -29,6 +29,9 @@
 			<!-- <result column="post_id" property="post_id"/> -->			
 			<!-- <result column="regdate" property="regdate"/> -->
 		</collection>
+		<collection property="memberList" javaType="java.util.ArrayList" ofType="Member">
+			<result column="nick" property="nick"/>
+		</collection>
 	</resultMap>
 	
 	<select id="selectList" resultType="Post" resultMap="postMap">
@@ -38,8 +41,6 @@
 		where p.post_id = c.post_id
 		order by c.comments_id asc
 	</select>
-
-
 	<!-- profile에서 내 사진만 불러오는 select문 -->
 	<select id="selectMy" resultType="Post" parameterType="int">
 		<include refid="select"/>
