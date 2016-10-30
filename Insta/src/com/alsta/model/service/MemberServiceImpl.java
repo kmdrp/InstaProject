@@ -48,6 +48,7 @@ public class MemberServiceImpl implements MemberService{
 		try {
 			myFile.transferTo(new File(path));
 			post.setPath(path);
+			post.setImg_type("true");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
