@@ -62,13 +62,33 @@ create sequence seq_follow increment by 1 start with 1;
 
 ---------------------------------------------------------------------------------------------------------------------
 
- insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'admin','admin','admin','admin');
+insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'admin','admin','admin','admin');
+insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'guest','guest','guest','guest');
+insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'friend','friend','friend','friend');
+insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user1','user1','user1','user1');
+insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user2','user2','user2','user2');
+insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user3','user3','user3','user3');
+insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user4','user4','user4','user4');
 
 ---------------------------------------------------------------------------------------------------------------------
 
 insert into post(post_id,pomem_id,img_type,content) values(seq_post.nextval,1,'img','post : ¸Þ·Õ¸Þ·Õ#¸Þ·Õ#hashtage');
+insert into post(post_id,pomem_id,img_type,content) values(seq_post.nextval,1,'video','#a#b#c abc');
+insert into post(post_id,pomem_id,img_type,content) values(seq_post.nextval,1,'img','ÀÌ°Ç ¾Ë·Î¿¡');
 
+-----------------------------------------------------------------------------------------------------------------
 
+insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,1,1,'¿ì¿Í');
+insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,2,1,'¾È³ç');
+insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,3,1,'¹Ùº¸');
+insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,1,2,'¿ì¿Í');
+
+---------------------------------------------------------------------------------------------------------------------
+
+insert into follow(follow_id,me,you) values(seq_follow.nextval,1,2);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,2,1);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,3,1);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,3,2);
 
 
 ----------------------drop

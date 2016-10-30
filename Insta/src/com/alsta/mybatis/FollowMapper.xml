@@ -23,5 +23,14 @@
 	 	delete from follow where follow_id=#{follow_id}
 	 </delete>
 	 
+	 <select id="followMe" parameterType="int">
+	 	<include refid="sql"/>
+	 	where me=#{me}
+	 </select>
+	 
+	 <select id="followByMe" parameterType="int">
+	 	<include refid="sql"/>
+	 	where you=#{you}
+	 </select>
 	
 </mapper>

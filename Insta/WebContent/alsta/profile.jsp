@@ -1,5 +1,15 @@
+<%@page import="com.alsta.model.domain.Follow"%>
+<%@page import="com.alsta.model.domain.Post"%>
+<%@page import="java.util.List"%>
+<%@page import="com.alsta.model.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@include file="/inc/preview.jsp" %>
+<%
+	Member member=(Member)request.getAttribute("member");
+	List<Post> postList=(List)request.getAttribute("post");
+	List<Follow>followList=(List)request.getAttribute("follow");
+	List<Follow>followerList=(List)request.getAttribute("follower");
+%>
 <!DOCTYPE html>
 <html>
 <head>

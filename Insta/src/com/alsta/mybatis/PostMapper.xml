@@ -36,13 +36,14 @@
 		comments, comem_id
 		FROM POST p, COMMENTS c
 		where p.post_id = c.post_id
-		order by c.comments_id desc
+		order by c.comments_id asc
 	</select>
 
 
 	<!-- profile에서 내 사진만 불러오는 select문 -->
 	<select id="selectMy" resultType="Post" parameterType="int">
-		where member_id#{member_id}
+		<include refid="select"/>
+		where member_id#{member_id} order by post_id desc
 	</select>
 	
 	<!-- 게시물 등록 -->

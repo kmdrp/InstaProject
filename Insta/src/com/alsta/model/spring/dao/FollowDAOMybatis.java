@@ -38,4 +38,13 @@ public class FollowDAOMybatis implements FollowDAO{
 		Follow follow=sessionTemplate.selectOne("Follow.selectOne", follow_id);
 		return follow;
 	}
+	public List followMe(int member_id){
+		List list=(List)sessionTemplate.selectList("Follow.followMe",member_id);
+		return list;
+	}
+	public List followByMe(int member_id){
+		List list=(List)sessionTemplate.selectList("Follow.followByMe", member_id);
+		return list;
+	}
+
 }
