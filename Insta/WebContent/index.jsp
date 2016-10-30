@@ -64,13 +64,13 @@ div_img{
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<input type="email" class="form-control" id="nick" name="nick"
+								<input type="nick" class="form-control" id="nick" name="nick"
 									placeholder="사용자 이름">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<input type="password" class="form-control" id="pwd" name="password"
+								<input type="pwd" class="form-control" id="pwd" name="password"
 									placeholder="비밀번호">
 							</div>
 						</div>

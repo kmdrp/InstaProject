@@ -31,6 +31,7 @@ public class MemberController {
 			Member dto=(Member)list.get(0);
 			HttpSession session=request.getSession();
 			session.setAttribute("member_id", dto.getMember_id());
+			System.out.println(session.getAttribute("member_id"));
 			return "redirect:/alsta/post.do";
 		}else{
 			return "redirect:/index.jsp";
@@ -77,6 +78,6 @@ public class MemberController {
 	public String registPost(Post post,HttpServletRequest request){
 	
 		int result=memberService.registPost(post,request);
-		return "redirect:/alsta/post.do?member_id="+post.getMember_id();
+		return "redirect:/alsta/post.do?member_id="+post.getPomem_id();
 	}
 }
