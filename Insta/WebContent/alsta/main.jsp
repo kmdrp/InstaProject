@@ -89,6 +89,7 @@ function regist(i){
 </head>
 <body>
 <!-- 상단바 -->
+<%@include file="/inc/preview.jsp" %>
 <%@include file="/inc/header.jsp" %>
 
 <!-- 친구 찾기 -->

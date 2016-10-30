@@ -1,11 +1,17 @@
 package com.alsta.model.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.alsta.model.dao.MemberDAO;
 import com.alsta.model.dao.PostDAO;
@@ -33,8 +39,18 @@ public class MemberServiceImpl implements MemberService{
 	public Member selectOne(int member_id) {
 		return memberDAO.selectOne(member_id);
 	}
-	public int registPost(Post post) {
-		post.getMyFile();
+	public int registPost(Post post,HttpServletRequest request) {
+		MultipartFile myFile=post.getMyFile();
+		String fileName=myFile.getOriginalFilename(); //업로드한 파일명...
+		ServletContext application=request.getServletContext();
+		String path=application.getRealPath("/data/")+fileName;
+		System.out.println(path);
+		try {
+			myFile.transferTo(new File(path));
+			post.setPath(path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return postDAO.insert(post);
 	}
 	public List logIn(Member dto) {

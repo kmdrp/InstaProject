@@ -73,24 +73,8 @@ public class MemberController {
 	}
 	@RequestMapping("registPost.do")
 	public String registPost(Post post,HttpServletRequest request){
-		/*//클라이언트가 업로드한 파일을 처리하자...
-		MultipartFile myFile=post.getMyFile();
-		String fileName=myFile.getOriginalFilename(); //업로드한 파일명...
-		//3단계
-		//서버의 하드 저장+DB 작업.... 
-		ServletContext application=request.getServletContext();
-		String path=application.getRealPath("/data/")+fileName;
-		try {
-			myFile.transferTo(new File(path));
-			post.setProfile(fileName);
-			post.setAsset(asset);
-			memberService.regist(member);
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
-		int result=memberService.registPost(post);
+	
+		int result=memberService.registPost(post,request);
 		return "redirect:/alsta/post.do?member_id="+post.getMember_id();
 	}
 }

@@ -16,7 +16,7 @@ public class PostDAOMybatis implements PostDAO{
 	
 	
 	public int insert(Post post) {
-		return 0;
+		return sessionTemplate.insert("Post.insert", post);
 	}
 
 	public int update(Post post) {
