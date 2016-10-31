@@ -62,7 +62,7 @@ $(document).ready(function(){
 				<li><a href="javascript:upload()"><span class="glyphicon glyphicon-camera icon_nav"></span></a></li>
   				<li><a href="/alsta/followList.do?member_id=<%=member_id %>" ><span class="glyphicon glyphicon-user icon_nav" ></span></a></li>
   				<li><a href="#" data-toggle="popover"><span class="glyphicon glyphicon-globe" ></span></a></li>
-  				<li><a href="/alsta/profile.jsp"><span class="glyphicon glyphicon-home icon_navx"></span></a></li>
+  				<li><a href="/alsta/profile.do"><span class="glyphicon glyphicon-home icon_navx"></span></a></li>
   			</ul>
   		</div>
 	</div>

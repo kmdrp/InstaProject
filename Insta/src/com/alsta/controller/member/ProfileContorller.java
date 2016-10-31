@@ -26,9 +26,9 @@ public class ProfileContorller {
 		
 		HttpSession session=request.getSession();
 		int member_id=(Integer)session.getAttribute("member_id");
-		//int member_id=1;
+		System.out.println("Profile controller mem_id:"+member_id);
 		Member member=profileService.selectOne(member_id);
-		List followList=profileService.followByMe(member_id);		
+		List followList=profileService.followByMe(member_id);	
 		List followerList=profileService.followMe(member_id);
 		List postList=profileService.selectMy(member_id);
 		

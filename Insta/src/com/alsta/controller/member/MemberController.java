@@ -21,7 +21,6 @@ import com.alsta.model.service.MemberService;
 @RequestMapping("/alsta/")
 public class MemberController {
 	@Autowired
-	
 	private MemberService memberService;
 	
 	@RequestMapping("logIn.do")
@@ -31,6 +30,7 @@ public class MemberController {
 			Member dto=(Member)list.get(0);
 			HttpSession session=request.getSession();
 			session.setAttribute("member_id", dto.getMember_id());
+			System.out.println(session.getAttribute("member_id"));
 			return "redirect:/alsta/post.do";
 		}else{
 			return "redirect:/index.jsp";

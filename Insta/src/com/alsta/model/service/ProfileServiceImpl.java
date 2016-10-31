@@ -27,21 +27,20 @@ public class ProfileServiceImpl implements ProfileService{
 	@Qualifier("followDAOMybatis")
 	private FollowDAO followDAO;
 	
-	
 	public Member selectOne(int member_id) {
 		Member member=memberDAO.selectOne(member_id);
 		return member;
 	}
-	public List selectMy(int member_id) {
-		List list=postDAO.selectMy(member_id);
-		return list;
-	}
 	public List followByMe(int member_id) {
-		 List followList=(List)followDAO.followByMe(member_id);
+		List followList=(List)followDAO.followByMe(member_id);
 		return followList;
 	}
 	public List followMe(int member_id) {
 		List followerList=(List)followDAO.followMe(member_id);
 		return followerList;
+	}
+	public List selectMy(int pomem_id) {
+		List list=postDAO.selectMy(pomem_id);
+		return list;
 	}
 }

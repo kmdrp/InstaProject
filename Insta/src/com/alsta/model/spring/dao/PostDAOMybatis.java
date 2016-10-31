@@ -41,8 +41,8 @@ public class PostDAOMybatis implements PostDAO{
 		return list;
 	}
 	
-	public List selectMy(int member_id){
-		List list=(List)sessionTemplate.selectList("Post.selectMy");
+	public List selectMy(int pomem_id){
+		List list=sessionTemplate.selectList("Post.selectMy",pomem_id);
 		return list;
 	}
 }
