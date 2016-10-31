@@ -1,3 +1,6 @@
+
+--ddl
+
 ----------------------drop
 drop table member;
 drop sequence seq_member;
@@ -25,13 +28,13 @@ create table member(
 	,phone varchar2(15) default 01000000000
 	,gender varchar(1) check (gender in ('m', 'f'))
 	,memo clob
+	,profile_img varchar2(50)
 	,privacy number
 );
 
 create sequence seq_member increment by 1 start with 1;
 
- 
-select * from member;
+
 
 create table comments(
 	comments_id number primary key
@@ -43,7 +46,7 @@ create table comments(
 
 
 create sequence seq_comments increment by 1 start with 1;
-select * from comments;
+
 
 create table post(
 	post_id number primary key
@@ -72,49 +75,58 @@ create table follow(
 
 create sequence seq_follow increment by 1 start with 1;
 
+
+
+----dml
+
 ---------------------------------------------------------------------------------------------------------------------
 
-insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'admin','admin','admin','admin');
-insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'guest','guest','guest','guest');
-insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'friend','friend','friend','friend');
-insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user1','user1','user1','user1');
+insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'admin','admin','admin','admin','관리자 계정입니다');
+insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'irene','아이린','irenelove','irene','/imgaes/profile/ir12.jpg','안녕하세요 레드벨벳 아이린입니다');
+insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'hgueen','HollyQueen','holly.queen','hgueen','/imgaes/profile/hollyqueen2.jpg','what?');
+insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'gyeongree','박경리','gyeongree','gyeongree','/imgaes/profile/kr2.jpg','나인뮤지스 경리');
 insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user2','user2','user2','user2');
 insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user3','user3','user3','user3');
 insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user4','user4','user4','user4');
 
 ---------------------------------------------------------------------------------------------------------------------
 
-insert into post(post_id,pomem_id,img_type,content) values(seq_post.nextval,1,'img','post : 메롱메롱#메롱#hashtage');
-insert into post(post_id,pomem_id,img_type,content) values(seq_post.nextval,1,'video','#a#b#c abc');
-insert into post(post_id,pomem_id,img_type,content) values(seq_post.nextval,1,'img','이건 알로에');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/images/post/kr.jpg','post : 메롱메롱#메롱#hashtage');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/images/post/kr1.jpg','#a#b#c abc');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/images/post/kr3.jpg','경리짱에쁨');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/images/post/kr4.png','#섹시#존예 경리#나인뮤지스');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/images/post/kr5.jpg','안녕하세용');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/images/post/kr6.jpg','이건 알로에그램');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/images/post/kr7.jpg','이건 알로에');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','/imgaes/post/kr8.jpg','이건 알로에');
 
 -----------------------------------------------------------------------------------------------------------------
 
 insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,1,1,'우와');
 insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,2,1,'안녕');
 insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,3,1,'바보');
-insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,1,2,'우와');
+insert into comments(comments_id,comem_id,post_id,comments) values(seq_comments.nextval,4,2,'우와');
 
 ---------------------------------------------------------------------------------------------------------------------
 
 insert into follow(follow_id,me,you) values(seq_follow.nextval,1,2);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,2,1);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,3,1);
-insert into follow(follow_id,me,you) values(seq_follow.nextval,3,2);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,3,4);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,3,5);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,3,6);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,4,2);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,4,3);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,1,3);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,1,4);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,1,5);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,5,1);
 
 
-----------------------drop
-drop table member;
-drop sequence seq_member;
 
-drop table post;
-drop sequence seq_post;
 
-drop table comments;
-drop sequence seq_comments;
 
-drop table love;
-drop sequence seq_love;
 
-drop table follow;
-drop sequence seq_follow;
+
+
+

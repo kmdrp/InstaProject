@@ -27,4 +27,8 @@
 	<select id="selectList" parameterType="Member" resultType="Member">
 		select * from member where nick=#{nick} and password=#{password}
 	</select>
+	<!-- profile 이미지 등록 처리  -->
+	<update id="updateProfileImg" parameterType="Member">
+		update member set profile_img=#{profile_img} where member_id=#{member_id}
+	</update>
 </mapper>

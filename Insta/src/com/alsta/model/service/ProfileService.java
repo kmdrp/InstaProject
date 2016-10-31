@@ -10,4 +10,5 @@ public interface ProfileService {
 	public Member selectOne(int member_id);
 	public List followMe(int member_id);
 	public List followByMe(int pomem_id);
+	//public Member updateProfileImg(Member member);
 }

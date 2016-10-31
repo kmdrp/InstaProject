@@ -13,7 +13,17 @@
 	System.out.println("post size:"+postList.size());
 	System.out.println("follow size"+followList.size());
 	System.out.println("follower size:"+followerList.size());
-	 */
+	*/
+	String profile_img=member.getProfile_img();
+	System.out.println(profile_img);// 이미지 찍어보고 null 이면 default 이미지  등록  ...불러와서 null이면 default 로 설정해야할지 애초에 default이미지를 넣어둘지 .....
+	//오라클에서 null 일때 varchar에도 default 되는지 알아보고.
+	
+	//profile 사진 업데이트,
+	//follow follower명단  띄우기 
+	
+	//post 불러오기 
+	
+	 
 %>
 <!DOCTYPE html>
 <html>
