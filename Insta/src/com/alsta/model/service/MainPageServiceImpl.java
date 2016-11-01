@@ -29,6 +29,11 @@ public class MainPageServiceImpl implements MainPageService{
 		commentsDAO.insert(comments);
 		return 0;
 	}
+	
+	public List selectList(){
+		List list = postDAO.selectList();
+		return list;
+	}
 
 	
 	

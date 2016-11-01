@@ -3,8 +3,15 @@ package com.alsta.model.domain;
 public class Love {
 	private int love_id;
 	private int post_id;
-	private int member_id;
+	private int lomem_id;
 	
+
+	public int getLomem_id() {
+		return lomem_id;
+	}
+	public void setLomem_id(int lomem_id) {
+		this.lomem_id = lomem_id;
+	}
 	public int getLove_id() {
 		return love_id;
 	}
@@ -17,13 +24,5 @@ public class Love {
 	public void setPost_id(int post_id) {
 		this.post_id = post_id;
 	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
-	}
-	
-	
 
 }

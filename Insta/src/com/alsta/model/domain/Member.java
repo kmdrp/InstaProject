@@ -12,8 +12,10 @@ public class Member {
 	private String phone;
 	private String gender;
 	private String memo;
+	private String profile_img;
 	private String privacy;
 	private MultipartFile myFile;
+	
 	
 	public int getMember_id() {
 		return member_id;
@@ -68,6 +70,12 @@ public class Member {
 	}
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+	public String getProfile_img() {
+		return profile_img;
+	}
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
 	}
 	public String getPrivacy() {
 		return privacy;

@@ -4,9 +4,18 @@ public class Comments {
 
 	private int comments_id;
 	private int post_id;
-	private int member_id;
+	private int comem_id;
 	private String comments;
 	private String regdate;
+	
+	
+	
+	public int getComem_id() {
+		return comem_id;
+	}
+	public void setComem_id(int comem_id) {
+		this.comem_id = comem_id;
+	}
 	public int getComments_id() {
 		return comments_id;
 	}
@@ -18,12 +27,6 @@ public class Comments {
 	}
 	public void setPost_id(int post_id) {
 		this.post_id = post_id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public String getComments() {
 		return comments;

@@ -1,5 +1,6 @@
 package com.alsta.model.spring.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,18 +15,23 @@ public class MemberDAOMybatis implements MemberDAO{
 	@Autowired
 	private SqlSessionTemplate sessionTemplate;	
 	public int insert(Member member) {
-		return sessionTemplate.update("Member.insert", member);
+		return sessionTemplate.update("MemberMapper.insert", member);
 	}
 	public int updateDetail(Member member) {
-		return sessionTemplate.update("Member.updateDetail",member);
+		return sessionTemplate.update("MemberMapper.updateDetail",member);
 	}
 	public int updatePassword(Member member) {
-		return sessionTemplate.update("Member.updatePassword",member);
+		return sessionTemplate.update("MemberMapper.updatePassword",member);
 	}
 	public int delete(int member_id) {
 		return 0;
 	}
 	public Member selectOne(int member_id) {
-		return sessionTemplate.selectOne("Member.selectOne", member_id);
+		return sessionTemplate.selectOne("MemberMapper.selectOne", member_id);
+	}
+	public List selectList(Member member) {
+		List list=sessionTemplate.selectList("MemberMapper.selectList", member);
+		System.out.println(list.size());
+		return list;
 	}
 }

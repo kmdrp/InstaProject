@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
-	//int member_id=Integer.parseInt(request.getParameter("member_id"));
+	int member_id=(int)session.getAttribute("member_id");
 %>
 <style>
 .modal-content{
@@ -113,6 +113,7 @@
 	float:right;
 }
 </style>
+
 </head>
 <body>
 <div id="upload" class="w3-modal w3-gray" >
@@ -120,10 +121,10 @@
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
     <div class="modal-content">
    		<div>
-   		<form name="upload_form" method="post">
+   		<form name="upload_form">
 	   		<div id="upload_img">
 	   			<input type="file" name="myFile" id="input_file" style="display:none;">
-	   			<input type="hidden" name="id" value="">
+	   			<input type="hidden" name="pomem_id" value="<%=member_id%>">
 		   		<button type="button" id="btn_load_img"onClick="load_img()"><img src="/images/img_upload/upload_img.png" id="img_default"></button>
 	   		</div>
 	   		<div id="upload_content">
@@ -180,12 +181,12 @@ function closeAll(){
 function load_img(){
 	document.getElementById("input_file").click();
 }
-/* function regist(){
-	form1.method="post";
-	form1.encoding="multipart/form-data";
-	form1.action="";
-	form1.submit();
-} */
+function registPost(){
+	upload_form.method="post";
+	upload_form.encoding="multipart/form-data";
+	upload_form.action="/alsta/registPost.do";
+	upload_form.submit();
+} 
 //이미지 미리보기 구현
 function preview(){
 	
@@ -206,4 +207,4 @@ function preview(){
 }
 
 </script>
-</html>
+

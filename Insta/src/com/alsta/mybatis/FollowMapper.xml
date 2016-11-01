@@ -6,9 +6,10 @@
 	<sql id="sql">
 		select * from follow
 	</sql>
+	
 	<select id="selectAll" resultType="Post"  parameterType="int">
-		select to_char(p.content),f.you as member_id from follow f, post p where 
-		f.me!=#{member_id} and p.member_id=f.you group by f.you  ,to_char(p.content)
+		select to_char(p.content),f.you as pomem_id from follow f, post p where 
+		f.me!=#{member_id} and p.pomem_id=f.you group by f.you  ,to_char(p.content)
 	</select>
 	<select id="selectOne" resultType="Follow" parameterType="int">
 		<include refid="sql"/>
@@ -23,5 +24,14 @@
 	 	delete from follow where follow_id=#{follow_id}
 	 </delete>
 	 
+	 <select id="followMe" parameterType="int" resultType="Follow">
+	 	<include refid="sql"/>
+	 	where you=#{you}
+	 </select>
+	 
+	 <select id="followByMe" parameterType="int" resultType="Follow">
+	 	<include refid="sql"/>
+	 	where me=#{me}
+	 </select>
 	
 </mapper>

@@ -7,11 +7,10 @@
 	System.out.print("list 사이즈는"+list.size());
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title>알로에그램</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -96,6 +95,7 @@ function followRegist(i){
 </head>
 <body>
 	<!-- 상단바 -->
+	<%@include file="/inc/preview.jsp" %>
 	<%@include file="/inc/header.jsp"%> 
 
 	<!-- 친구 찾기 -->
@@ -119,10 +119,10 @@ function followRegist(i){
 	<!-- 친구 찾기 for문 영역 -->
 	<%for(int i=1;i<=list.size();i++){ %>
 	<%Post post=list.get(i-1); %>
-	<%System.out.print("post"+post.getMember_id()); %>
+	<%System.out.print("post"+post.getPomem_id()); %>
 	
 	<form class="form-horizontal" name="form1" method="post">
-	<input type="hidden" value="<%=post.getMember_id() %>" name="you">
+	<input type="hidden" value="<%=post.getPomem_id() %>" name="you">
 	<input type="hidden" value="1" name="me">
 	<div class="row" >
 		<div class="col-sm-3"></div>

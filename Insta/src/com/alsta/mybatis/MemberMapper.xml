@@ -2,23 +2,33 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Member">
+<mapper namespace="MemberMapper">
 	<sql id="sql">
 		select * from member
 	</sql>
+	<!-- member_id로 검색 -->
 	<select id="selectOne" parameterType="int" resultType="Member">
 		<include refid="sql"/> where member_id=#{member_id}
 	</select>
+	<!-- 가입 -->
 	<insert id="insert" parameterType="Member">
 		insert into member(member_id,email,name,nick,password) 
 		values(seq_member.nextval,#{email},#{name},#{nick},#{password})
 	</insert>
 	<update id="updateDetail" parameterType="Member">
-		update member set phone=#{phone},gender=#{gender}, memo=#{memo},name=#{name},nick=#{nick}
+		update member set phone=#{phone},gender=#{gender},memo=#{memo},name=#{name},nick=#{nick}
 		where member_id=#{member_id} 
 	</update>
 	<update id="updatePassword" parameterType="Member">
 		update member set password=#{password}
 		where member_id=#{member_id} 
+	</update>
+	<!-- 로그인 처리 -->
+	<select id="selectList" parameterType="Member" resultType="Member">
+		select * from member where nick=#{nick} and password=#{password}
+	</select>
+	<!-- profile 이미지 등록 처리  -->
+	<update id="updateProfileImg" parameterType="Member">
+		update member set profile_img=#{profile_img} where member_id=#{member_id}
 	</update>
 </mapper>

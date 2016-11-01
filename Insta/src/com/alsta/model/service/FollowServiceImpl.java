@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.alsta.model.dao.FollowDAO;
 import com.alsta.model.domain.Follow;
+import com.alsta.model.spring.dao.FollowDAOMybatis;
 import com.alsta.model.domain.Post;
-
 @Service
 public class FollowServiceImpl implements FollowService{
 	@Autowired

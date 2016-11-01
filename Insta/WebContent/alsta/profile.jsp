@@ -1,10 +1,39 @@
+<%@page import="com.alsta.model.domain.Follow"%>
+<%@page import="com.alsta.model.domain.Post"%>
+<%@page import="java.util.List"%>
+<%@page import="com.alsta.model.domain.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@include file="/inc/preview.jsp" %>
+<%
+	Member member=(Member)request.getAttribute("member");
+	List<Post> postList=(List)request.getAttribute("post");
+	List<Follow> followList=(List)request.getAttribute("follow");
+	List<Follow> followerList=(List)request.getAttribute("follower");
+	/* System.out.println("follow size"+followList.size());
+	System.out.println("post size:"+postList.size());
+	System.out.println("member_id:"+member.getMember_id());
+	System.out.println("follower size:"+followerList.size());
+	*/
+	String profile_img=member.getProfile_img();
+	// 이미지 찍어보고 null 이면 default 이미지  등록  ...불러와서 null이면 default 로 설정해야할지 애초에 default이미지를 넣어둘지 .....
+	//오라클에서 null 일때 varchar에도 default 되는지 알아보고.
+	if(member.getProfile_img()==null){
+		profile_img="/images/profile/default.png";
+	}else{
+		profile_img=member.getProfile_img();
+	}
+	//profile 사진 업데이트,
+	
+	//follow follower명단  띄우기 
+	
+	//post 불러오기 
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insta</title>
+<title>알로에그램</title>
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,7 +46,6 @@ body{
 	align:center;
 	background:#F6F6F6;
 }
-
 #main{
 	width:1000px;
 	margin:0 auto;
@@ -47,7 +75,7 @@ body{
 #p_zone{
 	display:table;
 }
-#p1,#p2,#p3{
+#post1,#post2,#post3{
 	display:table-cell;
 	height:333px;
 }
@@ -165,15 +193,14 @@ strong{
 </style>
 <script>
 var img;
-
 function init(){
 	init1();
 }
 function viewImg(element){
 	img=document.getElementById("selected_img");
 	img.src=element.src;
-	imgSize();
 	document.getElementById("gallery_view").style.display="block";
+	imgSize();
 	//document.getElementById("gallery_view").style.height=element.height;
 	/* var captionText= 캡션추가가능 */
 	
@@ -189,11 +216,57 @@ function logout(){
 	alert("로그아웃되었습니다.");		
 }
 function change_profile_img(){
-	document.getElementById("profile_img").style.display="block";
+	document.getElementById("profileImg").style.display="block";
 }
 function close_view(){
 	document.getElementById("gallery_view").style.display="none";
 }
+function del_profileImg(){
+	//프로필 이미지  삭제
+	if(confirm("현재 프로필 이미지를 삭제 하시겠습니까?")){
+		
+		
+	}
+}
+function update_profileImg(){
+	//프로필 이미지 변경 
+	
+}
+function posting(){
+	var post1=document.getElementById("post1");
+	var post2=document.getElementById("post2");
+	var post3=document.getElementById("post3");
+	
+
+	<%for(int i=0;i<postList.size();i++){
+		Post post=postList.get(i);
+		%>
+		
+		var img=document.createElement("img");
+		
+		/* i%3=1 document.getElementById("post1").appendChild()
+		i%3=2 div2
+		i%3=0 div3 */
+		<%if(i%3==1){%>
+			post1.appendChild(img);
+			img.src="<%=post.getPath()%>";
+			//img.addEventListener("click",function imgView(this));
+		<%}else if(i%3==2){%>
+			post2.appendChild(img);
+			img.src="<%=post.getPath()%>";
+			//img.addEventListener("click",function imgView(this));
+		<%}else if(i%3==0){%>
+			post3.appendChild(img);
+			img.src="<%=post.getPath()%>";
+			//img.addEventListener("click",function imgView(this));
+		<%}%>
+	<%}%>
+}
+	 	
+		
+
+ 
+ 	
 </script>
 </head>
 <body onLoad="init()">
@@ -203,42 +276,42 @@ function close_view(){
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
 			<button id="btn_img">
-				<img src="/images/img1.jpg" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile_img()" >
+				<img src="<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile_img()" >
 			</button>
 		</div>
 		<div id="profile_detail" class="col-md-8">
-				<p id="line1"><span id="id_profile" style="float:left;"><strong>ajfzoa</strong></span>
-				<span id="span_btn"><a href="/alsta/edit.jsp"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
+				<p id="line1"><span id="id_profile" style="float:left;"><strong><%=member.getNick() %></strong></span>
+				<span id="span_btn"><a href="/alsta/edit.do"><button id="btn_profile" type="button" class="btn btn-default" onClick="edit_profile()"><strong>프로필 편집</strong></button></a></span>
 				<span id="span_more"><button><img id="btn_more" src="/images/more.png" onClick="myId()"></button></span>
 				</p>
-				<p id="line2"> 게시물<strong> 6</strong> 개&nbsp;&nbsp; 팔로워 <strong>100</strong>명  팔로우<strong> 100</strong>명 </p> 
+				<p id="line2"> 게시물<strong><%=postList.size() %></strong> 개&nbsp;&nbsp; 팔로워 <strong><%=followerList.size() %></strong>명  팔로우<strong><%=followList.size() %></strong>명 </p> 
 				<!-- <div id="line1"> <input type="text" value="ajfzoa">
 				<button type="button" class="btn btn-default">프로필 편집</button></div> -->
-				<p id="line3"><strong> 박경리 </strong> 안녕하세요 멀티캠퍼스 경리 박경리입니다.</p>
+				<p id="line3"><strong><%=member.getName() %></strong>&nbsp;&nbsp;&nbsp;<%=member.getMemo() %></p>
 		</div>
 	</div>	
 	<div id="p_zone" class="w3-row">
-			<div id="p1" class="w3-third">
-				<img src="/images/kr.jpg" onClick="viewImg(this)">
+			<div id="post1" class="w3-third">
+				<!-- <img src="/images/kr.jpg" onClick="viewImg(this)">
 				<img src="/images/kr4.png" onClick="viewImg(this)">
-				<img src="/images/kr1.jpg" onClick="viewImg(this)">
+				<img src="/images/kr1.jpg" onClick="viewImg(this)"> -->
 			</div>
-			<div id="p2" class="w3-third">
-				<img src="/images/kr3.jpg" onClick="viewImg(this)">
-				<img src="/images/kr5.jpg" onClick="viewImg(this)">
+			<div id="post2" class="w3-third">
+			<!-- 	<img src="/images/kr3.jpg" onClick="viewImg(this)">
+				<img src="/images/kr5.jpg" onClick="viewImg(this)"> -->
 			</div>
-			<div id="p3"class="w3-third">
-				<img src="/images/kr8.jpg" onClick="viewImg(this)">
-				<img src="/images/kr7.jpg" onClick="viewImg(this)">
+			<div id="post3"class="w3-third">
+				<!-- <img src="/images/kr8.jpg" onClick="viewImg(this)">
+				<img src="/images/kr7.jpg" onClick="viewImg(this)"> -->
 			</div>
 	</div>
 	
-  <div id="profile_img" class="w3-modal w3-gray" onclick="this.style.display='none'">
+  <div id="profileImg" class="w3-modal w3-gray" onclick="this.style.display='none'">
   	<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
   		<div class="btn-group-vertical" style="width:400px;margin-top:100px;">
   			<button type="button"  class="btn btn-default" disabled>프로필 사진 바꾸기</button>
-  			<button type="button" class="btn btn-default">현재 사진 삭제</button>
-  			<button type="button" class="btn btn-default">사진 업로드</button>
+  			<button type="button" class="btn btn-default" onClick="del_profileImg()">현재 사진 삭제</button>
+  			<button type="button" class="btn btn-default" onClick="update_porfileImg()">사진 업로드</button>
   			<button type="button" class="btn btn-default">취소</button>
   		</div>
   	</div>
