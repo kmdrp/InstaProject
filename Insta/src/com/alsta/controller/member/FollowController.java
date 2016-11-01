@@ -21,7 +21,7 @@ public class FollowController {
 	public ModelAndView regist(Follow follow){
 		int result=followService.regist(follow);
 		ModelAndView mav = new ModelAndView("/alsta/friend");
-		
+		mav.addObject("result", result);
 		return mav;
 	}
 	@RequestMapping("followList.do")
