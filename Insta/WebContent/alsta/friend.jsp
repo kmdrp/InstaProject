@@ -1,9 +1,12 @@
+<%@page import="com.alsta.model.domain.Member"%>
 <%@page import="com.alsta.model.domain.Follow"%>
 <%@page import="com.alsta.model.domain.Post"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
-	List<Post>list=(List)request.getAttribute("list");
+	List<Follow>list=(List)request.getAttribute("list");
+	System.out.println("list size는 "+list.size());
+	List<Member> listMember=(List)request.getAttribute("member");
 %>
 <!DOCTYPE html>
 <html>
@@ -117,11 +120,11 @@ function followRegist(i){
 	</div>
 	<!-- 친구 찾기 for문 영역 -->
 	<%for(int i=1;i<=list.size();i++){ %>
-	<%Post post=list.get(i-1); %>
-	
+	<%Follow follow=list.get(i-1); %>
+	<%Member member=listMember.get(i-1); %>
 	
 	<form class="form-horizontal" name="form1" method="post">
-	<input type="hidden" value="<%=post.getPomem_id() %>" name="you">
+	<input type="hidden" value="<%=follow.getYou() %>" name="you">
 	<input type="hidden" value="1" name="me">
 	<div class="row" >
 		<div class="col-sm-3"></div>
@@ -131,7 +134,7 @@ function followRegist(i){
 				<a href="#"> <img src="/images/img1.jpg"
 					class="img-circle myimg">
 					<h3 id="userId" name="userId">
-						adsdfdfdf<br></a> <small>secondary text</small>
+						<%=member.getName() %><br></a> <small><%=member.getNick() %></small>
 				</h3>
 			</div>
 			<div>
