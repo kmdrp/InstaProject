@@ -4,7 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	List<Post>list=(List)request.getAttribute("list");
-	System.out.print("list 사이즈는"+list.size());
 %>
 <!DOCTYPE html>
 <html>
@@ -119,7 +118,7 @@ function followRegist(i){
 	<!-- 친구 찾기 for문 영역 -->
 	<%for(int i=1;i<=list.size();i++){ %>
 	<%Post post=list.get(i-1); %>
-	<%System.out.print("post"+post.getPomem_id()); %>
+	
 	
 	<form class="form-horizontal" name="form1" method="post">
 	<input type="hidden" value="<%=post.getPomem_id() %>" name="you">
