@@ -18,7 +18,7 @@
 	// 이미지 찍어보고 null 이면 default 이미지  등록  ...불러와서 null이면 default 로 설정해야할지 애초에 default이미지를 넣어둘지 .....
 	//오라클에서 null 일때 varchar에도 default 되는지 알아보고.
 	if(member.getProfile_img()==null){
-		profile_img="/images/profile/default.png";
+		profile_img="default.png";
 	}else{
 		profile_img=member.getProfile_img();
 	}
@@ -249,15 +249,15 @@ function posting(){
 		i%3=0 div3 */
 		<%if(i%3==1){%>
 			post1.appendChild(img);
-			img.src="<%=post.getPath()%>";
+			img.src="/images/profile/<%=post.getPath()%>";
 			//img.addEventListener("click",function imgView(this));
 		<%}else if(i%3==2){%>
 			post2.appendChild(img);
-			img.src="<%=post.getPath()%>";
+			img.src="/images/profile/<%=post.getPath()%>";
 			//img.addEventListener("click",function imgView(this));
 		<%}else if(i%3==0){%>
 			post3.appendChild(img);
-			img.src="<%=post.getPath()%>";
+			img.src="/images/profile/<%=post.getPath()%>";
 			//img.addEventListener("click",function imgView(this));
 		<%}%>
 	<%}%>
@@ -276,7 +276,7 @@ function posting(){
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
 			<button id="btn_img">
-				<img src="<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile_img()" >
+				<img src="/images/profile/<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile_img()" >
 			</button>
 		</div>
 		<div id="profile_detail" class="col-md-8">
