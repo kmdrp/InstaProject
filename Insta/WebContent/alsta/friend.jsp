@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
+	
 	List<Follow>list=(List)request.getAttribute("list");
 	System.out.println("list size는 "+list.size());
 	List<Member> listMember=(List)request.getAttribute("member");
@@ -85,12 +86,16 @@
 <script>
 
 function followRegist(i){
-	if(i != 1){
+	if(<%=list.size()%>>1){
+		alert(i);
 		form1[i].action="/alsta/follow.do";
 		form1[i].submit();
+		alert("여긴?");
 	}else{
+		alert(i);
 		form1.action="/alsta/follow.do";
 		form1.submit();
+		alert("여기는?");
 	}
 }
 </script>
@@ -119,19 +124,19 @@ function followRegist(i){
 		<div class="col-sm-1"></div> 
 	</div>
 	<!-- 친구 찾기 for문 영역 -->
-	<%for(int i=1;i<=list.size();i++){ %>
-	<%Follow follow=list.get(i-1); %>
-	<%Member member=listMember.get(i-1); %>
+	<%for(int i=0;i<list.size();i++){ %>
+	<%Follow follow=list.get(i); %>
+	<%Member member=listMember.get(i); %>
 	
 	<form class="form-horizontal" name="form1" method="post">
 	<input type="hidden" value="<%=follow.getYou() %>" name="you">
-	<input type="hidden" value="1" name="me">
+	<input type="hidden" value="<%=member_id %>" name="me">
 	<div class="row" >
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6 bg-white wrapper">
 		<div class="sub">
 			<div class="my1">
-				<a href="#"> <img src="/images/img1.jpg"
+				<a href="#"> <img src="/images/profile/ir12.jpg"
 					class="img-circle myimg">
 					<h3 id="userId" name="userId">
 						<%=member.getName() %><br></a> <small><%=member.getNick() %></small>
@@ -142,13 +147,13 @@ function followRegist(i){
 			</div>
 			<div id="p_zone" class="w3-row">
 				<div id="p1" class="w3-col s4">
-					<img src="/images/kr.jpg" class="p_img" >
+					<img src="/images/post/kr.jpg" class="p_img" >
 				</div>
 				<div id="p2" class="w3-col s4">
-					<img src="/images/kr5.jpg" class="p_img">
+					<img src="/images/post/kr5.jpg" class="p_img">
 				</div>
 				<div id="p3" class="w3-col s4">
-					<img src="/images/kr5.jpg" class="p_img" >
+					<img src="/images/post/kr5.jpg" class="p_img" >
 				</div>
 			</div>
 		</div>

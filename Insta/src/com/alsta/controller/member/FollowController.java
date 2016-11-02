@@ -23,29 +23,26 @@ public class FollowController {
 
 	
 	@RequestMapping("follow.do")
-	public ModelAndView regist(Follow follow){
-		int result=followService.regist(follow);
-		ModelAndView mav = new ModelAndView("/alsta/friend");
-		mav.addObject("result", result);
-		return mav;
+	public String regist(Follow follow){
+	
+		followService.regist(follow);
+		return "redirect:/alsta/followList.do?member_id="+follow.getMe();
 	}
+	
 	@RequestMapping("followList.do")
 	public ModelAndView selectAll(int member_id){
 		List list=followService.selectAll(member_id);
-		
 		List listMember = new ArrayList();
-		
 		for(int i=0;i<list.size();i++){
 			Follow follow=(Follow)list.get(i);
-		
 			Member member=memberDAO.selectOne(follow.getYou());
-		
 			listMember.add(member);
 		}
 		
-		ModelAndView mav=new ModelAndView("/alsta/friend");
+		ModelAndView mav=new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("member", listMember);
+		mav.setViewName("alsta/friend");
 		return mav;
 	}
 }
