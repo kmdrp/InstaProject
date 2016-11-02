@@ -46,8 +46,10 @@ public class MemberServiceImpl implements MemberService{
 		String path=application.getRealPath("/data/")+fileName;
 		System.out.println(path);
 		try {
+
 			myFile.transferTo(new File(path));
 			post.setPath(fileName);
+
 			post.setImg_type("true");
 		} catch (IOException e) {
 			e.printStackTrace();
