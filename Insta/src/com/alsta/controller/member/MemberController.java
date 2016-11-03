@@ -1,5 +1,6 @@
 package com.alsta.controller.member;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -81,8 +83,9 @@ public class MemberController {
 		return "redirect:/alsta/post.do?member_id="+post.getPomem_id();
 	}
 	@RequestMapping("love.do")
-	public String love(Love love){
-		String result=memberService.love(love);
-		return result;
+	@ResponseBody
+	public Map love(Love love){
+		Map map=memberService.love(love);
+		return map;
 	}
 }

@@ -11,7 +11,7 @@ public interface LoveDAO {
 	public int insert(Love love);
 	public int update(Love love);
 	public int delete(Love love);
-	public List selectList(int love_id);
+	public List selectList(int post_id);
 	public void selectOne(Love love);
 	public List selectList(Love love);
 }

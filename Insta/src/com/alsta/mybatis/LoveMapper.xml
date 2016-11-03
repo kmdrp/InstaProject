@@ -10,4 +10,12 @@
 		delete from love 
 		where lomem_id=#{lomem_id} and post_id=#{post_id}
 	</delete>
+	<select id="search" parameterType="Love" resultType="Love">
+		select * from love
+		where lomem_id=#{lomem_id} and post_id=#{post_id}
+	</select>
+	<select id="selectList" parameterType="int" resultType="love">
+		select * from love
+		where post_id=#{post_id}
+	</select>
 </mapper>

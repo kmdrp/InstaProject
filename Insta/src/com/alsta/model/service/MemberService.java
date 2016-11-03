@@ -1,6 +1,7 @@
 package com.alsta.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,5 +16,5 @@ public interface MemberService {
 	public Member selectOne(int member_id);/////////////////
 	public int registPost(Post post,HttpServletRequest request);
 	public List logIn(Member member);
-	public String love(Love love);
+	public Map love(Love love);
 }

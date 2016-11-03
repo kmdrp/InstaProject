@@ -2,7 +2,10 @@ package com.alsta.model.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -82,14 +85,23 @@ public class MemberServiceImpl implements MemberService{
 		List list=memberDAO.selectList(dto);
 		return list;
 	}
-	public String love(Love love){
+	public Map love(Love love){
+		Map<String, String> map=new HashMap<String,String>();
+		List loveList=loveDAO.selectList(love.getPost_id());
 		List list=loveDAO.selectList(love);
 		String flag="love";
 		if(list.size()<1){
 			int result=loveDAO.insert(love);
+			flag="love";
 		}else{
 			int result=loveDAO.delete(love);
+			flag="dislike";
 		}
-		return flag;
+		map.put("flag", flag);
+		map.put("num", Integer.toString(loveList.size()));
+		return map;
 	}
+	
+	
+	
 }
