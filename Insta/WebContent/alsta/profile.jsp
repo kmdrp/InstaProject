@@ -18,7 +18,7 @@
 	// 이미지 찍어보고 null 이면 default 이미지  등록  ...불러와서 null이면 default 로 설정해야할지 애초에 default이미지를 넣어둘지 .....
 	//오라클에서 null 일때 varchar에도 default 되는지 알아보고.
 	if(member.getProfile_img()==null){
-		profile_img="/images/profile/default.png";
+		profile_img="default.png";
 	}else{
 		profile_img=member.getProfile_img();
 	}
@@ -224,7 +224,6 @@ function logout(){
 }
 function change_profile(){
 	document.getElementById("profileImg").style.display="block";
-}
 function close_view(){
 	document.getElementById("gallery_view").style.display="none";
 }
@@ -279,8 +278,8 @@ function posting(){
 	<div id="main">
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
-			<button id="btn_img" onClick="change_profile()">
-				<img src="<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180"  >
+			<button id="btn_img">
+				<img src="/images/profile/<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile()" >
 			</button>
 		</div>
 		<div id="profile_detail" class="col-md-8">

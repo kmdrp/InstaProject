@@ -12,6 +12,9 @@
 	</select>
 	<!-- 가입 -->
 	<insert id="insert" parameterType="Member">
+		<selectKey order="AFTER" keyProperty="member_id" resultType="int">
+			select seq_member.currval as member_id from dual
+		</selectKey>
 		insert into member(member_id,email,name,nick,password) 
 		values(seq_member.nextval,#{email},#{name},#{nick},#{password})
 	</insert>

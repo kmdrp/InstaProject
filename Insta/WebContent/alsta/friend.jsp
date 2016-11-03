@@ -1,10 +1,14 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.alsta.model.domain.Member"%>
 <%@page import="com.alsta.model.domain.Follow"%>
 <%@page import="com.alsta.model.domain.Post"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
-	List<Post>list=(List)request.getAttribute("list");
-	System.out.print("list 사이즈는"+list.size());
+	
+	List<Follow>list=(List)request.getAttribute("list");
+	System.out.println("list size는 "+list.size());
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -83,10 +87,12 @@
 <script>
 
 function followRegist(i){
-	if(i != 1){
+	if(<%=list.size()%>>1){
+		
 		form1[i].action="/alsta/follow.do";
 		form1[i].submit();
 	}else{
+		
 		form1.action="/alsta/follow.do";
 		form1.submit();
 	}
@@ -117,47 +123,53 @@ function followRegist(i){
 		<div class="col-sm-1"></div> 
 	</div>
 	<!-- 친구 찾기 for문 영역 -->
-	<%for(int i=1;i<=list.size();i++){ %>
-	<%Post post=list.get(i-1); %>
-	<%System.out.print("post"+post.getPomem_id()); %>
-	
+	<%for(int i=0;i<list.size();i++){ %>
+	<%Follow follow=list.get(i); %>
+	<%Member member=follow.getMemberl(); %>
+	<%ArrayList<Post> post=(ArrayList)follow.getPostList(); %>
+	<%System.out.print("post size 는"+post.size()); %>
 	<form class="form-horizontal" name="form1" method="post">
-	<input type="hidden" value="<%=post.getPomem_id() %>" name="you">
-	<input type="hidden" value="1" name="me">
+	<input type="hidden" value="<%=follow.getYou() %>" name="you">
+	<input type="hidden" value="<%=member_id %>" name="me">
 	<div class="row" >
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6 bg-white wrapper">
 		<div class="sub">
 			<div class="my1">
-				<a href="#"> <img src="/images/img1.jpg"
+				<a href="#"> <img src="/images/profile/<%=member.getProfile_img() %>"
 					class="img-circle myimg">
 					<h3 id="userId" name="userId">
-						adsdfdfdf<br></a> <small>secondary text</small>
+						<%=member.getName() %><br></a> <small><%=member.getNick() %></small>
 				</h3>
 			</div>
 			<div>
-				<button type="w3-button" class="btn btn-default bt" onClick="followRegist(<%=i%>)">팔로우</button>
+				<button class="btn btn-default bt" onClick="followRegist(<%=i%>)">팔로우</button>
 			</div>
+			
 			<div id="p_zone" class="w3-row">
-				<div id="p1" class="w3-col s4">
-					<img src="/images/kr.jpg" class="p_img" >
+			<%for(int a=0;a<post.size();a++){ %>
+			<%if(a>2)break; %>
+				<div id="p<%=a+1 %>" class="w3-col s4">
+					<img src="/images/post/<%=post.get(a).getPath() %>" class="p_img" >
 				</div>
-				<div id="p2" class="w3-col s4">
-					<img src="/images/kr5.jpg" class="p_img">
-				</div>
-				<div id="p3" class="w3-col s4">
-					<img src="/images/kr5.jpg" class="p_img" >
-				</div>
+			<%} %>
 			</div>
 		</div>
 		</div>
 		<div class="col-sm-3"></div>
 	</div>
 	</form>
-	<%} %>
+	
 	<!-- 친구 찾기 for문 영역 끝 -->
+	<%} %>
+	
 	<div class="col-sm-12"></div>
 
+
+</body>
+</html>
+	<!-- 친구 찾기 for문 영역 끝 -->
+	<div class="col-sm-12"></div>
 
 </body>
 </html>

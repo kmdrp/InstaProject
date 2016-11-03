@@ -7,4 +7,11 @@
 		insert into comments (comments_id,post_id,comem_id,comments)
 		values (seq_comments.nextval,#{post_id},#{comem_id},#{comments})
 	</insert>
+	
+	<select id="selectAll" resultType="Comments">
+		select post_id,nick,comments 
+		from comments c, member m 
+		where m.member_id=c.comem_id 
+		order by comments_id asc
+	</select>
 </mapper>

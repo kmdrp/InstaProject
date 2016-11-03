@@ -7,10 +7,13 @@
 		select * from follow
 	</sql>
 	
-	<select id="selectAll" resultType="Post"  parameterType="int">
-		select to_char(p.content),f.you as pomem_id from follow f, post p where 
-		f.me!=#{member_id} and p.pomem_id=f.you group by f.you  ,to_char(p.content)
+	<select id="selectAll" resultType="Follow"  parameterType="int">
+		select f.you from follow f, post p where 
+		f.me!=#{member_id} and f.you!=#{member_id} and  f.you not in 
+		(select you from follow where me=#{member_id})
+		and p.pomem_id=f.you group by f.you
 	</select>
+	
 	<select id="selectOne" resultType="Follow" parameterType="int">
 		<include refid="sql"/>
 		where follow_id=#{follow_id}

@@ -119,7 +119,7 @@ function regist(i){
 		<div class="col-sm-6 bg-white wrapper">
 			<div class="my1" >
 				<a href="#">
-				<img src="/images/img1.jpg"  class="img-circle myimg">
+				<img src="/images/post/kr1.jpg"  class="img-circle myimg">
 				<h3 id="userId" name="userId" >adsdfdfdf<br>
 				</a>
 				<small>secondary text</small>
@@ -137,7 +137,7 @@ function regist(i){
 		<div class="col-sm-6 bg-white wrapper">
 			<div class="my1" >
 				<a href="#">
-				<img src="/images/img1.jpg"  class="img-circle myimg">
+				<img src="/images/post/kr.jpg"  class="img-circle myimg">
 				<h3 id="userId" name="userId" >ajfzoawhdk<br>
 				</a>
 				<small>secondary text</small>
@@ -154,7 +154,7 @@ function regist(i){
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6 bg-white wrapper">
 			<div class="my1" >
-				<img src="/images/img1.jpg"  class="img-circle myimg">
+				<img src="/images/post/kr1.jpg"  class="img-circle myimg">
 				<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
 			</div>
 			<div class="right">
@@ -184,7 +184,7 @@ function regist(i){
 		<div class="row">
 			<div class="col-sm-9 text-left">
 				<a href="#">
-				<img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
+				<img src="/images/post/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
 				
 				<%=member.get(0).getNick() %>
 				</a>
@@ -193,7 +193,10 @@ function regist(i){
 		</div>
 	
 		<!-- 메인화면 중간 사진 부분 -->
-		<div id="mainPage_gallery"><img  src="/images/kr5.jpg" width="100%"></div>
+		<div id="mainPage_gallery">
+			<%System.out.println(post.getPath()); %>
+			<img  src="/images/post/<%=post.getPath() %>" width="100%">
+		</div>
 	
 		<!-- 메인화면 하단 댓글 보는 화면 -->
 		<div>
@@ -204,12 +207,14 @@ function regist(i){
 			<p><a href="#">#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma 
 			#IdealOfIdol #VeryVeryVery #너무너무너무</a></p>
 			
+			<%if(post.getCommentsList()!=null){ %>
+			<%System.out.println("mainpage 댓글사이즈"+post.getCommentsList().size()); %>
 			<%ArrayList <Comments> comments = post.getCommentsList(); %>		
 			<p><a href="#">댓글 <%=comments.size() %>개 모두 보기</a></p>
 			<%for(int a=0;a<comments.size();a++){ %>
-			<p><a href="#"><strong><%=comments.get(a).getComem_id()%></strong></a><%=comments.get(a).getComments() %></p>
+			<p><a href="#"><strong><%=comments.get(a).getNick()%></strong></a><%=comments.get(a).getComments() %></p>
 			<%} %>
-			
+			<%} %>
 			
 		</div>
 	
@@ -223,8 +228,8 @@ function regist(i){
 				
 				<!-- post 및 member_id 저장 -->
 				<input type="hidden" name="post_id" value="<%=post.getPost_id()%>">
-				<input type="hidden" name="member_id" value="<%=post.getPomem_id()%>">
-				
+				<%-- <input type="hidden" name="member_id" value="<%=post.getPomem_id()%>"> --%>
+				<input type="hidden" name="comem_id" value="<%=member_id%>">
 				
 				<input type="text" class="form-control" placeholder="Enter Comment" name="comments"><button onClick="regist(<%=i%>)">전송</button>
 				</form>
@@ -243,25 +248,25 @@ function regist(i){
 <!-- 메인화면1 끝 반복예정 -->
 <%} %>
 
-<!-- 메인화면2 -->
+<!-- 메인화면2
 <div  class="container-fluid bg-grey">
 <div class="row">
 
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6 bg-white wrapper">
 	
-		<!-- 메인화면 상단 아이디 및 시간 부분 -->
+		메인화면 상단 아이디 및 시간 부분
 		<div class="row">
 			<div class="col-sm-10 text-left">
-				<a href="#"><img src="/images/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> zenxen</a>
+				<a href="#"><img src="/images/post/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> zenxen</a>
 			</div>
 			<div class="col-sm-2 text-center"><h4>1주전</h4></div>  
 		</div>
 	
-		<!-- 메인화면 중간 사진 부분 -->
-		<div id="mainPage_gallery"><img  src="/images/kr1.jpg" width="100%"></div>
+		메인화면 중간 사진 부분
+		<div id="mainPage_gallery"><img  src="/images/post/kr1.jpg" width="100%"></div>
 	
-		<!-- 메인화면 하단 댓글 보는 화면 -->
+		메인화면 하단 댓글 보는 화면
 		<div>
 		
 			<h2><p>좋아요 1,649개</p></h2>
@@ -277,7 +282,7 @@ function regist(i){
 			
 		</div>
 	
-		<!-- 댓글 쓰는 화면 -->
+		댓글 쓰는 화면
 		<div class="row">
 			<div class="col-sm-1 btn-lg">
 				<span class="glyphicon glyphicon-heart-empty "></span>
@@ -296,7 +301,7 @@ function regist(i){
 	
 </div>
 </div>
-<!-- 메인화면2 끝-->
+메인화면2 끝 -->
 
 <!-- 신고하기 모달 구성 -->
  <div class="modal fade" id="btn_report" role="dialog">

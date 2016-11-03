@@ -202,7 +202,7 @@ function like(){
    			<div id="view_content">
    				<!-- 글쓴이 정보  프사_아이디_팔로우 버튼(팔로우중이면 팔로잉+색깔변화)-->
    				<div id="info_writer">
-   					<span id="img_writer"><img src="/images/profile/ir12.jpg" id="profileImg" class="img-circle" width="40px" height="40px"></span>	
+   					<span id="img_writer"><img src="/images/post/ir4.jpg" id="profileImg" class="img-circle" width="40px" height="40px"></span>	
    					<span id="id_writer">irene_zonye</span>
    					<span id="follow_writer"><button type="button" class="btn btn-success">팔로잉</button></span>
    				</div>
