@@ -38,6 +38,7 @@ function send(){
 <body>
 <%@include file="/inc/preview.jsp" %>
 <%@include file="/inc/header.jsp" %>
+
 	<div class="container-fluid" >
 		<div class="row content">
 			<div class="col-sm-2 sidenav">

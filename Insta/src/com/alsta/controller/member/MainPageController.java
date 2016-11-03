@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alsta.model.domain.Comments;
@@ -29,12 +30,7 @@ public class MainPageController {
 		return mav;
 	}*/
 	
-	@RequestMapping("comments.do")
-	public String regist(Comments comments){
-		mainPageService.regist(comments);
-		return "redirect:/alsta/post.do";
-	}
-	
+	//메인페이지 불러오기
 	@RequestMapping("post.do")
 	public ModelAndView selectList(HttpServletRequest request){
 		int member_id = (int)request.getSession().getAttribute("member_id");
@@ -45,5 +41,19 @@ public class MainPageController {
 		return mav;
 	}
 	
+	//댓글등록
+	@RequestMapping("comments.do")
+	public String regist(Comments comments){
+		mainPageService.regist(comments);
+		return "redirect:/alsta/post.do";
+	}
+	
+	//댓글 하나 불러오기
+	@RequestMapping("commentsOne.do")
+	@ResponseBody
+	public List selectOne(int post_id){
+		List list = mainPageService.selectOne(post_id);
+		return list;
+	}
 	
 }

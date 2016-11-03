@@ -18,20 +18,9 @@ public class CommentsDAOMybatis implements CommentsDAO{
 		return 0;
 	}
 
-	public int update(Comments comments) {
-		return 0;
-	}
-
-	public int delete(int comments_id) {
-		return 0;
-	}
-
-	public List selectList(int comments_id) {
-		return null;
-	}
-
-	public void selectOne(Comments comments) {
-		
+	public List selectOne(int post_id) {
+		List list = sessionTemplate.selectList("Comments.selectOne", post_id);
+		return list;
 	}
 
 	
