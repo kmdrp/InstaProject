@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alsta.model.dao.FollowDAO;
+import com.alsta.model.dao.LoveDAO;
 import com.alsta.model.dao.MemberDAO;
 import com.alsta.model.dao.PostDAO;
 import com.alsta.model.domain.Follow;
+import com.alsta.model.domain.Love;
 import com.alsta.model.domain.Member;
 import com.alsta.model.domain.Post;
 @Service
@@ -34,6 +36,8 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	@Qualifier("postDAOMybatis")
 	private PostDAO postDAO;
+	@Autowired
+	private LoveDAO loveDAO;
 	
 	@Transactional(propagation=Propagation.REQUIRED)
 	public int regist(Member member) {
@@ -53,7 +57,11 @@ public class MemberServiceImpl implements MemberService{
 		return memberDAO.updatePassword(member);
 	}
 	public Member selectOne(int member_id) {
-		return memberDAO.selectOne(member_id);
+		Member member=memberDAO.selectOne(member_id);
+		if(member.getProfile_img()==null){
+			member.setProfile_img("default.png");
+		}
+		return member; 
 	}
 	public int registPost(Post post,HttpServletRequest request) {
 		MultipartFile myFile=post.getMyFile();
@@ -74,5 +82,14 @@ public class MemberServiceImpl implements MemberService{
 		List list=memberDAO.selectList(dto);
 		return list;
 	}
-
+	public String love(Love love){
+		List list=loveDAO.selectList(love);
+		String flag="love";
+		if(list.size()<1){
+			int result=loveDAO.insert(love);
+		}else{
+			int result=loveDAO.delete(love);
+		}
+		return flag;
+	}
 }

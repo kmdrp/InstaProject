@@ -14,15 +14,17 @@ public class LoveDAOMybatis implements LoveDAO{
 	private SqlSessionTemplate sessionTemplate;
 
 	public int insert(Love love) {
-		return 0;
+		int result=sessionTemplate.update("LoveMapper.insert", love);
+		return result;
 	}
 
 	public int update(Love love) {
 		return 0;
 	}
 
-	public int delete(int love_id) {
-		return 0;
+	public int delete(Love love) {
+		int result=sessionTemplate.delete("LoveMapper.delete", love);
+		return result;
 	}
 
 	public List selectList(int love_id) {
@@ -31,5 +33,11 @@ public class LoveDAOMybatis implements LoveDAO{
 
 	public void selectOne(Love love) {
 		
+	}
+
+	@Override
+	public List selectList(Love love) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

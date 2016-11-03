@@ -82,9 +82,29 @@ function upload(){
 }
 
 function regist(i){
-	commentRegist[i].action="/alsta/comments.do";
-	commentRegist[i].submit();
-	/* location.href="/alsta/comments.do?comments='test'" */
+	if(event.keyCode == 13){
+		commentRegist[i].action="/alsta/comments.do";
+		commentRegist[i].submit();
+		/* location.href="/alsta/comments.do?comments='test'" */
+	}
+}
+
+function com(post_id){
+	$.ajax({
+		url:"/alsta/commentsOne.do?post_id="+post_id,
+		success:function(result){
+			alert("서버에서 응답결과는" + result[0].nick);
+		}
+		
+	});
+}
+function love(post_id){
+	$.ajax({
+		url:"/alsta/love.do?lomem_id=<%=session.getAttribute("member_id")%>&post_id="+post_id,
+		success:function(result){
+			alert(result);
+		}
+	});
 }
 
 </script>
@@ -184,7 +204,7 @@ function regist(i){
 		<div class="row">
 			<div class="col-sm-9 text-left">
 				<a href="#">
-				<img src="/images/post/kr5.jpg" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
+				<img src="/images/profile/<%=member.get(0).getProfile_img() %>" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
 				
 				<%=member.get(0).getNick() %>
 				</a>
@@ -210,7 +230,7 @@ function regist(i){
 			<%if(post.getCommentsList()!=null){ %>
 			<%System.out.println("mainpage 댓글사이즈"+post.getCommentsList().size()); %>
 			<%ArrayList <Comments> comments = post.getCommentsList(); %>		
-			<p><a href="#">댓글 <%=comments.size() %>개 모두 보기</a></p>
+			<p><a href="javascript:com(<%=post.getPost_id() %>)">댓글 <%=post.getCommentsListSize()%>개 모두 보기</a></p>
 			<%for(int a=0;a<comments.size();a++){ %>
 			<p><a href="#"><strong><%=comments.get(a).getNick()%></strong></a><%=comments.get(a).getComments() %></p>
 			<%} %>
@@ -221,7 +241,7 @@ function regist(i){
 		<!-- 댓글 쓰는 화면 -->
 		<div class="row">
 			<div class="col-sm-1 btn-lg">
-				<span class="glyphicon glyphicon-heart-empty "></span>
+				<span id="love" class="glyphicon glyphicon-heart-empty" onclick="love(<%=post.getPost_id()%>)"></span>
 			</div>
 			<div class="col-sm-9 ">
 				<form name="commentRegist" method="post">
@@ -231,7 +251,7 @@ function regist(i){
 				<%-- <input type="hidden" name="member_id" value="<%=post.getPomem_id()%>"> --%>
 				<input type="hidden" name="comem_id" value="<%=member_id%>">
 				
-				<input type="text" class="form-control" placeholder="Enter Comment" name="comments"><button onClick="regist(<%=i%>)">전송</button>
+				<input type="text" class="form-control" placeholder="Enter Comment" name="comments" onKeyDown="regist(<%=i%>)">
 				</form>
 			</div>
 			<div class="col-sm-2">

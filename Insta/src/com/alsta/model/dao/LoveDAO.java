@@ -10,7 +10,8 @@ import com.alsta.model.domain.Love;
 public interface LoveDAO {
 	public int insert(Love love);
 	public int update(Love love);
-	public int delete(int love_id);
+	public int delete(Love love);
 	public List selectList(int love_id);
 	public void selectOne(Love love);
+	public List selectList(Love love);
 }

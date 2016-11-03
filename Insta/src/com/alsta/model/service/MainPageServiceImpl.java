@@ -27,11 +27,6 @@ public class MainPageServiceImpl implements MainPageService{
 		
 		return list;
 	}
-
-	public int regist(Comments comments) {
-		commentsDAO.insert(comments);
-		return 0;
-	}
 	
 	public List selectList(int member_id){
 		List list = postDAO.selectList(member_id);
@@ -40,22 +35,35 @@ public class MainPageServiceImpl implements MainPageService{
 		for(int i=0;i<list.size();i++){
 			Post post=(Post)list.get(i);
 			List <Comments> cummentsSerchList = new ArrayList<Comments>();
+			int count=0;
+			
+			
 			for(int a=0;a<commentsList.size();a++){
 				Comments comments = (Comments)commentsList.get(a);
 				
 				if(comments.getPost_id()==post.getPost_id()){
-					
-					cummentsSerchList.add(comments);
-					
-					post.setCommentsList((ArrayList)cummentsSerchList);
+					if(count<4){
+						cummentsSerchList.add(comments);
+					}
+					count++;
 				}
 			}
+			post.setCommentsListSize(count);
+			post.setCommentsList((ArrayList)cummentsSerchList);
+			
+			
+			
 		}
 		return list;
 	}
-
 	
+	public int regist(Comments comments) {
+		commentsDAO.insert(comments);
+		return 0;
+	}
 	
-
-
+	public List selectOne(int post_id){
+		List list = commentsDAO.selectOne(post_id);
+		return list;
+	}
 }

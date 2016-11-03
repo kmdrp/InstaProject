@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.alsta.model.domain.Love;
 import com.alsta.model.domain.Member;
 import com.alsta.model.domain.Post;
 
@@ -14,4 +15,5 @@ public interface MemberService {
 	public Member selectOne(int member_id);/////////////////
 	public int registPost(Post post,HttpServletRequest request);
 	public List logIn(Member member);
+	public String love(Love love);
 }
