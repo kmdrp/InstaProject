@@ -199,7 +199,7 @@ function love(post_id){
 <%Post post = postList.get(i); %>
 <%ArrayList <Member> member = post.getMemberList(); %>
 <!-- 메인화면1 -->
-<div  class="container-fluid bg-grey">
+<div class="container-fluid bg-grey">
 <div class="row">
 	
 	
