@@ -86,6 +86,14 @@ function regist(i){
 	commentRegist[i].submit();
 	/* location.href="/alsta/comments.do?comments='test'" */
 }
+function love(post_id){
+	$.ajax({
+		url:"/alsta/love.do?lomem_id=<%=session.getAttribute("member_id")%>&post_id="+post_id,
+		success:function(result){
+			alert(result);
+		}
+	});
+}
 
 </script>
 </head>
@@ -221,7 +229,7 @@ function regist(i){
 		<!-- 댓글 쓰는 화면 -->
 		<div class="row">
 			<div class="col-sm-1 btn-lg">
-				<span class="glyphicon glyphicon-heart-empty "></span>
+				<span id="love" class="glyphicon glyphicon-heart-empty" onclick="love(<%=post.getPost_id()%>)"></span>
 			</div>
 			<div class="col-sm-9 ">
 				<form name="commentRegist" method="post">

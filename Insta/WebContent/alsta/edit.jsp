@@ -38,13 +38,12 @@ function send(){
 <body>
 <%@include file="/inc/preview.jsp" %>
 <%@include file="/inc/header.jsp" %>
-<%out.print(member_id); %>
 	<div class="container-fluid" >
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
 	      		<ul class="nav nav-pills nav-stacked">
-			        <li class="active"><a href="/alsta/edit.do?member_id=<%=member.getMember_id()%>">Home</a></li>
-			        <li><a href="/alsta/password.do?member_id=<%=member.getMember_id()%>">Menu 1</a></li>
+			        <li class="active"><a href="/alsta/edit.do?member_id=<%=member.getMember_id()%>">회원정보</a></li>
+			        <li><a href="/alsta/password.do?member_id=<%=member.getMember_id()%>">비밀번호 변경</a></li>
 		   		</ul>
 	   		</div>
 	  		<div class="col-sm-9" id="wrapper">

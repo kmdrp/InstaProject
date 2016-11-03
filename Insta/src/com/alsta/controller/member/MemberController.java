@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alsta.model.dao.MemberDAO;
+import com.alsta.model.domain.Love;
 import com.alsta.model.domain.Member;
 import com.alsta.model.domain.Post;
 import com.alsta.model.service.MemberService;
@@ -78,5 +79,10 @@ public class MemberController {
 	
 		int result=memberService.registPost(post,request);
 		return "redirect:/alsta/post.do?member_id="+post.getPomem_id();
+	}
+	@RequestMapping("love.do")
+	public String love(Love love){
+		String result=memberService.love(love);
+		return result;
 	}
 }
