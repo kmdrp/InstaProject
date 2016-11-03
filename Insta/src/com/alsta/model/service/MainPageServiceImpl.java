@@ -1,5 +1,6 @@
 package com.alsta.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +24,7 @@ public class MainPageServiceImpl implements MainPageService{
 	
 	public List selectAll() {
 		List list = (List)postDAO.selectAll();
-		/*for(int i=0;i<list.size();i++){
-			Post post=(Post)list.get(i);
-			List commentsList = (List)post.getCommentsList();
-			for(int a=0;a<commentsList.size();a++){
-				Comments comments = (Comments)commentsList.get(a);
-				int comem_id = comments.getComem_id();
-				
-				String nick =memberDAO.select(comem_id);
-				((Comments)commentsList.get(a)).setComments_id(nick);
-			}
-			((Post)list.get(i)).setCommentsList(commentsList);
-			
-		}*/
+		
 		return list;
 	}
 
@@ -44,8 +33,24 @@ public class MainPageServiceImpl implements MainPageService{
 		return 0;
 	}
 	
-	public List selectList(){
-		List list = postDAO.selectList();
+	public List selectList(int member_id){
+		List list = postDAO.selectList(member_id);
+		List commentsList = commentsDAO.selectAll();
+		System.out.println("mainpagesevice ´ñ±Û »çÀÌÁî"+commentsList.size());
+		for(int i=0;i<list.size();i++){
+			Post post=(Post)list.get(i);
+			List <Comments> cummentsSerchList = new ArrayList<Comments>();
+			for(int a=0;a<commentsList.size();a++){
+				Comments comments = (Comments)commentsList.get(a);
+				
+				if(comments.getPost_id()==post.getPost_id()){
+					
+					cummentsSerchList.add(comments);
+					
+					post.setCommentsList((ArrayList)cummentsSerchList);
+				}
+			}
+		}
 		return list;
 	}
 

@@ -33,4 +33,10 @@ public class CommentsDAOMybatis implements CommentsDAO{
 	public void selectOne(Comments comments) {
 		
 	}
+
+	
+	public List selectAll() {
+		List list = sessionTemplate.selectList("Comments.selectAll"); 
+		return list;
+	}
 }

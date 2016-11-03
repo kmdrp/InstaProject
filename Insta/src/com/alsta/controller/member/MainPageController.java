@@ -2,6 +2,9 @@ package com.alsta.controller.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -33,8 +36,9 @@ public class MainPageController {
 	}
 	
 	@RequestMapping("post.do")
-	public ModelAndView selectList(){
-		List list = mainPageService.selectList();
+	public ModelAndView selectList(HttpServletRequest request){
+		int member_id = (int)request.getSession().getAttribute("member_id");
+		List list = mainPageService.selectList(member_id);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("post",list);
 		mav.setViewName("/alsta/main");
