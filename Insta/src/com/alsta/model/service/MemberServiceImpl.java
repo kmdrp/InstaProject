@@ -43,7 +43,7 @@ public class MemberServiceImpl implements MemberService{
 		MultipartFile myFile=post.getMyFile();
 		String fileName=myFile.getOriginalFilename(); //업로드한 파일명...
 		ServletContext application=request.getServletContext();
-		String path=application.getRealPath("/data/")+fileName;
+		String path=application.getRealPath("/images/post/")+fileName;
 		System.out.println(path);
 		try {
 

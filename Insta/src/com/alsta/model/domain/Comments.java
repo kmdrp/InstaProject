@@ -8,8 +8,16 @@ public class Comments {
 	private String comments;
 	private String regdate;
 	
+	private String nick;
 	
 	
+	
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 	public int getComem_id() {
 		return comem_id;
 	}

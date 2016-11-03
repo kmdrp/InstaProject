@@ -12,4 +12,5 @@ public interface CommentsDAO {
 	public int delete(int comments_id);
 	public List selectList(int comments_id);
 	public void selectOne(Comments comments);
+	public List selectAll();
 }

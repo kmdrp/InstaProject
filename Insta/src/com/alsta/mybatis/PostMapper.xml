@@ -14,7 +14,7 @@
 	</select>
 	
 
-	<resultMap type="Post" id="postMap">
+<!-- 	<resultMap type="Post" id="postMap">
 		<id column="post_id" property="post_id"/>
 		<result column="pomem_id" property="pomem_id"/>
 		<result column="img_type" property="img_type"/>
@@ -25,9 +25,9 @@
 		<collection property="commentsList" javaType="java.util.ArrayList" ofType="Comments">
 			<result column="comments" property="comments"/>
 			<result column="comem_id" property="comem_id"/>
-			<!-- <id column="comments_id" property="comments_id"/> -->
-			<!-- <result column="post_id" property="post_id"/> -->			
-			<!-- <result column="regdate" property="regdate"/> -->
+			<id column="comments_id" property="comments_id"/>
+			<result column="post_id" property="post_id"/>			
+			<result column="regdate" property="regdate"/>
 		</collection>
 		<collection property="memberList" javaType="java.util.ArrayList" ofType="Member">
 			<result column="nick" property="nick"/>
@@ -41,6 +41,38 @@
 		where p.post_id = c.post_id and pomem_id=member_id
 		order by c.comments_id asc
 	</select>
+ --> 
+ 	
+ 	<resultMap type="Post" id="postMap">
+		<id column="post_id" property="post_id"/>
+		<result column="pomem_id" property="pomem_id"/>
+		<result column="img_type" property="img_type"/>
+		<result column="gps" property="gps"/>
+		<result column="path" property="path"/>
+		<result column="regdate" property="regdate"/>
+		<result column="content" property="content"/>
+		
+		<collection property="memberList" javaType="java.util.ArrayList" ofType="Member">
+			<result column="nick" property="nick"/>
+			<result column="profile_img" property="profile_img"/>
+			<result column="privacy" property="privacy"/>
+		</collection>
+		
+	</resultMap>
+	
+	<select id="selectList" resultType="Post" resultMap="postMap" parameterType="int">
+		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy
+		from post p, (select you from follow where me=#{member_id}) y, member m
+		where p.pomem_id=y.you and m.member_id = p.pomem_id
+		
+		<!-- follow 적용전 
+		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy
+		from post p,member m 
+		where m.member_id = p.pomem_id -->
+	</select>
+	
+	
+ 
 	<!-- profile에서 내 사진만 불러오는 select문 -->
 	<select id="selectMy" resultType="Post" parameterType="int">
 		<include refid="select"/>
