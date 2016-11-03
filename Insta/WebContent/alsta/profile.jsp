@@ -216,7 +216,7 @@ function logout(){
 	alert("로그아웃되었습니다.");		
 }
 function change_profile_img(){
-	document.getElementById("profileImg").style.display="block";
+	document.getElementById("p_img").style.display="block";
 }
 function close_view(){
 	document.getElementById("gallery_view").style.display="none";
