@@ -106,6 +106,21 @@ function com(post_id,i){
 		
 	});
 }
+function love(post_id){
+	$.ajax({
+		url:"/alsta/love.do?lomem_id=<%=session.getAttribute("member_id")%>&post_id="+post_id,
+		success:function(result){
+			var lov=document.getElementById("lov");
+			lov.innerText="좋아요 "+result.num+"개";
+			var love=document.getElementById("love");
+			if(result.flag=="love"){
+				love.className="glyphicon glyphicon-heart-empty";
+			}else{
+				love.className="glyphicon glyphicon-heart";
+			}
+		}
+	});
+}
 
 </script>
 </head>
@@ -222,7 +237,7 @@ function com(post_id,i){
 		
 		<div>
 		
-			<h2><p>좋아요 1,649개</p></h2>
+			<h2><p id="lov">좋아요 <%=post.getLoveListSize()%>개</p></h2>
 			<p><a href="#"><strong><%=member.get(0).getNick() %></strong></a><%=post.getContent()%></p>
 		
 			<p><a href="#">#IOI #아이오아이 #JeonSomi #전소미 #Somi #소미 #JYP #Kpop #EnnikDouma 
@@ -243,7 +258,7 @@ function com(post_id,i){
 		<!-- 댓글 쓰는 화면 -->
 		<div class="row">
 			<div class="col-sm-1 btn-lg">
-				<span class="glyphicon glyphicon-heart-empty "></span>
+				<span id="love" class="glyphicon glyphicon-heart-empty" onclick="love(<%=post.getPost_id()%>)"></span>
 			</div>
 			<div class="col-sm-9 ">
 				<form name="commentRegist" method="post">

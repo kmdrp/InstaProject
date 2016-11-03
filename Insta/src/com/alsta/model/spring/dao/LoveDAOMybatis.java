@@ -1,5 +1,6 @@
 package com.alsta.model.spring.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,22 +15,31 @@ public class LoveDAOMybatis implements LoveDAO{
 	private SqlSessionTemplate sessionTemplate;
 
 	public int insert(Love love) {
-		return 0;
+		int result=sessionTemplate.update("LoveMapper.insert", love);
+		return result;
 	}
 
 	public int update(Love love) {
 		return 0;
 	}
 
-	public int delete(int love_id) {
-		return 0;
+	public int delete(Love love) {
+		int result=sessionTemplate.delete("LoveMapper.delete", love);
+		return result;
 	}
 
-	public List selectList(int love_id) {
-		return null;
+	public List selectList(int post_id) {
+		List list=sessionTemplate.selectList("LoveMapper.selectList", post_id);
+		return list;
 	}
 
 	public void selectOne(Love love) {
 		
+	}
+
+	public List selectList(Love love) {
+		List list=new ArrayList();
+		list=sessionTemplate.selectList("LoveMapper.search",love);
+		return list;
 	}
 }

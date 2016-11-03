@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alsta.model.dao.CommentsDAO;
+import com.alsta.model.dao.LoveDAO;
 import com.alsta.model.dao.PostDAO;
 import com.alsta.model.domain.Comments;
 import com.alsta.model.domain.Post;
@@ -21,6 +22,9 @@ public class MainPageServiceImpl implements MainPageService{
 	@Autowired
 	@Qualifier("commentsDAOMybatis")
 	private CommentsDAO commentsDAO;
+	
+	@Autowired
+	private LoveDAO loveDAO;
 	
 	public List selectAll() {
 		List list = (List)postDAO.selectAll();
@@ -36,8 +40,8 @@ public class MainPageServiceImpl implements MainPageService{
 			Post post=(Post)list.get(i);
 			List <Comments> cummentsSerchList = new ArrayList<Comments>();
 			int count=0;
-			
-			
+			List loveList=loveDAO.selectList(post.getPost_id());
+			post.setLoveListSize(loveList.size());
 			for(int a=0;a<commentsList.size();a++){
 				Comments comments = (Comments)commentsList.get(a);
 				
