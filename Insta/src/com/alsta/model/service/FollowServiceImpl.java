@@ -19,7 +19,7 @@ public class FollowServiceImpl implements FollowService{
 	public int regist(Follow follow) {
 		return followDAO.insert(follow);
 	}
-
+	
 	@Override
 	public int delete(int follow_id) {
 		return 0;

@@ -7,7 +7,7 @@
 	
 	List<Follow>list=(List)request.getAttribute("list");
 	System.out.println("list size는 "+list.size());
-	List<Member> listMember=(List)request.getAttribute("member");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -90,12 +90,10 @@ function followRegist(i){
 		alert(i);
 		form1[i].action="/alsta/follow.do";
 		form1[i].submit();
-		alert("여긴?");
 	}else{
 		alert(i);
 		form1.action="/alsta/follow.do";
 		form1.submit();
-		alert("여기는?");
 	}
 }
 </script>
@@ -126,7 +124,7 @@ function followRegist(i){
 	<!-- 친구 찾기 for문 영역 -->
 	<%for(int i=0;i<list.size();i++){ %>
 	<%Follow follow=list.get(i); %>
-	<%Member member=listMember.get(i); %>
+	<%Member member=follow.getMemberl(); %>
 	
 	<form class="form-horizontal" name="form1" method="post">
 	<input type="hidden" value="<%=follow.getYou() %>" name="you">
