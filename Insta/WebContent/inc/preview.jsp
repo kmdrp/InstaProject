@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%
+	
+	
+%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -162,7 +167,7 @@ function imgSize(){
 		}
 	}
 	//else는 나중에....
-	alert("wrapper width"+wrapper.style.width);
+	//alert("wrapper width"+wrapper.style.width);
 	vmodal.style.width=wrapper.style.width;
 	vmodal.style.height=wrapper.style.height+"px";
 	
@@ -197,7 +202,7 @@ function like(){
    			<div id="view_content">
    				<!-- 글쓴이 정보  프사_아이디_팔로우 버튼(팔로우중이면 팔로잉+색깔변화)-->
    				<div id="info_writer">
-   					<span id="img_writer"><img src="/images/ir4.jpg" id="profileImg" class="img-circle" width="40px" height="40px"></span>	
+   					<span id="img_writer"><img src="/images/profile/ir12.jpg" id="profileImg" class="img-circle" width="40px" height="40px"></span>	
    					<span id="id_writer">irene_zonye</span>
    					<span id="follow_writer"><button type="button" class="btn btn-success">팔로잉</button></span>
    				</div>
