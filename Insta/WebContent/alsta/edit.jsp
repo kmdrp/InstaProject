@@ -38,7 +38,7 @@ function send(){
 <body>
 <%@include file="/inc/preview.jsp" %>
 <%@include file="/inc/header.jsp" %>
-<%out.print(member_id); %>
+
 	<div class="container-fluid" >
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
@@ -51,7 +51,7 @@ function send(){
 	  			<div class="form-group">
 	  				<div class="row content">
 		        		<div class="col-sm-3 col-xs-3 title">
-		        			  <img src="/images/img1.jpg" class="img-circle" alt="Cinque Terre" width="60px">
+		        			  <img src="/images/profile/<%=member.getProfile_img()%>" class="img-circle" alt="Cinque Terre" width="60px">
 		        		</div>
 		        		<div class="col-sm-8 col-xs-8">
 		        			<h2><%=member.getNick()%></h2>

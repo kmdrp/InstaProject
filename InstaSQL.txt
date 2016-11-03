@@ -88,7 +88,14 @@ insert into member(member_id,email,name,nick,password,profile_img,memo) values(s
 insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user2','user2','user2','user2');
 insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user3','user3','user3','user3');
 insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user4','user4','user4','user4');
-
+---------------------------------------------------------------------------------------------------------------------
+insert into follow(follow_id,me,you) values(seq_follow.nextval,1,1);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,2,2);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,3,3);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,4,4);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,5,5);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,6,6);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,7,7);
 ---------------------------------------------------------------------------------------------------------------------
 
 insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','kr.jpg','post : ¸Þ·Õ¸Þ·Õ#¸Þ·Õ#hashtage');
@@ -122,7 +129,7 @@ insert into follow(follow_id,me,you) values(seq_follow.nextval,1,4);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,1,5);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,5,1);
 
-
+commit;
 
 
 

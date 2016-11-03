@@ -188,8 +188,11 @@
 			      	</div>
 		      	</div> -->
 							<div id="container" >
-								<div id="map" width="100%" style="width: 100%; height: 228px; "></div>
+								<div id="map" width="100%" style="width: 100%; height: 228px; ">
+									
+								</div>
 							</div>
+							<input type="hidden" name="gps" value="37.0042,127.52652">
 							<div id="reg" class="media-group">
 								<span id="btn_aln"><button type="button" id="btn_regist"
 										class="btn btn-primary media-right" onClick="registPost()">사진
@@ -258,21 +261,19 @@
 			var container = document.getElementById("map");
 			var options = {
 				center : new google.maps.LatLng(37.497613, 127.038099),
-				zoom : 30
+				zoom : 15
 			}
 			map = new google.maps.Map(container, options);
 			var lng;
 			var lat;
 			map.addListener("click", function(e) {
-				lat = e.latLng.lat();
-				lng = e.latLng.lng();
-				form1.lat.value = lat;
-				form1.lng.value = lng;
+				upload_form.gps.value = e.latLng.lng()+","+e.latLng.lat();
+				
 				drop(e);
 			});
 		}
 		function drop(e) {
-			//clearMarkers();
+			clearMarkers();
 			addMarkerWithTimeout(e, 200);
 
 		}
@@ -286,13 +287,13 @@
 			var marker;
 			var infowindow = new google.maps.InfoWindow({
 				position : position,
-				content : "<div>여기 맛집</div>"
+				content : ""
 			});
 			window.setTimeout(function() {
 				markers.push(marker = new google.maps.Marker({
 					position : position,
 					map : map,
-					title : "여기 맛집?",
+					title : "",
 					animation : google.maps.Animation.DROP
 				}));
 				marker.addListener("click", function() {

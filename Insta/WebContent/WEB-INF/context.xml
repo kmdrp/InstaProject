@@ -5,10 +5,12 @@
 	xmlns:jee="http://www.springframework.org/schema/jee"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 	<!--접두어 접미어  뷰핸들러 설정  -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
 		p:prefix="/"
@@ -39,6 +41,7 @@
 		<aop:around method="printMsg" pointcut-ref="controllerCut"/>
 		</aop:aspect>
 	</aop:config>
+
 	<!-- AnnotationMethodHandlerAdapter 등록 	Converter 등록	-->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -54,5 +57,27 @@
 			<value>application/json;charset=utf-8</value>
 		</property>	
 	</bean>
+
+
+	<!-- 트랜잭션 매니저 등록 
+		개발자가 사용하는 것이 jdbc,mybatis:dataSourceTransactionManager
+		hibernate :HibernateTransactionManager
+	-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+	p:dataSource-ref="dataSource"/>
+	<!-- 트랜잭션 처리를 건바이 건으로 처리하고자 할때 주로 트랜잭션은 서비스에 @Transactional로 건다. -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- aop를 이용하여 어플리케이션 전체에 걸 수 있따. -->
+	<tx:advice id="myTx" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="reply" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- aop transaction -->
+	<aop:config>
+	<!-- advice가 적용될 지점 서술 -->
+		<aop:pointcut expression="execution(public * com.sds.model..*ServiceImpl.*(..))" id="serviceCut"/>
+		<aop:advisor advice-ref="myTx" pointcut-ref="serviceCut"/>
+	</aop:config>
 
 </beans>

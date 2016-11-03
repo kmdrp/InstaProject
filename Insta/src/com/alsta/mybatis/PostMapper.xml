@@ -81,6 +81,6 @@
 	
 	<!-- 게시물 등록 -->
 	<insert id="insert" parameterType="Post">
-		insert into post(post_id,pomem_id,path,img_type,content) values(seq_post.nextval,#{pomem_id},#{path},#{img_type},#{content})
+		insert into post(post_id,pomem_id,path,img_type,gps,content) values(seq_post.nextval,#{pomem_id},#{path},#{img_type},#{gps},#{content})
 	</insert>
 </mapper>
