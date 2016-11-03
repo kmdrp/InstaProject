@@ -89,11 +89,19 @@ function regist(i){
 	}
 }
 
-function com(post_id){
+function com(post_id,i){
 	$.ajax({
 		url:"/alsta/commentsOne.do?post_id="+post_id,
 		success:function(result){
-			alert("서버에서 응답결과는" + result[0].nick);
+			//alert("서버에서 응답결과는" + result[0].nick);
+		
+				var html="";
+				for(var y=4;y<result.length;y++){
+					html += "<a href=\"#\"><strong>"+result[y].nick+"</strong></a>"+result[y].comments;
+					html += "<br><br>";
+				}
+			var htmlDiv = document.getElementsByName("comajax");
+			htmlDiv[i].innerHTML = html;
 		}
 		
 	});
@@ -211,6 +219,7 @@ function com(post_id){
 		</div>
 	
 		<!-- 메인화면 하단 댓글 보는 화면 -->
+		
 		<div>
 		
 			<h2><p>좋아요 1,649개</p></h2>
@@ -222,10 +231,11 @@ function com(post_id){
 			<%if(post.getCommentsList()!=null){ %>
 			<%System.out.println("mainpage 댓글사이즈"+post.getCommentsList().size()); %>
 			<%ArrayList <Comments> comments = post.getCommentsList(); %>		
-			<p><a href="javascript:com(<%=post.getPost_id() %>)">댓글 <%=post.getCommentsListSize()%>개 모두 보기</a></p>
+			<p><a href="javascript:com(<%=post.getPost_id() %>,<%=i%>)">댓글 <%=post.getCommentsListSize()%>개 모두 보기</a></p>
 			<%for(int a=0;a<comments.size();a++){ %>
-			<p><a href="#"><strong><%=comments.get(a).getNick()%></strong></a><%=comments.get(a).getComments() %></p>
+			<p ><a href="#"><strong><%=comments.get(a).getNick()%></strong></a><%=comments.get(a).getComments() %></p>
 			<%} %>
+			<p  name="comajax"></p>
 			<%} %>
 			
 		</div>
@@ -295,7 +305,7 @@ function com(post_id){
 		</div>
 	
 		댓글 쓰는 화면
-		<div class="row">
+		<div class="row" id="comajax">
 			<div class="col-sm-1 btn-lg">
 				<span class="glyphicon glyphicon-heart-empty "></span>
 			</div>
