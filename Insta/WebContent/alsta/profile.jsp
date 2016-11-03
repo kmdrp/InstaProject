@@ -193,8 +193,14 @@ strong{
 </style>
 <script>
 var img;
+var post1;
+var post2;
+var post3;
 function init(){
 	init1();
+	post1=document.getElementById("post1");
+	post2=document.getElementById("post2");
+	post3=document.getElementById("post3");
 }
 function viewImg(element){
 	img=document.getElementById("selected_img");
@@ -203,6 +209,7 @@ function viewImg(element){
 	imgSize();
 	//document.getElementById("gallery_view").style.height=element.height;
 	/* var captionText= 캡션추가가능 */
+	posting();
 	
 }
 function myId(){
@@ -215,9 +222,8 @@ function upload(){
 function logout(){
 	alert("로그아웃되었습니다.");		
 }
-function change_profile_img(){
-	document.getElementById("p_img").style.display="block";
-}
+function change_profile(){
+	document.getElementById("profileImg").style.display="block";
 function close_view(){
 	document.getElementById("gallery_view").style.display="none";
 }
@@ -233,40 +239,37 @@ function update_profileImg(){
 	
 }
 function posting(){
-	var post1=document.getElementById("post1");
-	var post2=document.getElementById("post2");
-	var post3=document.getElementById("post3");
 	
-
 	<%for(int i=0;i<postList.size();i++){
 		Post post=postList.get(i);
 		%>
-		
 		var img=document.createElement("img");
-		
 		/* i%3=1 document.getElementById("post1").appendChild()
 		i%3=2 div2
 		i%3=0 div3 */
-		<%if(i%3==1){%>
+		<%if(i%3==0){%>
 			post1.appendChild(img);
-			img.src="/images/profile/<%=post.getPath()%>";
+			img.setAttribute("src","<%=post.getPath()%>");
+			img.setAttribute("id","<%=post.getPost_id()%>");
+			<%System.out.println("post1 +"+i);%>
+			//img.addEventListener("click",function imgView(this));
+		<%}else if(i%3==1){%>
+			post2.appendChild(img);
+			img.setAttribute("src","<%=post.getPath()%>");
+			img.setAttribute("id","<%=post.getPost_id()%>");
+			<%System.out.println("post1 +"+i);%>
 			//img.addEventListener("click",function imgView(this));
 		<%}else if(i%3==2){%>
-			post2.appendChild(img);
-			img.src="/images/profile/<%=post.getPath()%>";
-			//img.addEventListener("click",function imgView(this));
-		<%}else if(i%3==0){%>
 			post3.appendChild(img);
-			img.src="/images/profile/<%=post.getPath()%>";
+			img.setAttribute("src","<%=post.getPath()%>");
+			img.setAttribute("id","<%=post.getPost_id()%>");
+			<%System.out.println("post1 +"+i+"&path: "+post.getPath());%>
 			//img.addEventListener("click",function imgView(this));
 		<%}%>
 	<%}%>
+	
 }
 	 	
-		
-
- 
- 	
 </script>
 </head>
 <body onLoad="init()">
@@ -276,7 +279,7 @@ function posting(){
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
 			<button id="btn_img">
-				<img src="/images/profile/<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile_img()" >
+				<img src="/images/profile/<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile()" >
 			</button>
 		</div>
 		<div id="profile_detail" class="col-md-8">
@@ -292,17 +295,17 @@ function posting(){
 	</div>	
 	<div id="p_zone" class="w3-row">
 			<div id="post1" class="w3-third">
-				<!-- <img src="/images/kr.jpg" onClick="viewImg(this)">
-				<img src="/images/kr4.png" onClick="viewImg(this)">
-				<img src="/images/kr1.jpg" onClick="viewImg(this)"> -->
+				<img src="/images/post/ir4.jpg" onClick="viewImg(this)">
+				<img src="/images/post/ir9.jpg" onClick="viewImg(this)">
+				<img src="/images/post/irf.jpg" onClick="viewImg(this)">
 			</div>
 			<div id="post2" class="w3-third">
-			<!-- 	<img src="/images/kr3.jpg" onClick="viewImg(this)">
-				<img src="/images/kr5.jpg" onClick="viewImg(this)"> -->
+				<img src="/images/post/kr4.png" onClick="viewImg(this)">
+				<img src="/images/post/kr5.jpg" onClick="viewImg(this)">
 			</div>
 			<div id="post3"class="w3-third">
-				<!-- <img src="/images/kr8.jpg" onClick="viewImg(this)">
-				<img src="/images/kr7.jpg" onClick="viewImg(this)"> -->
+				<img src="/images/post/kr8.jpg" onClick="viewImg(this)">
+				<img src="/images/post/kr7.jpg" onClick="viewImg(this)">
 			</div>
 	</div>
 	
@@ -325,8 +328,6 @@ function posting(){
   	</div>
   </div>
   </div>
-  
-
 </body>
 </html>
 
