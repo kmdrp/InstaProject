@@ -15,6 +15,8 @@ public class FollowServiceImpl implements FollowService{
 	@Autowired
 	@Qualifier("followDAOMybatis")
 	private FollowDAO followDAO;
+	private ProfileService profileService;
+	
 	@Override
 	public int regist(Follow follow) {
 		return followDAO.insert(follow);
@@ -28,6 +30,7 @@ public class FollowServiceImpl implements FollowService{
 	@Override
 	public List selectAll(int member_id) {
 		List list=followDAO.selectAll(member_id);
+		
 		return list;
 	}
 

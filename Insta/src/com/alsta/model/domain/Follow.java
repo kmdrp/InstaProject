@@ -1,14 +1,13 @@
 package com.alsta.model.domain;
 
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
 
 public class Follow {
 	private int follow_id;
 	private int me;
 	private int you;
 	private Member member;
+	private List<Post> postList;
 	
 	public int getFollow_id() {
 		return follow_id;
@@ -34,6 +33,10 @@ public class Follow {
 	public void setMemberl(Member member) {
 		this.member = member;
 	}
-	
-
+	public List getPostList() {
+		return postList;
+	}		
+	public void setPostList(List postList) {
+		this.postList = postList;
+	}
 }

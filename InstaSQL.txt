@@ -129,7 +129,7 @@ insert into follow(follow_id,me,you) values(seq_follow.nextval,1,4);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,1,5);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,5,1);
 
-
+commit;
 
 
 

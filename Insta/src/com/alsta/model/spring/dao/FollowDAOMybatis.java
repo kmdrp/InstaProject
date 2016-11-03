@@ -1,6 +1,5 @@
 package com.alsta.model.spring.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -9,8 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.alsta.model.dao.FollowDAO;
 import com.alsta.model.dao.MemberDAO;
+import com.alsta.model.dao.PostDAO;
 import com.alsta.model.domain.Follow;
 import com.alsta.model.domain.Member;
+import com.alsta.model.domain.Post;
 @Repository
 public class FollowDAOMybatis implements FollowDAO{
 	@Autowired
@@ -18,7 +19,10 @@ public class FollowDAOMybatis implements FollowDAO{
 	
 	@Autowired
 	private MemberDAO memberDAO;
-
+	
+	@Autowired
+	private PostDAO postDAO;
+	
 	public int insert(Follow follow) {
 		System.out.println(follow.getMe());
 		System.out.println(follow.getYou());
@@ -38,7 +42,10 @@ public class FollowDAOMybatis implements FollowDAO{
 		for(int i=0;i<list.size();i++){
 			Follow follow=(Follow)list.get(i);
 			Member member=memberDAO.selectOne(follow.getYou());
+			int pomem_id=follow.getYou();
+			List postList=postDAO.selectMy(pomem_id);
 			follow.setMemberl(member);
+			follow.setPostList(postList);;
 		}
 		return list;
 	}
