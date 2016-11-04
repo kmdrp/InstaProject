@@ -38,6 +38,12 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover({content: "Text in popover body",placement: "bottom"});
    
 });
+function search(){
+	if(event.keyCode == 13){
+		var enter=document.getElementById("intput_search");
+		location.href="/alsta/search.do?data="+enter.value;
+	}
+}
 </script>
 <body>
 	<!-- 상단바 -->
@@ -52,7 +58,7 @@ $(document).ready(function(){
  		<!-- 검색 -->
  		<div class="col-sm-8 col-xs-8 nav_middle" >
  			<div class="input-group">
-       			<input type="text" class="form-control" id="intput_search" placeholder="Search..">
+       			<input type="text" class="form-control" id="intput_search" placeholder="Search.." onKeyup="search()">
      		 </div>
       	</div>
 		
@@ -60,7 +66,7 @@ $(document).ready(function(){
 		<div class="col-sm-4 col-xs-4 nav_right" height="100%">
 			<ul class="nav navbar-nav nav_list">
 				<li><a href="javascript:upload()"><span class="glyphicon glyphicon-camera icon_nav"></span></a></li>
-  				<li><a href="/alsta/followList.do?member_id=<%=member_id %>" ><span class="glyphicon glyphicon-user icon_nav" ></span></a></li>
+  				<li><a href="/alsta/followList.do" ><span class="glyphicon glyphicon-user icon_nav" ></span></a></li>
   				<li><a href="#" data-toggle="popover"><span class="glyphicon glyphicon-globe" ></span></a></li>
   				<li><a href="/alsta/profile.do"><span class="glyphicon glyphicon-home icon_navx"></span></a></li>
   			</ul>

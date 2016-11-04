@@ -29,7 +29,7 @@ Logger logger;
 			if(obArray[0] instanceof HttpServletRequest){
 				request=(HttpServletRequest)obArray[0];
 				HttpSession session=request.getSession();
-				if(session.getAttribute("member_id")==null){
+				if(session.getAttribute("member_id")==null||session.getAttribute("logIn").equals("off")){
 					mav.setViewName("index");
 					return mav;
 				}

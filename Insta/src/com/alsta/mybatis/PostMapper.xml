@@ -70,6 +70,16 @@
 		from post p,member m 
 		where m.member_id = p.pomem_id -->
 	</select>
+	<select id="searchList" resultType="Post" resultMap="postMap" parameterType="String">
+		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy
+		from post p,member m
+		WHERE  m.member_id = p.pomem_id and content LIKE '%'||#{data}||'%'
+		
+		<!-- follow 적용전 
+		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy
+		from post p,member m 
+		where m.member_id = p.pomem_id -->
+	</select>
 	
 	
  

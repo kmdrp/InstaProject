@@ -2,6 +2,9 @@ package com.alsta.controller.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +30,9 @@ public class FollowController {
 	}
 	
 	@RequestMapping("followList.do")
-	public ModelAndView selectAll(int member_id){
+	public ModelAndView selectAll(HttpServletRequest request){
+		HttpSession session=request.getSession();
+		int member_id=(int)session.getAttribute("member_id");
 		List list=followService.selectAll(member_id);
 	
 		ModelAndView mav=new ModelAndView();

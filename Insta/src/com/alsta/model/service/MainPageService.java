@@ -9,4 +9,5 @@ public interface MainPageService {
 	public int regist(Comments comments);
 	public List selectList(int member_id);
 	public List selectOne(int post_id);
+	public List searchList(String data);
 }

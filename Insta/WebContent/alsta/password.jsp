@@ -18,9 +18,11 @@
 }
 .div_title{
 	text-align:right;
+	
 }
 .title{
 	text-align:right;
+	
 }
 
 

@@ -40,6 +40,17 @@ public class MainPageController {
 		mav.setViewName("/alsta/main");
 		return mav;
 	}
+	//검색페이지 불러오기
+		@RequestMapping("search.do")
+		public ModelAndView searchList(HttpServletRequest request,String data){
+			System.out.println(data);
+			int member_id = (int)request.getSession().getAttribute("member_id");
+			List list = mainPageService.searchList(data);
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("post",list);
+			mav.setViewName("/alsta/search");
+			return mav;
+		}
 	
 	//댓글등록
 	@RequestMapping("comments.do")

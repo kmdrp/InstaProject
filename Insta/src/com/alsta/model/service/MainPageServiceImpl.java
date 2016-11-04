@@ -60,6 +60,34 @@ public class MainPageServiceImpl implements MainPageService{
 		}
 		return list;
 	}
+	public List searchList(String data){
+		List list = postDAO.searchList(data);
+		List commentsList = commentsDAO.selectAll();
+		System.out.println("mainpagesevice ¥Ò±€ ªÁ¿Ã¡Ó"+commentsList.size());
+		for(int i=0;i<list.size();i++){
+			Post post=(Post)list.get(i);
+			List <Comments> cummentsSerchList = new ArrayList<Comments>();
+			int count=0;
+			List loveList=loveDAO.selectList(post.getPost_id());
+			post.setLoveListSize(loveList.size());
+			for(int a=0;a<commentsList.size();a++){
+				Comments comments = (Comments)commentsList.get(a);
+				
+				if(comments.getPost_id()==post.getPost_id()){
+					if(count<4){
+						cummentsSerchList.add(comments);
+					}
+					count++;
+				}
+			}
+			post.setCommentsListSize(count);
+			post.setCommentsList((ArrayList)cummentsSerchList);
+			
+			
+			
+		}
+		return list;
+	}
 	
 	public int regist(Comments comments) {
 		commentsDAO.insert(comments);

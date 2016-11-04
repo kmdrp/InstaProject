@@ -34,6 +34,8 @@ public class MemberController {
 			HttpSession session=request.getSession();
 			session.setAttribute("member_id", dto.getMember_id());
 			System.out.println(session.getAttribute("member_id"));
+			session.setAttribute("logIn", "on");
+			System.out.println(session.getAttribute("member_id"));
 			return "redirect:/alsta/post.do";
 		}else{
 			return "redirect:/index.jsp";
@@ -87,5 +89,13 @@ public class MemberController {
 	public Map love(Love love){
 		Map map=memberService.love(love);
 		return map;
+	}
+	@RequestMapping("logout.do")
+	@ResponseBody
+	public String logOut(HttpServletRequest request){
+		HttpSession session=request.getSession();
+		session.setAttribute("logIn", "off");
+		session.setAttribute("member_id", null);
+		return "logOut";
 	}
 }
