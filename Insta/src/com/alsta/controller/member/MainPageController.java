@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alsta.model.domain.Comments;
+import com.alsta.model.service.FollowService;
 import com.alsta.model.service.MainPageService;
 
 @Controller
@@ -20,7 +21,8 @@ import com.alsta.model.service.MainPageService;
 public class MainPageController {
 	@Autowired
 	private MainPageService mainPageService;
-	
+	@Autowired
+	private FollowService followService;
 	/*@RequestMapping("post.do")
 	public ModelAndView selectAll(){
 		List list = mainPageService.selectAll();
@@ -30,13 +32,26 @@ public class MainPageController {
 		return mav;
 	}*/
 	
-	//¸ÞÀÎÆäÀÌÁö ºÒ·¯¿À±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("post.do")
 	public ModelAndView selectList(HttpServletRequest request){
 		int member_id = (int)request.getSession().getAttribute("member_id");
 		List list = mainPageService.selectList(member_id);
+		List followList=followService.selectAll(member_id);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("post",list);
+		mav.addObject("follow",followList);
+		mav.setViewName("/alsta/main");
+		return mav;
+	}
+
+	@RequestMapping("yPost.do")
+	public ModelAndView selectList(int member_id){
+		List list = mainPageService.selectList(member_id);
+		List followList=followService.selectAll(member_id);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("post",list);
+		mav.addObject("follow",followList);
 		mav.setViewName("/alsta/main");
 		return mav;
 	}
@@ -52,14 +67,15 @@ public class MainPageController {
 			return mav;
 		}
 	
-	//´ñ±Ûµî·Ï
+	
+	//ï¿½ï¿½Ûµï¿½ï¿½
 	@RequestMapping("comments.do")
 	public String regist(Comments comments){
 		mainPageService.regist(comments);
 		return "redirect:/alsta/post.do";
 	}
 	
-	//´ñ±Û ÇÏ³ª ºÒ·¯¿À±â
+	//ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("commentsOne.do")
 	@ResponseBody
 	public List selectOne(int post_id){

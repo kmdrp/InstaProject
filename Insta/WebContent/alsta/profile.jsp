@@ -195,7 +195,6 @@ strong{
 var img;
 
 
-
 var post1;
 var post2;
 var post3;
@@ -302,8 +301,12 @@ function posting(){
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
 
-			<button id="btn_img" onClick="change_profile_img()" >
-				<img src="/images/profile/<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" >
+
+
+
+			<button id="btn_img">
+				<img src="/images/profile/<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile()" >
+
 			</button>
 		</div>
 		<div id="profile_detail" class="col-md-8">

@@ -1,3 +1,4 @@
+<%@page import="com.alsta.model.domain.Follow"%>
 <%@page import="com.alsta.model.domain.Member"%>
 <%@page import="com.alsta.model.domain.Comments"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,7 +8,7 @@
 
 <%
 	List <Post> postList = (List) request.getAttribute("post");
-	
+	List<Follow> followList=(List) request.getAttribute("follow");
 %>
 <!DOCTYPE html>
 <html>
@@ -122,6 +123,21 @@ function love(post_id){
 	});
 }
 
+function followRegist(a){
+	if(<%=followList.size()%>>1){
+		
+		follow1[a].action="/alsta/mainFollow.do";
+		follow1[a].submit();
+	}else{
+		
+		follow1.action="/alsta/mainFollow.do";
+		follow1.submit();
+	}
+}
+
+function goMain(a){
+	location.href="/alsta/yPost.do?member_id="+a;	
+}
 </script>
 </head>
 <body>
@@ -149,58 +165,29 @@ function love(post_id){
 		<div class="col-sm-3"></div>
 	</div>
 
+	<%for(int a=0;a<followList.size() ;a++){ %>
+	<%if(a>2)break; %>
+	<%Follow follow=followList.get(a); %>
+	<%Member member=follow.getMemberl(); %>
+	<form name="follow1" method="post">
+	<input type="hidden" name=me value="<%=member_id%>">
+	<input type="hidden" name=you value="<%=follow.getYou()%>">
 	<div class="row">
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6 bg-white wrapper">
 			<div class="my1" >
-				<a href="#">
-				<img src="/images/post/kr1.jpg"  class="img-circle myimg">
-				<h3 id="userId" name="userId" >adsdfdfdf<br>
-				</a>
-				<small>secondary text</small>
-				</h3>
-			</div>
-			<div >
-				<button type="w3-button" class="btn btn-default bt">팔로우</button>
-			</div>
-		</div>
-		<div class="col-sm-3"></div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6 bg-white wrapper">
-			<div class="my1" >
-				<a href="#">
-				<img src="/images/post/kr.jpg"  class="img-circle myimg">
-				<h3 id="userId" name="userId" >ajfzoawhdk<br>
-				</a>
-				<small>secondary text</small>
-				</h3>
+				<img src="/images/profile/<%=member.getProfile_img() %>"  class="img-circle myimg" onClick="goMain(<%=follow.getYou()%>)">
+				<h3 id="userId" name="userId" ><%=member.getName() %><br><small><%=member.getNick() %></small></h3>
 			</div>
 			<div class="right">
-				<button type="w3-button" class="btn btn-default bt">팔로우</button>
+				<button type="w3-button" class="btn btn-default bt" onClick="followRegist(<%=a%>)">팔로우</button>
 			</div>
 		</div>
 		<div class="col-sm-3"></div>
 	</div>
-
-	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6 bg-white wrapper">
-			<div class="my1" >
-				<img src="/images/post/kr1.jpg"  class="img-circle myimg">
-				<h3 id="userId" name="userId" >adsdfdfdf<br><small>secondary text</small></h3>
-			</div>
-			<div class="right">
-				<button type="w3-button" class="btn btn-default bt">팔로우</button>
-			</div>
-		</div>
-		<div class="col-sm-3"></div>
-	</div>
-	
+	</form>
+	<%} %>
 	<div class="col-sm-12"></div>
-
 </div>
 
 <%for(int i=0;i<postList.size();i++){ %>

@@ -19,15 +19,18 @@ public class FollowController {
 	@Autowired
 	private FollowService followService;
 
-	
-	
-	
 	@RequestMapping("follow.do")
 	public String regist(Follow follow){
-	
 		followService.regist(follow);
 		return "redirect:/alsta/followList.do?member_id="+follow.getMe();
 	}
+	
+	@RequestMapping("mainFollow.do")
+	public String mRegist(Follow follow){
+		followService.regist(follow);
+		return "redirect:/alsta/post.do?member_id="+follow.getMe();
+	}
+	
 	
 	@RequestMapping("followList.do")
 	public ModelAndView selectAll(HttpServletRequest request){
