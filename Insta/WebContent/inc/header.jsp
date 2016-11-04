@@ -33,6 +33,10 @@
 <script>
 function upload(){
 	document.getElementById("upload").style.display="block";
+	//map.event.trigger(null, 'drag');
+	var script = document.createElement("script");
+	script.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyBdo2PjA_dWjBgMKnhyzXiJz4PVFmrq9IE&callback=loadMap");
+	document.getElementsByTagName("head")[0].appendChild(script);	
 }
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover({content: "Text in popover body",placement: "bottom"});

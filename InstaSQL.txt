@@ -28,7 +28,7 @@ create table member(
 	,phone varchar2(15) default 01000000000
 	,gender varchar(1) check (gender in ('m', 'f'))
 	,memo clob
-	,profile_img varchar2(50)
+	,profile_img varchar2(50) default 'default.png'
 	,privacy number
 );
 
@@ -52,7 +52,7 @@ create table post(
 	post_id number primary key
 	,pomem_id number
 	,img_type varchar2(10)
-	,gps varchar2(20)
+	,gps varchar2(100)
 	,path varchar2(200)
 	,regdate date default sysdate
 	,content clob
@@ -81,13 +81,13 @@ create sequence seq_follow increment by 1 start with 1;
 
 ---------------------------------------------------------------------------------------------------------------------
 
-insert into member(member_id,email,name,nick,password,memo) values(seq_member.nextval,'admin','admin','admin','admin','관리자 계정입니다');
+insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'admin','admin','admin','admin','kr2.jpg','관리자 계정입니다');
 insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'irene','아이린','irenelove','irene','ir12.jpg','안녕하세요 레드벨벳 아이린입니다');
 insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'hgueen','HollyQueen','holly.queen','hgueen','hollyqueen2.jpg','what?');
 insert into member(member_id,email,name,nick,password,profile_img,memo) values(seq_member.nextval,'gyeongree','박경리','gyeongree','gyeongree','kr2.jpg','나인뮤지스 경리');
-insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user2','user2','user2','user2');
-insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user3','user3','user3','user3');
-insert into member(member_id,email,name,nick,password) values(seq_member.nextval,'user4','user4','user4','user4');
+insert into member(member_id,email,name,nick,password,profile_img) values(seq_member.nextval,'user2','user2','user2','user2','kr2.jpg');
+insert into member(member_id,email,name,nick,password,profile_img) values(seq_member.nextval,'user3','user3','user3','user3','kr2.jpg');
+insert into member(member_id,email,name,nick,password,profile_img) values(seq_member.nextval,'user4','user4','user4','user4','kr2.jpg');
 ---------------------------------------------------------------------------------------------------------------------
 insert into follow(follow_id,me,you) values(seq_follow.nextval,1,1);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,2,2);

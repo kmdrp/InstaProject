@@ -309,5 +309,7 @@
 		}
 
 	</script>
-	<script
+	
+<!-- 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdo2PjA_dWjBgMKnhyzXiJz4PVFmrq9IE&callback=loadMap"/>
+ -->		

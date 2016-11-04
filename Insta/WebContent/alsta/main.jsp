@@ -9,6 +9,7 @@
 <%
 	List <Post> postList = (List) request.getAttribute("post");
 	List<Follow> followList=(List) request.getAttribute("follow");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -115,9 +116,9 @@ function love(post_id){
 			lov.innerText="좋아요 "+result.num+"개";
 			var love=document.getElementById("love");
 			if(result.flag=="love"){
-				love.className="glyphicon glyphicon-heart-empty";
-			}else{
 				love.className="glyphicon glyphicon-heart";
+			}else{
+				love.className="glyphicon glyphicon-heart-empty";
 			}
 		}
 	});
@@ -206,7 +207,7 @@ function goMain(a){
 		<div class="row">
 			<div class="col-sm-9 text-left">
 				<a href="#">
-				<img src="/images/profile/<%=member.get(0).getProfile_img() %>" class="img-circle" alt="Cinque Terre" width="50px" height="50px"> 
+				<img src="/images/profile/<%=member.get(0).getProfile_img() %>" class="img-circle" alt="Cinque Terre" width="50px" height="50px" onClick="goMain(<%=post.getPomem_id()%>)"> 
 				
 				<%=member.get(0).getNick() %>
 				</a>

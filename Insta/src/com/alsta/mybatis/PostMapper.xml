@@ -61,9 +61,10 @@
 	</resultMap>
 	
 	<select id="selectList" resultType="Post" resultMap="postMap" parameterType="int">
-		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy
+		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy,pomem_id
 		from post p, (select you from follow where me=#{member_id}) y, member m
 		where p.pomem_id=y.you and m.member_id = p.pomem_id
+		order by post_id desc
 		
 		<!-- follow 적용전 
 		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy
@@ -71,7 +72,7 @@
 		where m.member_id = p.pomem_id -->
 	</select>
 	<select id="searchList" resultType="Post" resultMap="postMap" parameterType="String">
-		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy
+		select post_id,path,p.regdate as regdate,content,nick,profile_img,privacy,pomem_id
 		from post p,member m
 		WHERE  m.member_id = p.pomem_id and content LIKE '%'||#{data}||'%'
 		
