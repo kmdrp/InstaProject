@@ -96,6 +96,7 @@ insert into follow(follow_id,me,you) values(seq_follow.nextval,4,4);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,5,5);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,6,6);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,7,7);
+
 ---------------------------------------------------------------------------------------------------------------------
 
 insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','kr.jpg','post : 메롱메롱#메롱#hashtage');
@@ -106,6 +107,33 @@ insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval
 insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','kr6.jpg','이건 알로에그램');
 insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','kr7.jpg','이건 알로에');
 insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,1,'img','kr8.jpg','이건 알로에');
+
+
+
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,2,'img','kr.jpg','post : 메롱메롱#메롱#hashtage');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,2,'img','kr1.jpg','#a#b#c abc');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,2,'img','kr3.jpg','경리짱에쁨');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,3,'img','kr4.png','#섹시#존예 경리#나인뮤지스');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,4,'img','kr5.jpg','안녕하세용');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,3,'img','kr6.jpg','이건 알로에그램');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,3,'img','kr7.jpg','이건 알로에');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,4,'img','kr8.jpg','이건 알로에');
+
+
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,5,'img','kr.jpg','post : 메롱메롱#메롱#hashtage');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,6,'img','kr1.jpg','#a#b#c abc');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,7,'img','kr3.jpg','경리짱에쁨');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,5,'img','kr4.png','#섹시#존예 경리#나인뮤지스');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,5,'img','kr5.jpg','안녕하세용');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,5,'img','kr6.jpg','이건 알로에그램');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,6,'img','kr7.jpg','이건 알로에');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,6,'img','kr8.jpg','이건 알로에');
+
+
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,7,'img','kr.jpg','post : 메롱메롱#메롱#hashtage');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,7,'img','kr1.jpg','#a#b#c abc');
+insert into post(post_id,pomem_id,img_type,path,content) values(seq_post.nextval,7,'img','kr3.jpg','경리짱에쁨');
+
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -125,8 +153,8 @@ insert into follow(follow_id,me,you) values(seq_follow.nextval,3,6);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,4,2);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,4,3);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,1,3);
-insert into follow(follow_id,me,you) values(seq_follow.nextval,1,4);
-insert into follow(follow_id,me,you) values(seq_follow.nextval,1,5);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,7,4);
+insert into follow(follow_id,me,you) values(seq_follow.nextval,7,5);
 insert into follow(follow_id,me,you) values(seq_follow.nextval,5,1);
 
 
