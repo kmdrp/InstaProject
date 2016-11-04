@@ -18,7 +18,7 @@
 	// 이미지 찍어보고 null 이면 default 이미지  등록  ...불러와서 null이면 default 로 설정해야할지 애초에 default이미지를 넣어둘지 .....
 	//오라클에서 null 일때 varchar에도 default 되는지 알아보고.
 	if(member.getProfile_img()==null){
-		profile_img="default.png";
+		profile_img="default.png";     
 	}else{
 		profile_img=member.getProfile_img();
 	}
