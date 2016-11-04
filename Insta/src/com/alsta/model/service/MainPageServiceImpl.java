@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alsta.model.dao.CommentsDAO;
+import com.alsta.model.dao.LoveDAO;
 import com.alsta.model.dao.PostDAO;
 import com.alsta.model.domain.Comments;
 import com.alsta.model.domain.Post;
@@ -22,15 +23,13 @@ public class MainPageServiceImpl implements MainPageService{
 	@Qualifier("commentsDAOMybatis")
 	private CommentsDAO commentsDAO;
 	
+	@Autowired
+	private LoveDAO loveDAO;
+	
 	public List selectAll() {
 		List list = (List)postDAO.selectAll();
 		
 		return list;
-	}
-
-	public int regist(Comments comments) {
-		commentsDAO.insert(comments);
-		return 0;
 	}
 	
 	public List selectList(int member_id){
@@ -40,22 +39,35 @@ public class MainPageServiceImpl implements MainPageService{
 		for(int i=0;i<list.size();i++){
 			Post post=(Post)list.get(i);
 			List <Comments> cummentsSerchList = new ArrayList<Comments>();
+			int count=0;
+			List loveList=loveDAO.selectList(post.getPost_id());
+			post.setLoveListSize(loveList.size());
 			for(int a=0;a<commentsList.size();a++){
 				Comments comments = (Comments)commentsList.get(a);
 				
 				if(comments.getPost_id()==post.getPost_id()){
-					
-					cummentsSerchList.add(comments);
-					
-					post.setCommentsList((ArrayList)cummentsSerchList);
+					if(count<4){
+						cummentsSerchList.add(comments);
+					}
+					count++;
 				}
 			}
+			post.setCommentsListSize(count);
+			post.setCommentsList((ArrayList)cummentsSerchList);
+			
+			
+			
 		}
 		return list;
 	}
-
 	
+	public int regist(Comments comments) {
+		commentsDAO.insert(comments);
+		return 0;
+	}
 	
-
-
+	public List selectOne(int post_id){
+		List list = commentsDAO.selectOne(post_id);
+		return list;
+	}
 }

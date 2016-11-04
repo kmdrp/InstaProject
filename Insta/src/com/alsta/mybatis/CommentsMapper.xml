@@ -12,6 +12,13 @@
 		select post_id,nick,comments 
 		from comments c, member m 
 		where m.member_id=c.comem_id 
-		order by comments_id asc
+		order by comments_id desc
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="Comments">
+		select post_id,nick,comments 
+		from comments c, member m 	
+		where m.member_id=c.comem_id and post_id=#{post_id}
+		order by comments_id desc
 	</select>
 </mapper>

@@ -15,11 +15,27 @@ public class Post {
 	private String regdate;
 	private String content;
 	private MultipartFile myFile;
+	
+	private int commentsListSize;
+	private int loveListSize;
 
+	public int getLoveListSize() {
+		return loveListSize;
+	}
+	public void setLoveListSize(int loveListSize) {
+		this.loveListSize = loveListSize;
+	}
 	ArrayList<Comments> commentsList;
 	ArrayList<Member> memberList;
 	
 	
+	
+	public int getCommentsListSize() {
+		return commentsListSize;
+	}
+	public void setCommentsListSize(int commentsListSize) {
+		this.commentsListSize = commentsListSize;
+	}
 	public int getPomem_id() {
 		return pomem_id;
 	}

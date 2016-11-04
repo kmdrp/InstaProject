@@ -42,6 +42,12 @@ public class ProfileContorller {
 		return mav;
 	}
 		
+	@RequestMapping("preview.do")
+	public ModelAndView getPreview(int post_id){
+		ModelAndView mav =new ModelAndView();
+		//사진에서  Postid를 어떻게가지고있어야하지:post_id를 img.id에심었고 사진을클릭하면 걔를 
+		return mav;
+	}
 	
 	
 	

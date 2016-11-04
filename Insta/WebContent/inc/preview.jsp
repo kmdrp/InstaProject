@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%
+	
+	
+%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -162,7 +167,7 @@ function imgSize(){
 		}
 	}
 	//else는 나중에....
-	alert("wrapper width"+wrapper.style.width);
+	//alert("wrapper width"+wrapper.style.width);
 	vmodal.style.width=wrapper.style.width;
 	vmodal.style.height=wrapper.style.height+"px";
 	
