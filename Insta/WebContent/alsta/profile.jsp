@@ -193,15 +193,18 @@ strong{
 </style>
 <script>
 var img;
+
 var post1;
 var post2;
 var post3;
+
 function init(){
 	init1();
 	post1=document.getElementById("post1");
 	post2=document.getElementById("post2");
 	post3=document.getElementById("post3");
 }
+
 function viewImg(element){
 	img=document.getElementById("selected_img");
 	img.src=element.src;
@@ -217,13 +220,24 @@ function myId(){
 }
 //t사진업로드
 function upload(){
+	
 	document.getElementById("upload").style.display="block";
+	
 }
 function logout(){
 	alert("로그아웃되었습니다.");		
 }
+
+function change_profile_img(){
+	
+	document.getElementById("p_img").style.display="block";
+	
+}
+
+
 function change_profile(){
 	document.getElementById("profileImg").style.display="block";
+}
 function close_view(){
 	document.getElementById("gallery_view").style.display="none";
 }
@@ -278,8 +292,11 @@ function posting(){
 	<div id="main">
 	<div class="row" id="profile">
 		<div id="profile_photo" class="col-md-4" style="align:center; vertical-align:middle; ">
+
+
 			<button id="btn_img">
 				<img src="/images/profile/<%=profile_img %>" id="p_img" class="img-circle" alt="Cinque Terre" width="180" height="180" onClick="change_profile()" >
+
 			</button>
 		</div>
 		<div id="profile_detail" class="col-md-8">

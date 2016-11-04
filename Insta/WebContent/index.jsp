@@ -58,7 +58,7 @@ div_img{
 						<div class="form-group">
 							<div class="jumbotron text-center" align="center">
 							<div class="container" >
-						   		<h1>Aloegram</h1>
+						   		<h2>Aloegram</h2>
 						   		</div>
 							</div>
 						</div>

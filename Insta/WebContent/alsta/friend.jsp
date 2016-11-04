@@ -97,6 +97,10 @@ function followRegist(i){
 		form1.submit();
 	}
 }
+
+function goMain(a){
+	location.href="/alsta/yPost.do?member_id="+a;
+}
 </script>
 </head>
 <body>
@@ -136,8 +140,8 @@ function followRegist(i){
 		<div class="col-sm-6 bg-white wrapper">
 		<div class="sub">
 			<div class="my1">
-				<a href="#"> <img src="/images/profile/<%=member.getProfile_img() %>"
-					class="img-circle myimg">
+				 <img src="/images/profile/<%=member.getProfile_img() %>"
+					class="img-circle myimg" onClick="goMain(<%=follow.getYou() %>)">
 					<h3 id="userId" name="userId">
 						<%=member.getName() %><br></a> <small><%=member.getNick() %></small>
 				</h3>
@@ -160,8 +164,8 @@ function followRegist(i){
 	</div>
 	</form>
 	
-	<!-- 친구 찾기 for문 영역 끝 -->
 	<%} %>
+	<!-- 친구 찾기 for문 영역 끝 -->
 	
 	<div class="col-sm-12"></div>
 
